@@ -1,0 +1,132 @@
+html, body {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    width: 100%;
+}
+
+/* NAVIGATION BAR */
+
+.container-fluid {
+    position: relative;
+    margin-left: 20px;
+    padding: 0;
+}
+
+.black-bar {
+    background-color: black;
+    height: 70px;
+    padding: 0;
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.navbar-logo {
+    color: white;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 2rem;
+    font-weight: 300;
+    position: absolute;
+    left: 45px;
+}
+
+.navbar-logo:hover {
+    color: white;
+}
+
+.navbar {
+    margin-left: 0;
+}
+
+.navbar-toggler {
+    height: 32px;
+}
+
+.navbar-toggler-icon-whole {
+    margin: auto;
+}
+
+.navbar-toggler .navbar-toggler-icon {
+        display: block;
+        position: relative;
+        right: 10px;
+        width: 22px;
+        height: 2px;
+        background-color: white;
+        margin-top: 5px;
+}
+
+.nav-item {
+    font-size: 0.8rem;
+}
+
+.nav-recipe-blog {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: #e7bab3;
+    font-weight: 300;
+    padding: 0 14px;
+   
+}
+
+.nav-recipe-blog:hover {
+    background-color: #1c2422;
+}
+
+.nav-recipe-blog > a {  
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-recipe-blog-whole {
+    position: absolute;
+    left: 300px;
+}
+
+/* Right navbar icons color */
+.fa-pepper-hot {
+    color: white;
+}
+
+.nav-right-icons {
+    color: white;
+    padding: 0 12px;
+
+}
+
+.nav-right-icons:hover {
+    color: #f7aaa3;
+}
+
+.nav-right-icons-whole {
+    margin-right: 20px;
+}
+
+
+
+/* Body five main divs */
+
+.div-one {
+    height: 600px;
+    background-color: #b7eae3;
+}
+
+.div-two {
+    height: 600px;
+    background-color: #c7dad3;
+}
+
+.div-three {
+    height: 600px;
+    background-color: #d7cac3;
+}
+
+.div-four {
+    height: 600px;
+    background-color: #e7bab3;
+}
+
+.div-five {
+    height: 600px;
+    background-color: #f7aaa3;
+}
