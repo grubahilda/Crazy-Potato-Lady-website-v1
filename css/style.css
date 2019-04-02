@@ -13,7 +13,7 @@ html, body {
 
 .black-bar {
     background-color: black;
-    height: 70px;
+    /* height: 70px; */
     padding: 0;
     margin: 0;
     font-size: 1.3rem;
@@ -33,6 +33,7 @@ html, body {
 }
 
 .navbar {
+    min-height: 70px;
     margin-left: 0;
 }
 
@@ -67,6 +68,12 @@ html, body {
     font-weight: 300;
     padding: 0 14px;
    
+}
+
+.show > .nav-recipe-blog-whole {
+    width: 100%;
+    height: 140px;
+    
 }
 
 .nav-recipe-blog:hover {
@@ -107,8 +114,9 @@ html, body {
 /* Body five main divs */
 
 .div-one {
-    height: 600px;
+    height: 35rem;
     background-color: #b7eae3;
+    position: relative;
 }
 
 .div-two {
@@ -129,4 +137,180 @@ html, body {
 .div-five {
     height: 600px;
     background-color: #f7aaa3;
+}
+
+
+/* Div-one pictures */
+
+
+.cabbage {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 12rem;
+    position: absolute;
+    left: 15%;
+    bottom: 20%;
+    animation: float1 6s ease-in-out infinite;
+}
+
+.green-pea {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 8rem;
+    position: absolute;
+    left: 30%;
+    bottom: 55%;
+    animation: float1 4s ease-in-out infinite;
+}
+
+.celery {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 10rem;
+    position: absolute;
+    left: 30%;
+    bottom: 8%;
+    animation: float2 8s ease-in-out infinite;
+}
+
+.tomato {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 8rem;
+    position: absolute;
+    left: 43%;
+    bottom: 45%;
+    animation: float2 4s ease-in-out infinite;
+}
+
+.potato {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 8rem;
+    position: absolute;
+    left: 40%;
+    bottom: 8%;
+    animation: float1 4s ease-in-out infinite;
+}
+
+.onion {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 7rem;
+    position: absolute;
+    left: 55%;
+    bottom: 50%;
+    animation: float1 5s ease-in-out infinite;
+}
+
+.broccoli {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 18rem;
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    animation: float2 10s ease-in-out infinite;
+}
+
+.raddish {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 2rem;
+    position: absolute;
+    left: 68%;
+    bottom: 40%;
+    animation: float2 3s ease-in-out infinite;
+}
+
+.mushroom {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 5rem;
+    position: absolute;
+    left: 70%;
+    bottom: 53%;
+    animation: float1 4.5s ease-in-out infinite;
+}
+
+.avocado {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 5rem;
+    position: absolute;
+    left: 82%;
+    bottom: 49%;
+    animation: float2 5s ease-in-out infinite;
+}
+
+.cucumber {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 7rem;
+    position: absolute;
+    left: 73%;
+    bottom: 10%;
+    animation: float2 3s ease-in-out infinite;
+}
+
+.leek {
+    background: transparent;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter:         drop-shadow(5px 5px 5px #556e6a);
+    width: 7rem;
+    position: absolute;
+    left: 83%;
+    bottom: 15%;
+    animation: float1 6s ease-in-out infinite;
+}
+
+/* Animations */
+
+@keyframes float1 {
+    0% { 
+       /* box-shadow:  0 5px 15px 0px rgba(0,0,0,0.6); */
+       transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(20px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes float2 {
+    0% { 
+       /* box-shadow:  0 5px 15px 0px rgba(0,0,0,0.6); */
+       transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    50% {
+        transform: translateY(20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
