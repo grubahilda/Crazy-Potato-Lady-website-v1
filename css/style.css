@@ -45,17 +45,17 @@ a {
 
 .header-name-nav {
     margin-left: 10px;
-    margin-right: 30px;
-    font-size: 2rem;
+    margin-right: 50px;
+    font-size: 1.5rem;
 }
 
 .recipes-blog-nav-item {
     float: left;
     color: #e7bab3;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .recipes-blog-nav-item:hover {
@@ -91,7 +91,7 @@ a {
 
 .fa,
 .fas {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .fa {
@@ -102,15 +102,15 @@ a {
 /* NAVBAR RESPONSIVE < 600px WIDTH */
 
 @media screen and (max-width: 700px) {
-    .top-nav  .header-nav .header-name-nav {
+    .top-nav .header-nav .header-name-nav {
         display: none;
     }
 
-    .top-nav  .header-nav .recipes-blog-nav-item {
+    .top-nav .header-nav .recipes-blog-nav-item {
         display: none;
     }
 
-    .top-nav  .icons-nav {
+    .top-nav .icons-nav {
         display: none;
     }
 
@@ -180,11 +180,14 @@ a {
     height: 35rem;
     background-color: #b7eae3;
     position: relative;
+
 }
 
 .div-two {
     height: 600px;
     background-color: #c7dad3;
+
+    display: block;
 }
 
 .div-three {
@@ -205,6 +208,17 @@ a {
 
 /* Div-one pictures */
 
+.background-image {
+    height: 38rem;
+    width: 100%;
+    background: url(../images/compilation.png) center center no-repeat;
+    -webkit-filter: blur(1px);
+    opacity: 0.3;
+    /* background: url("images/compilation.png") no-repeat center center;
+    
+    z-index: 0;
+    height: 25rem; */
+}
 
 .cabbage {
     background: transparent;
@@ -361,7 +375,6 @@ a {
 
 @keyframes float2 {
     0% {
-        /* box-shadow:  0 5px 15px 0px rgba(0,0,0,0.6); */
         transform: translatey(0px);
     }
 
@@ -377,3 +390,75 @@ a {
         transform: translateY(0px);
     }
 }
+
+
+
+
+/* DIV TWO ELEMENTS */
+
+.recipes-count-header {
+    text-align: center;
+    margin: auto;
+    padding-top: 10px;
+    height: 80px;
+    vertical-align: middle;
+}
+
+.recipeSlides {
+    display: none;
+    -webkit-transition: opacity 2s linear;
+    -moz-transition: opacity 2s linear;
+    -o-transition: opacity 2s linear;
+    transition: opacity 2s linear;
+
+}
+
+/* .w3-content {
+    margin: auto;
+    width: 100%;
+} */
+
+.w3-left,
+.w3-right,
+.w3-badge {
+    cursor: pointer;
+}
+
+.w3-badge {
+    height: 13px;
+    width: 13px;
+    padding: 0
+}
+
+.active {
+    display: block;
+    opacity: 1;
+}
+
+.w3-center {
+    position: relative;
+    top: -60px;
+}
+
+.crop {
+    overflow: hidden;
+}
+
+.crop img {
+    object-fit: cover;
+    height: 500px;
+    margin: auto;
+    
+}
+
+.fadeOut {
+    -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  opacity:0;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+
+/* CAROUSEL DIV THREE */
