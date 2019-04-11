@@ -1,10 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body {
     font-family: 'Alegreya Sans SC', sans-serif;
     width: 100%;
-    margin: 0;
+    /* margin: 0; */
 }
 
+.container-fluid {
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-weight: 300;
+}
 
 /* START NAVBAR */
 
@@ -101,7 +126,7 @@ a {
 
 /* NAVBAR RESPONSIVE < 600px WIDTH */
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 992px) {
     .top-nav .header-nav .header-name-nav {
         display: none;
     }
@@ -120,7 +145,7 @@ a {
     }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 992px) {
 
     .top-nav.responsive {
         height: 280px;
@@ -177,7 +202,7 @@ a {
 /* Body five main divs */
 
 .div-one {
-    height: 35rem;
+    height: 58rem;
     background-color: #b7eae3;
     position: relative;
 
@@ -191,33 +216,44 @@ a {
 }
 
 .div-three {
-    height: 600px;
+    min-height: 400px;
     background-color: #d7cac3;
+    margin: auto;
+    padding: 4% 12%;
+    position: relative;
+    display: block;
 }
 
 .div-four {
-    height: 600px;
     background-color: #e7bab3;
+    min-height: 400px;
+    margin: auto;
+    padding: 4% 8% 4% 8%;
+    position: relative;
+    display: block;
 }
 
 .div-five {
-    height: 600px;
+    min-height: 400px;
     background-color: #f7aaa3;
+    position: relative;
+    display: block;
+    padding: 4% 12%;
 }
 
 
 /* Div-one pictures */
 
 .background-image {
-    height: 38rem;
+    height: 54rem;
+    position: absolute;
+    top: 100px;
     width: 100%;
     background: url(../images/compilation.png) center center no-repeat;
     -webkit-filter: blur(1px);
-    opacity: 0.3;
-    /* background: url("images/compilation.png") no-repeat center center;
-    
-    z-index: 0;
-    height: 25rem; */
+    filter: blur(1px);
+    opacity: 0.15;
+
 }
 
 .cabbage {
@@ -333,7 +369,7 @@ a {
 .cucumber {
     background: transparent;
     -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 7rem;
     position: absolute;
     left: 73%;
@@ -396,12 +432,13 @@ a {
 
 /* DIV TWO ELEMENTS */
 
+
 .recipes-count-header {
-    text-align: center;
-    margin: auto;
-    padding-top: 10px;
+    margin: 0 auto;
+    width: 100%;
     height: 80px;
-    vertical-align: middle;
+    display: table;
+    text-align: center;
 }
 
 .recipeSlides {
@@ -448,17 +485,187 @@ a {
     object-fit: cover;
     height: 500px;
     margin: auto;
-    
+
 }
 
-.fadeOut {
-    -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-  opacity:0;
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
+
+
+/* DIV THREE + GRID SYSTEM */
+
+.grid-container {
+    display: block;
+    overflow: hidden;
+    /* white-space: nowrap; */
 }
 
-/* CAROUSEL DIV THREE */
+
+.item-one {
+    display: inline-block;
+    order: 1;
+}
+
+.item-two{
+    display: inline-block;
+    order: 1;
+}
+
+@media only screen and (max-width: 992px) {
+
+    .grid-container {
+        display: grid;
+    }
+    .item-one {
+        order: 2;
+    }
+
+    .item-two {
+        order: 1;
+    }
+}
+
+.feature-box-image {
+    padding: 0 2%;
+    text-align: center;
+}
+
+.feature-box-text {
+    text-align: center;
+    padding: 0 2%;
+    /* width: 100%; */
+}
+
+.feature-box-text>p {
+    text-align: left;
+}
+
+.earth-img {
+    max-height: 200px;
+    min-height: 200px;
+    object-fit: contain;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.moon-img {
+    max-height: 60px;
+    min-height: 60px;
+    object-fit: contain;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.cow-img {
+    max-height: 70px;
+    min-height: 70px;
+    padding-right: 10px;
+}
+
+.sheep-img {
+    max-height: 55px;
+    min-height: 55px;
+    padding-right: 10px;
+}
+
+
+.chick-img {
+    max-height: 70px;
+    min-height: 70px;
+    padding-right: 10px;
+}
+
+.turkey-img {
+    max-height: 70px;
+    min-height: 70px;
+    padding: 0 10px;
+
+}
+
+.pig-img {
+    max-height: 90px;
+    min-height: 90px;
+    padding: 0 10px;
+
+}
+
+.fish-img {
+    max-height: 90px;
+    min-height: 90px;
+    padding: 0 10px;
+
+}
+
+.heart-img {
+    max-height: 120px;
+    min-height: 120px;
+    padding: 10px 10px;
+}
+
+.row-image {
+    margin: 20px;
+    text-align: center;
+}
+
+.row-img img {margin:0 20px;}
+
+
+
+
+/* BENEFITS DIV FIVE */
+
+.div-five .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.benefits-box {
+    padding: 2% 3%;
+    text-align: center;
+    max-width: 350px;
+}
+
+.benefits-box > i {
+    font-size: 4rem;
+    padding-bottom: 15px;
+}
+
+.benefits-box > h2 {
+    padding-bottom: 10px;
+}
+
+
+
+
+.footer {
+    height: 50px;
+    position: relative;
+    background-color: #f7aaa3;
+    margin: auto;
+    text-align: right;
+    display: table;
+    width: 100%;
+    padding-right: 10px;
+}
+
+.socials {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    font-size: 2rem;
+}
+
+.socials > i {
+    padding: 4px;
+}
+
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
