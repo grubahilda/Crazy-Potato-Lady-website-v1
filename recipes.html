@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome @ Crazy Potato Lady!</title>
+    <!-- Bootstrap -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,500,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body style="background-color: #b7eae3">
+
+    <!-- START NAVBAR -->
+    <div class="top-nav" id="topNav">
+        <div class="header-nav">
+            <div class="logo-name-nav">
+                <a href="index.html" class="logo-nav"><i class="fas fa-pepper-hot"></i><span class="header-name-nav">Crazy Potato
+                        Lady</span> </a>
+            </div>
+            <div class="recipes-blog-nav">
+                <a href="#" class="recipes-blog-nav-item">Recipes</a>
+                <a href="#" class="recipes-blog-nav-item">Blog</a>
+            </div>
+        </div>
+        <div class="icons-nav">
+            <a href="#" class="icon-right-nav"><i class="fas fa-home"></i></a>
+            <a href="#" class="icon-right-nav"><i class="fas fa-question"></i></a>
+            <a href="#" class="icon-right-nav"><i class="fas fa-hands-helping"></i></a>
+            <a href="#" class="icon-right-nav"><i class="fas fa-share-alt"></i></a>
+        </div>
+        <div class="toggle-button-right">
+            <a href="javascript:void(0);" class="icon" onclick="navbarCollapse()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <!-- END NAVBAR -->
+
+    <div class="recipes-container">
+        <div class="row">
+            <h1>Recipes</h1>
+
+            <div class="recipes-breakfasts">
+                <h2>Breakfasts</h2>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC_0548.jpg" alt="">
+                    <div class="frame"></div>
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC_0738.jpg" alt="">
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC_0796.jpg" alt="">
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/berries_bowl_with_oats.jpg" alt="">
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/pancakes_with_kiwi_and_bananas.jpg" alt="">
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/oats_with_blueberries_and_fig.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="recipes-dinner">
+                <h2>Dinners</h2>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC01285.jpg" alt="">
+                    <div class="frame"></div>
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC_0335.jpg" alt="">
+                    
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC_0069.jpg" alt="">
+                </div>
+            </div>
+
+            <div class="recipes-dessert">
+                <h2>Desserts</h2>
+                <div class="image-tile">
+                    <img src="images/recipes/DSC_0694.jpg" alt="">
+                    <div class="frame"></div>
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/raspberry_ice.jpg" alt="">
+                    
+                </div>
+                <div class="image-tile">
+                    <img src="images/recipes/bluberries_and_blackberries_smoothie_bowl.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <footer class="footer">
+        <div class="socials"><i class="fab fa-youtube"></i><i class="fab fa-instagram"></i></div>
+        
+        <h3 class="copyright">Copyright &copy; <span id="currentYear"></span> Marta Pozaroszczyk</h3>
+    </footer>
+
+
+    <script src="js/index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+
+</body>

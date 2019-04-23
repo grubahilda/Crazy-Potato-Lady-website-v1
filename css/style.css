@@ -74,11 +74,16 @@ a {
     font-size: 1.5rem;
 }
 
+.recipes-blog-nav {
+    position: relative;
+}
+
+
 .recipes-blog-nav-item {
     float: left;
     color: #e7bab3;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     font-weight: 300;
     font-size: 1rem;
 }
@@ -86,6 +91,37 @@ a {
 .recipes-blog-nav-item:hover {
     background-color: #131414;
     color: #e7bab3;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 18.81rem;
+    top: 70px;
+    background-color: black;
+    max-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #e7bab3;
+    margin: 0;
+    padding: 5px 25px;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #131414;
+}
+
+#recipes-hoverable:hover~.dropdown-content {
+    display: block;
+}
+
+.dropdown-content:hover {
+    display: block;
 }
 
 .icons-nav {
@@ -245,9 +281,9 @@ a {
 /* Div-one pictures */
 
 .background-image {
-    height: 54rem;
+    height: 56rem;
     position: absolute;
-    top: 100px;
+    top: 80px;
     width: 100%;
     background: url(../images/compilation.png) center center no-repeat;
     -webkit-filter: blur(1px);
@@ -263,7 +299,7 @@ a {
     width: 12rem;
     position: absolute;
     left: 15%;
-    bottom: 20%;
+    bottom: 30%;
     animation: float1 6s ease-in-out infinite;
 }
 
@@ -274,7 +310,7 @@ a {
     width: 8rem;
     position: absolute;
     left: 30%;
-    bottom: 55%;
+    top: 30%;
     animation: float1 4s ease-in-out infinite;
 }
 
@@ -296,7 +332,7 @@ a {
     width: 8rem;
     position: absolute;
     left: 43%;
-    bottom: 45%;
+    top: 35%;
     animation: float2 4s ease-in-out infinite;
 }
 
@@ -318,7 +354,7 @@ a {
     width: 7rem;
     position: absolute;
     left: 55%;
-    bottom: 50%;
+    top: 29%;
     animation: float1 5s ease-in-out infinite;
 }
 
@@ -333,6 +369,18 @@ a {
     animation: float2 10s ease-in-out infinite;
 }
 
+.plank {
+    background: transparent;
+    transform-origin: top center;
+    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a);
+    width: 15rem;
+    position: absolute;
+    left: 50%;
+    bottom: 30%;
+    animation: swing 5s ease-in-out infinite;
+}
+
 .raddish {
     background: transparent;
     -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
@@ -340,7 +388,7 @@ a {
     width: 2rem;
     position: absolute;
     left: 68%;
-    bottom: 40%;
+    top: 40%;
     animation: float2 3s ease-in-out infinite;
 }
 
@@ -351,7 +399,7 @@ a {
     width: 5rem;
     position: absolute;
     left: 70%;
-    bottom: 53%;
+    top: 25%;
     animation: float1 4.5s ease-in-out infinite;
 }
 
@@ -428,6 +476,22 @@ a {
 }
 
 
+@keyframes swing {
+
+    0% {
+        transform: rotate(-10deg);
+    }
+
+    50% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(-10deg)
+    }
+
+
+}
 
 
 /* DIV TWO ELEMENTS */
@@ -492,8 +556,40 @@ a {
 
 /* DIV THREE + GRID SYSTEM */
 
+.simple-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.item-one-simple {
+    display: inline-block;
+    order: 1;
+}
+
+.item-two-simple {
+    display: inline-block;
+    order: 1;
+}
+
+@media only screen and (max-width: 992px) {
+
+    .simple-grid {
+        display: grid;
+    }
+
+    .item-one-simple {
+        order: 1;
+    }
+
+    .item-two-simple {
+        order: 2;
+    }
+}
+
 .grid-container {
-    display: block;
+    display: flex;
+    flex-wrap: nowrap;
     overflow: hidden;
     /* white-space: nowrap; */
 }
@@ -504,7 +600,7 @@ a {
     order: 1;
 }
 
-.item-two{
+.item-two {
     display: inline-block;
     order: 1;
 }
@@ -514,6 +610,7 @@ a {
     .grid-container {
         display: grid;
     }
+
     .item-one {
         order: 2;
     }
@@ -526,6 +623,7 @@ a {
 .feature-box-image {
     padding: 0 2%;
     text-align: center;
+    min-width: 400px;
 }
 
 .feature-box-text {
@@ -610,7 +708,9 @@ a {
     text-align: center;
 }
 
-.row-img img {margin:0 20px;}
+.row-img img {
+    margin: 0 20px;
+}
 
 
 
@@ -630,13 +730,17 @@ a {
     max-width: 350px;
 }
 
-.benefits-box > i {
+.benefits-box>i {
     font-size: 4rem;
     padding-bottom: 15px;
 }
 
-.benefits-box > h2 {
+.benefits-box>h2 {
     padding-bottom: 10px;
+}
+
+.benefits-box:hover > .fas {
+    color: #493a37;
 }
 
 
@@ -645,7 +749,6 @@ a {
 .footer {
     height: 50px;
     position: relative;
-    background-color: #f7aaa3;
     margin: auto;
     text-align: right;
     display: table;
@@ -660,12 +763,92 @@ a {
     font-size: 2rem;
 }
 
-.socials > i {
+.socials > a {
+    text-decoration: none;
+    color: inherit;
     padding: 4px;
+}
+
+.socials > a:hover {
+    color: #493a37;
 }
 
 
 .middle {
     display: table-cell;
     vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RECIPES.HTML */
+
+.recipes-container {
+    background-color: #b7eae3;
+    min-height: 60rem;
+    margin: 100px 0 0 100px;
+
+}
+
+.recipes-container h1 {
+    margin: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.recipes-container h2 {
+    font-size: 2rem;
+    position: relative;
+}
+
+.recipes-breakfasts,
+.recipes-dinners,
+.recipes-desserts {
+    position: relative;
+    height: 250px;
+    display: table;
+}
+
+.image-tile {
+    background-color: white;
+    overflow: hidden;
+    margin: 50px 20px;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    display: inline-block;
+    border: 5px solid white;
+}
+
+.image-tile img {
+    z-index: 0;
+    object-fit: cover;
+    height: 240px;
+    width: 240px;
+    position: absolute;
+    left: 2.5px;
+    top: 2.5px;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.image-tile img:hover {
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
 }
