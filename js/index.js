@@ -51,3 +51,11 @@ window.onload = function() {
     d = new Date();
     document.getElementById("currentYear").innerHTML = d.getFullYear();
 };
+
+
+
+// Footer colour
+
+window.onload = function() {
+    document.getElementsByTagName("footer")[0].style.backgroundColor = document.getElementsByTagName("body")[0].style.backgroundColor;
+}

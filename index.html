@@ -9,12 +9,14 @@
     <title>Welcome @ Crazy Potato Lady!</title>
     <!-- Bootstrap -->
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,500,800" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" -->
+        <!-- integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,18 +25,26 @@
     <![endif]-->
 </head>
 
-<body>
+<body style="background-color: #f7aaa3">
 
     <!-- START NAVBAR -->
-    <div class="top-nav" id="topNav">
+    <nav class="top-nav" id="topNav">
         <div class="header-nav">
             <div class="logo-name-nav">
                 <a href="#" class="logo-nav"><i class="fas fa-pepper-hot"></i><span class="header-name-nav">Crazy Potato
                         Lady</span> </a>
             </div>
+            
             <div class="recipes-blog-nav">
-                <a href="#" class="recipes-blog-nav-item">Recipes</a>
-                <a href="#" class="recipes-blog-nav-item">Blog</a>
+                    <a class="recipes-blog-nav-item" id="recipes-hoverable" href="recipes.html">Recipes</a>
+                    <div class="dropdown-content">
+                        <a href="#">Breakfast</a>
+                        <a href="#">Dinner</a>
+                        <a href="#">Desert</a>
+                    </div>
+                    <a class="recipes-blog-nav-item" href="#" >Blog</a>
+                
+                
             </div>
         </div>
         <div class="icons-nav">
@@ -48,7 +58,7 @@
                 <i class="fa fa-bars"></i>
             </a>
         </div>
-    </div>
+    </nav>
     <!-- END NAVBAR -->
 
     <div class="container-fluid">
@@ -61,6 +71,9 @@
             <img src="images/ziemnior2.png" alt="potato" class="potato">
             <img src="images/cebula.png" alt="onion" class="onion">
             <img src="images/brokul2.png" alt="broccoli" class="broccoli">
+            <img src="images/deska.png" alt="plank" class="plank">
+            <p>Quick healthy</p><br>
+            <p>easy recipes</p>
             <img src="images/rzodkiewka.png" alt="raddish" class="raddish">
             <img src="images/grzyby.png" alt="mushroom" class="mushroom">
             <img src="images/awokado2.png" alt="avocado" class="avocado">
@@ -102,12 +115,12 @@
 
         <!-- START MAIN DIV THREE -->
         <div class="div-three">
-            <div class="row">
-                <div class="feature-box-image col-lg-4 col-md-12">
+            <div class="row simple-grid">
+                <div class="feature-box-image item-one-simple">
                     <img class="earth-img" src="images/ziemia.png" alt="earth">
                     <img class="moon-img" src="images/moon.png" alt="earth">
                 </div>
-                <div class="feature-box-text col-lg-8 col-sm-12">
+                <div class="feature-box-text item-two-simple">
                     <h1>For the planet</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur natus in at. Temporibus aliquam
                         impedit molestiae laudantium at itaque est reiciendis fugit facere cupiditate totam delectus
@@ -139,7 +152,8 @@
                     sequi repudiandae! Ut numquam ea earum dignissimos nemo nulla aliquam officia suscipit neque
                     obcaecati. Hic dolorum iste dolores quos eum voluptates error modi eligendi! Perspiciatis
                     necessitatibus odit facere numquam excepturi ullam cum rerum culpa?</p>
-            </div><div class="feature-box-image item-two">
+            </div>
+            <div class="feature-box-image item-two">
                 <div class="row-images">
                     <img class="chick-img" src="images/kurczaczek.png" alt="chick">
                     <img class="turkey-img" src="images/indyk.png" alt="turkey">
@@ -159,7 +173,7 @@
     </div>
     <!-- END MAIN DIV FOUR -->
     <div class="div-five">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="benefits-box col-lg-3 col-md-12">
                 <i class="fas fa-money-bill-alt fa-4x"></i>
                 <h2>Save resources</h2>
@@ -193,7 +207,7 @@
 
 
     <footer class="footer">
-        <div class="socials"><i class="fab fa-youtube"></i><i class="fab fa-instagram"></i></div>
+        <div class="socials"><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
         
         <h3 class="copyright">Copyright &copy; <span id="currentYear"></span> Marta Pozaroszczyk</h3>
     </footer>
