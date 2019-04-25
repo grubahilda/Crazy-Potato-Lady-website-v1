@@ -12,6 +12,10 @@ body {
 
 .container-fluid {
     padding: 0;
+    height: auto;
+    overflow: hidden;
+    margin-top: 70px;
+    padding-bottom: 100px;
 }
 
 h1,
@@ -29,6 +33,13 @@ h1 {
 
 p {
     font-weight: 300;
+}
+
+.page-title {
+    margin: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
 }
 
 /* START NAVBAR */
@@ -800,21 +811,6 @@ a {
     padding: 0px;
 }
 
-.recipes-container {
-    background-color: #b7eae3;
-    height: auto;
-    overflow: hidden;
-    margin-top: 100px;
-    padding-bottom: 100px;
-}
-
-.recipes-container h1 {
-    margin: 40px;
-    width: 100%;
-    text-align: center;
-    font-size: 3rem;
-}
-
 
 .image-tile {
     background-color: white;
@@ -891,5 +887,117 @@ a {
 }
 
 .image-and-title h3 a {
+    color: black;
+}
+
+
+
+
+
+/* BLOG.HTML */
+
+
+.blog-preview-post {
+    width: 100%;
+    overflow: visible;
+    min-height: 550px;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+
+.blog-preview-image1 {
+    background-image: url("../images/bean-black-rice-cereal-1537169.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    border-width: 5px 0 0 0;
+    border-style: solid;
+    border-color: white;
+}
+
+.blog-preview-image2 {
+    background-image: url("../images/apple-3040132_1920.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    border-width: 5px 0 0 0;
+    border-style: solid;
+    border-color: white;
+}
+
+.blog-preview-image3 {
+    background-image: url("../images/adult-asian-caucasian-1153213.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    width: 100%;
+    position: absolute;
+    border-width: 5px 0 0 0;
+    border-style: solid;
+    border-color: white;
+}
+
+
+.blog-preview-title-bar {
+    position: absolute;
+    height: 5vw;
+    width: 38vw;
+    background-color: rgb(255, 255, 255);
+    opacity: 0.5;
+    z-index: 1;
+    margin: 0;
+    left: 0px;
+    top: 20px;
+}
+
+
+.blog-preview-title-bar-text {
+    position: absolute;
+    color: black;
+    font-size: 3vw;
+    z-index: 2;
+    margin: 0;
+    padding: 10px 20vw 10px 5vw;
+    left: 0px;
+    top: 20px;
+}
+
+.blog-preview-text {
+    position: relative;
+    top: 300px;
+    min-height: 450px;
+    padding: 20px 50px;
+}
+
+.blog-preview-text > a {
+    color: black;
+}
+
+
+.blog-preview-text-inline-bigger {
+    font-size: 2em;
+}
+
+.read-more-older {
+    float: right;
+    text-align: right;
+}
+
+.read-older {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-right: 20px;
+}
+
+.read-older a {
     color: black;
 }
