@@ -12,15 +12,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 app.get("/", function(req, res){
-    res.sendFile(__dirname + "/index.html");
+    res.render("index");
 });
+
 
 app.get("/blog", function(req, res){
     res.sendFile(__dirname + "/blog.html");
 });
 
 app.get("/recipes", function(req, res){
-    res.sendFile(__dirname + "/recipes.html");
+    res.render("recipes");
 });
 
 app.listen(3000, function(){

@@ -12,7 +12,6 @@
 - fix read older link
 - later: add variables and get content from db
 - add post writing functionality
-- set up database
 
 ## General:
-- add including navbar and footer in each page
+- set up database

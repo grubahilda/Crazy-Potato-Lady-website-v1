@@ -1,33 +1,9 @@
-
 <%- include("header") -%>
 
 <body style="background-color: #b7eae3">
 
     <!-- START NAVBAR -->
-    <div class="top-nav" id="topNav">
-        <div class="header-nav">
-            <div class="logo-name-nav">
-                <a href="#" class="logo-nav"><i class="fas fa-pepper-hot"></i><span
-                        class="header-name-nav">Crazy Potato
-                        Lady</span> </a>
-            </div>
-            <div class="recipes-blog-nav">
-                <a href="#" class="recipes-blog-nav-item">Recipes</a>
-                <a href="#" class="recipes-blog-nav-item">Blog</a>
-            </div>
-        </div>
-        <div class="icons-nav">
-            <a href="#" class="icon-right-nav"><i class="fas fa-home"></i></a>
-            <a href="#" class="icon-right-nav"><i class="fas fa-question"></i></a>
-            <a href="#" class="icon-right-nav"><i class="fas fa-hands-helping"></i></a>
-            <a href="#" class="icon-right-nav"><i class="fas fa-share-alt"></i></a>
-        </div>
-        <div class="toggle-button-right">
-            <a href="javascript:void(0);" class="icon" onclick="navbarCollapse()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-    </div>
+    <%- include("navbar") -%>
     <!-- END NAVBAR -->
 
     <div class="container-fluid">
@@ -109,16 +85,10 @@
 
 
 
-    
-
-
     <script src="/js/recipes.js"></script>
 
 
 
 </body>
-<footer class="footer">
-        <div class="socials"><i class="fab fa-youtube"></i><i class="fab fa-instagram"></i></div>
 
-        <h3 class="copyright">Copyright &copy; <span id="currentYear"></span> Marta Pozaroszczyk</h3>
-    </footer>
+<%- include("footer") -%>

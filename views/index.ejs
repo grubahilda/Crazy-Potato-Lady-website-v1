@@ -1,86 +1,27 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Welcome @ Crazy Potato Lady!</title>
-    <!-- Bootstrap -->
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300,500,800" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" -->
-        <!-- integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="public/css/style.css">
-    
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+<%- include("header") -%>
 
 <body style="background-color: #f7aaa3">
 
     <!-- START NAVBAR -->
-    <nav class="top-nav" id="topNav">
-        <div class="header-nav">
-            <div class="logo-name-nav">
-                <a href="index.html" class="logo-nav"><i class="fas fa-pepper-hot"></i><span class="header-name-nav">Crazy Potato
-                        Lady</span> </a>
-            </div>
-            
-            <div class="recipes-blog-nav">
-                    <a class="recipes-blog-nav-item" id="recipes-hoverable" href="recipes.html">Recipes</a>
-                    <div class="dropdown-content">
-                        <a href="#">Breakfast</a>
-                        <a href="#">Dinner</a>
-                        <a href="#">Desert</a>
-                    </div>
-                    <a class="recipes-blog-nav-item" href="blog.html" >Blog</a>
-                
-                
-            </div>
-        </div>
-        <div class="icons-nav">
-            <a data-tooltip="Hire me!"
-            data-tooltip-location="bottom" href="#" class="icon-right-nav"><i class="fas fa-briefcase"></i></a>
-            <a data-tooltip="About"
-            data-tooltip-location="bottom" href="#" class="icon-right-nav"><i class="fas fa-question"></i></a>
-            <a data-tooltip="Contact"
-            data-tooltip-location="bottom" href="#" class="icon-right-nav"><i class="fas fa-hands-helping"></i></a>
-            <a data-tooltip="Share"
-            data-tooltip-location="bottom" href="#" class="icon-right-nav"><i class="fas fa-share-alt"></i></a>
-        </div>
-        <div class="toggle-button-right">
-            <a href="javascript:void(0);" class="icon" onclick="navbarCollapse()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-    </nav>
+    <%- include("navbar"); -%>
     <!-- END NAVBAR -->
 
     <div class="container-fluid">
         <div class="div-one row">
             <div class="background-image"></div>
-            <img src="public/images/kapusta2.png" alt="cabbage" class="cabbage">
-            <img src="public/images/groszek.png" alt="green-pea" class="green-pea">
-            <img src="public/images/seler.png" alt="celery" class="celery">
-            <img src="public/images/pomidor2.png" alt="tomato" class="tomato">
-            <img src="public/images/ziemnior2.png" alt="potato" class="potato">
-            <img src="public/images/cebula.png" alt="onion" class="onion">
-            <img src="public/images/brokul2.png" alt="broccoli" class="broccoli">
-            <img src="public/images/deska.png" alt="plank" class="plank">
-            <img src="public/images/rzodkiewka.png" alt="raddish" class="raddish">
-            <img src="public/images/grzyby.png" alt="mushroom" class="mushroom">
-            <img src="public/images/awokado2.png" alt="avocado" class="avocado">
-            <img src="public/images/ogorek.png" alt="cucumber" class="cucumber">
-            <img src="public/images/por.png" alt="leek" class="leek">
+            <img src="images/kapusta2.png" alt="cabbage" class="cabbage">
+            <img src="images/groszek.png" alt="green-pea" class="green-pea">
+            <img src="images/seler.png" alt="celery" class="celery">
+            <img src="images/pomidor2.png" alt="tomato" class="tomato">
+            <img src="images/ziemnior2.png" alt="potato" class="potato">
+            <img src="images/cebula.png" alt="onion" class="onion">
+            <img src="images/brokul2.png" alt="broccoli" class="broccoli">
+            <img src="images/deska.png" alt="plank" class="plank">
+            <img src="images/rzodkiewka.png" alt="raddish" class="raddish">
+            <img src="images/grzyby.png" alt="mushroom" class="mushroom">
+            <img src="images/awokado2.png" alt="avocado" class="avocado">
+            <img src="images/ogorek.png" alt="cucumber" class="cucumber">
+            <img src="images/por.png" alt="leek" class="leek">
 
         </div>
 
@@ -94,12 +35,12 @@
 
 
             <div class="w3-content w3-display-container crop" style="max-width:800px">
-                <img class="recipeSlides" src="public/images/recipes/DSC01285.jpg" style="width:100%">
-                <img class="recipeSlides" src="public/images/recipes/DSC01298.jpg" style="width:100%">
-                <img class="recipeSlides" src="public/images/recipes/DSC_0069.jpg" style="width:100%">
-                <img class="recipeSlides" src="public/images/recipes/DSC_0328.jpg" style="width:100%">
-                <img class="recipeSlides" src="public/images/recipes/DSC_0335.jpg" style="width:100%">
-                <img class="recipeSlides" src="public/images/recipes/DSC_0552.jpg" style="width:100%">
+                <img class="recipeSlides" src="images/recipes/DSC01285.jpg" style="width:100%">
+                <img class="recipeSlides" src="images/recipes/DSC01298.jpg" style="width:100%">
+                <img class="recipeSlides" src="images/recipes/DSC_0069.jpg" style="width:100%">
+                <img class="recipeSlides" src="images/recipes/DSC_0328.jpg" style="width:100%">
+                <img class="recipeSlides" src="images/recipes/DSC_0335.jpg" style="width:100%">
+                <img class="recipeSlides" src="images/recipes/DSC_0552.jpg" style="width:100%">
                 <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
                     style="width:100%">
                     <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
@@ -119,8 +60,8 @@
         <div class="div-three">
             <div class="row simple-grid">
                 <div class="feature-box-image item-one-simple">
-                    <img class="earth-img" src="public/images/ziemia.png" alt="earth">
-                    <img class="moon-img" src="public/images/moon.png" alt="earth">
+                    <img class="earth-img" src="images/ziemia.png" alt="earth">
+                    <img class="moon-img" src="images/moon.png" alt="earth">
                 </div>
                 <div class="feature-box-text item-two-simple">
                     <h1>For the planet</h1>
@@ -157,17 +98,17 @@
             </div>
             <div class="feature-box-image item-two">
                 <div class="row-images">
-                    <img class="chick-img" src="public/images/kurczaczek.png" alt="chick">
-                    <img class="turkey-img" src="public/images/indyk.png" alt="turkey">
+                    <img class="chick-img" src="images/kurczaczek.png" alt="chick">
+                    <img class="turkey-img" src="images/indyk.png" alt="turkey">
                 </div>
                 <div class="row-images">
-                    <img class="pig-img" src="public/images/swinka.png" alt="pig">
-                    <img class="heart-img" src="public/images/serce.png" alt="love">
-                    <img class="fish-img" src="public/images/ryba.png" alt="fish">
+                    <img class="pig-img" src="images/swinka.png" alt="pig">
+                    <img class="heart-img" src="images/serce.png" alt="love">
+                    <img class="fish-img" src="images/ryba.png" alt="fish">
                 </div>
                 <div class="row-images">
-                    <img class="cow-img" src="publicimages/krowa.png" alt="cow">
-                    <img class="sheep-img" src="publicimages/owca.png" alt="sheep">
+                    <img class="cow-img" src="images/krowa.png" alt="cow">
+                    <img class="sheep-img" src="images/owca.png" alt="sheep">
                 </div>
             </div>
 
@@ -211,7 +152,7 @@
     
 
 
-    <script src="public/js/index.js"></script>
+    <script src="js/index.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>
@@ -224,8 +165,5 @@
 
 
 </body>
-<footer class="footer">
-    <div class="socials"><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div>
-    
-    <h3 class="copyright">Copyright &copy; <span id="currentYear"></span> Marta Pozaroszczyk</h3>
-</footer>
+
+<%- include("footer") -%>
