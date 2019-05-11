@@ -138,10 +138,11 @@ a {
 .icons-nav {
     float: right;
     vertical-align: middle;
+    padding-right: 10px;
 }
 
 .icon-right-nav {
-    padding: 0 10px;
+    padding: 0 20px;
     float: right;
 }
 
@@ -168,6 +169,102 @@ a {
 
 .fa {
     margin-right: 10px;
+}
+
+
+/* DATA TOOLTIP NAVBAR from https://codepen.io/reiinii1/pen/aPGXEa*/
+
+[data-tooltip] {
+    position: relative;
+    z-index: 10;
+  }
+  
+  /* Positioning and visibility settings of the tooltip */
+  [data-tooltip]:before,
+  [data-tooltip]:after {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    left: 50%;
+    bottom: calc(100% + 5px);
+    pointer-events: none;
+    transition: 0.2s;
+    will-change: transform;
+  }
+  
+  /* The actual tooltip with a dynamic width */
+  [data-tooltip]:before {
+    content: attr(data-tooltip);
+    padding: 0px 18px;
+    min-width: 50px;
+    max-width: 300px;
+    width: max-content;
+    width: -moz-max-content;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: rgba(56, 61, 59, 0.9);
+    background-image: linear-gradient(30deg,
+      rgba(59, 72, 80, 0.44),
+      rgba(59, 68, 75, 0.44),
+      rgba(60, 82, 88, 0.44));
+    box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+    white-space: pre-wrap;
+    transform: translate(-50%, -5px) scale(0.5);
+  }
+  
+  /* Tooltip arrow */
+  [data-tooltip]:after {
+    content: " ";
+    border-style: solid;
+    border-width: 5px 5px 0px 5px;
+    border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
+    transition-duration: 0s; /* If the mouse leaves the element, 
+                                the transition effects for the 
+                                tooltip arrow are "turned off" */
+    transform-origin: top;   /* Orientation setting for the
+                                slide-down effect */
+    transform: translateX(-50%) scaleY(0);
+  }
+  
+  /* Tooltip becomes visible at hover */
+  [data-tooltip]:hover:before,
+  [data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+  }
+  /* Scales from 0.5 to 1 -> grow effect */
+  [data-tooltip]:hover:before {
+    transition-delay: 0.3s;
+    transform: translate(-50%, -5px) scale(1);
+  }
+  /* Slide down effect only on mouseenter (NOT on mouseleave) */
+  [data-tooltip]:hover:after {
+    transition-delay: 0.5s; /* Starting after the grow effect */
+    transition-duration: 0.2s;
+    transform: translateX(-50%) scaleY(1);
+  }
+
+
+  /* BOTTOM */
+[data-tooltip-location="bottom"]:before,
+[data-tooltip-location="bottom"]:after {
+  top: calc(100% + 5px);
+  bottom: auto;
+}
+
+[data-tooltip-location="bottom"]:before {
+  transform: translate(-50%, 5px) scale(0.5);
+}
+[data-tooltip-location="bottom"]:hover:before {
+  transform: translate(-50%, 5px) scale(1);
+}
+
+[data-tooltip-location="bottom"]:after {
+  border-width: 0px 5px 5px 5px;
+  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+  transform-origin: bottom;
 }
 
 
@@ -252,32 +349,36 @@ a {
     height: 58rem;
     background-color: #b7eae3;
     position: relative;
-
+    
 }
 
 .div-two {
     height: 600px;
     background-color: #c7dad3;
-
     display: block;
 }
 
 .div-three {
-    min-height: 400px;
+    min-height: 420px;
     background-color: #d7cac3;
     margin: auto;
     padding: 4% 12%;
     position: relative;
     display: block;
+    z-index: 11;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
+    margin-bottom: -3vw;
 }
 
 .div-four {
     background-color: #e7bab3;
-    min-height: 400px;
-    margin: auto;
+    min-height: 450px;
     padding: 4% 8% 4% 8%;
     position: relative;
     display: block;
+    z-index: 10;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 5vw));
+    margin-bottom: -5vw;
 }
 
 .div-five {
@@ -285,8 +386,9 @@ a {
     background-color: #f7aaa3;
     position: relative;
     display: block;
-    padding: 4% 12%;
+    padding: 6% 12% 4% 12%;
 }
+
 
 
 /* Div-one pictures */
@@ -294,7 +396,7 @@ a {
 .background-image {
     height: 56rem;
     position: absolute;
-    top: 80px;
+    top: 40px;
     width: 100%;
     background: url(../images/compilation.png) center center no-repeat;
     -webkit-filter: blur(1px);
@@ -1001,3 +1103,6 @@ a {
 .read-older a {
     color: black;
 }
+
+
+
