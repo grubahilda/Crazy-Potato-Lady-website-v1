@@ -177,11 +177,11 @@ a {
 [data-tooltip] {
     position: relative;
     z-index: 10;
-  }
-  
-  /* Positioning and visibility settings of the tooltip */
-  [data-tooltip]:before,
-  [data-tooltip]:after {
+}
+
+/* Positioning and visibility settings of the tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after {
     position: absolute;
     visibility: hidden;
     opacity: 0;
@@ -190,10 +190,10 @@ a {
     pointer-events: none;
     transition: 0.2s;
     will-change: transform;
-  }
-  
-  /* The actual tooltip with a dynamic width */
-  [data-tooltip]:before {
+}
+
+/* The actual tooltip with a dynamic width */
+[data-tooltip]:before {
     content: attr(data-tooltip);
     padding: 0px 18px;
     min-width: 50px;
@@ -204,67 +204,73 @@ a {
     font-size: 14px;
     background-color: rgba(56, 61, 59, 0.9);
     background-image: linear-gradient(30deg,
-      rgba(59, 72, 80, 0.44),
-      rgba(59, 68, 75, 0.44),
-      rgba(60, 82, 88, 0.44));
+            rgba(59, 72, 80, 0.44),
+            rgba(59, 68, 75, 0.44),
+            rgba(60, 82, 88, 0.44));
     box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.2);
     color: #fff;
     text-align: center;
     white-space: pre-wrap;
     transform: translate(-50%, -5px) scale(0.5);
-  }
-  
-  /* Tooltip arrow */
-  [data-tooltip]:after {
+}
+
+/* Tooltip arrow */
+[data-tooltip]:after {
     content: " ";
     border-style: solid;
     border-width: 5px 5px 0px 5px;
     border-color: rgba(55, 64, 70, 0.9) transparent transparent transparent;
-    transition-duration: 0s; /* If the mouse leaves the element, 
+    transition-duration: 0s;
+    /* If the mouse leaves the element, 
                                 the transition effects for the 
                                 tooltip arrow are "turned off" */
-    transform-origin: top;   /* Orientation setting for the
+    transform-origin: top;
+    /* Orientation setting for the
                                 slide-down effect */
     transform: translateX(-50%) scaleY(0);
-  }
-  
-  /* Tooltip becomes visible at hover */
-  [data-tooltip]:hover:before,
-  [data-tooltip]:hover:after {
+}
+
+/* Tooltip becomes visible at hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
     visibility: visible;
     opacity: 1;
-  }
-  /* Scales from 0.5 to 1 -> grow effect */
-  [data-tooltip]:hover:before {
+}
+
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip]:hover:before {
     transition-delay: 0.3s;
     transform: translate(-50%, -5px) scale(1);
-  }
-  /* Slide down effect only on mouseenter (NOT on mouseleave) */
-  [data-tooltip]:hover:after {
-    transition-delay: 0.5s; /* Starting after the grow effect */
+}
+
+/* Slide down effect only on mouseenter (NOT on mouseleave) */
+[data-tooltip]:hover:after {
+    transition-delay: 0.5s;
+    /* Starting after the grow effect */
     transition-duration: 0.2s;
     transform: translateX(-50%) scaleY(1);
-  }
+}
 
 
-  /* BOTTOM */
+/* BOTTOM */
 [data-tooltip-location="bottom"]:before,
 [data-tooltip-location="bottom"]:after {
-  top: calc(100% + 5px);
-  bottom: auto;
+    top: calc(100% + 5px);
+    bottom: auto;
 }
 
 [data-tooltip-location="bottom"]:before {
-  transform: translate(-50%, 5px) scale(0.5);
+    transform: translate(-50%, 5px) scale(0.5);
 }
+
 [data-tooltip-location="bottom"]:hover:before {
-  transform: translate(-50%, 5px) scale(1);
+    transform: translate(-50%, 5px) scale(1);
 }
 
 [data-tooltip-location="bottom"]:after {
-  border-width: 0px 5px 5px 5px;
-  border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
-  transform-origin: bottom;
+    border-width: 0px 5px 5px 5px;
+    border-color: transparent transparent rgba(55, 64, 70, 0.9) transparent;
+    transform-origin: bottom;
 }
 
 
@@ -349,7 +355,7 @@ a {
     height: 58rem;
     background-color: #b7eae3;
     position: relative;
-    
+
 }
 
 .div-two {
@@ -852,7 +858,7 @@ a {
     padding-bottom: 10px;
 }
 
-.benefits-box:hover > .fas {
+.benefits-box:hover>.fas {
     color: #493a37;
 }
 
@@ -876,12 +882,12 @@ a {
     font-size: 2rem;
 }
 
-.socials > a {
+.socials>a {
     color: inherit;
     padding: 4px;
 }
 
-.socials > a:hover {
+.socials>a:hover {
     color: #493a37;
 }
 
@@ -972,7 +978,7 @@ a {
 }
 
 
- 
+
 .image-and-title {
     display: inline-block;
     position: relative;
@@ -982,7 +988,7 @@ a {
     padding: 30px 20px;
 }
 
-.image-and-title h3 {    
+.image-and-title h3 {
     position: relative;
     width: inherit;
     margin-top: 10px;
@@ -1080,7 +1086,7 @@ a {
     padding: 20px 50px;
 }
 
-.blog-preview-text > a {
+.blog-preview-text>a {
     color: black;
 }
 
@@ -1106,3 +1112,238 @@ a {
 
 
 
+/* About page */
+
+.author {
+    display: block;
+    margin: auto;
+    clip-path: polygon(5% 25%, 80% 0, 100% 85%, 0 100%);
+    float: center;
+}
+
+
+.cv-title {
+    margin-left: 30px;
+    padding-right: 50px;
+    color: white;
+    background-color: #f7aaa3;
+    margin-bottom: 30px;
+}
+
+.cv-title>h2 {
+    font-size: 3rem;
+}
+
+/* .transparent {
+    opacity: 0.6;
+} */
+
+.about-text {
+    margin: auto 10% 2% 5%;
+}
+
+.about-me-line {
+    border-top: 4px solid white;
+    z-index: 1;
+}
+
+.contact-item {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+}
+
+.contact-item a {
+    color: inherit;
+}
+
+.contact-item i {
+    color: #f7aaa3;
+}
+
+.cv-side-panel-items {
+    margin-bottom: 50px;
+    padding: 2% 3%;
+    max-width: 350px;
+}
+
+.cv-headline {
+    color: #f7aaa3;
+}
+
+.cv-headline::after {
+    content: '';
+    display: block;
+    margin: 3px 0px;
+    border-bottom: 4px solid #f7aaa3;
+}
+
+.skill {
+    display: inline-block;
+    background-color: #f7aaa3;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.language {
+    font-size: 1.5rem;
+}
+
+.cv-side-panel-items .language {
+    margin: 0;
+}
+
+.language-progress-bars {
+    margin-bottom: 20px;
+}
+
+.full {
+    display: inline-block;
+    background-color: #f7aaa3;
+    border-radius: 10px;
+    margin: 0 10px;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+.empty {
+    display: inline-block;
+    border-radius: 10px;
+    margin: 0 10px;
+    min-height: 20px;
+    min-width: 20px;
+    border: 3px solid #f7aaa3;
+}
+
+.interest {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 3px;
+    border: 3px solid black;
+}
+
+.work-experience-items {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.work-education-item {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.work-education-item h3,
+h4,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.work-education-item h3 {
+    color: #f7aaa3;
+}
+
+.working-dates {
+    float: left;
+    font-style: italic;
+}
+
+.job-location {
+    float: right;
+    font-style: italic;
+}
+
+.short-description {
+    display: block;
+    color: #493a37;
+}
+
+.responsibilities-list {
+    margin-top: 20px;
+    list-style: none;
+}
+
+.responsibilities-list>li::before {
+    content: '\271A';
+    color: #f7aaa3;
+    padding-right: 5px;
+}
+
+.subjects-list {
+    margin-top: 20px;
+    list-style: none;
+    /* display: table; */
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    /* list-style-position: outside; */
+}
+
+.subjects-list>li::before {
+    content: '\271A';
+    color: #f7aaa3;
+    padding-right: 5px;
+}
+
+.subjects-list>li {
+    display: inline-block;
+    padding-left: 30px;
+    list-style-position: inside;
+    text-indent: -1.5em;
+}
+
+@media only screen and (max-width: 992px) {
+    .cv-title {
+        margin: 20px 50px 50px 50px;
+    }
+
+    .cv-title h2, .cv-title h3 {
+        text-align: center;
+    }
+
+    .empty,
+    .full {
+        border-radius: 3vw;
+        height: 3vw;
+        width: 3vw;
+    }
+
+    .side-panel-grid {
+        display: grid;
+        margin: 0 10%;
+        grid-template-columns: calc(100% / 2) calc(100% / 2);
+        grid-template-rows: fit-content(200px) fit-content(200px);
+    }
+
+    .grid-1 {
+        order: 1;
+
+    }
+
+    .grid-2 {
+        order: 2;
+
+    }
+
+    .grid-3 {
+        order: 3;
+
+    }
+
+    .grid-4 {
+        order: 4;
+
+    }
+
+    .work-education-items {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+}
+
+.contact-me {
+    font-weight: bold;
+    color: inherit; 
+}
