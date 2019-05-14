@@ -1,6 +1,6 @@
 <%- include("partials/header") -%>
 
-<body style="background-color: #b7eae3">
+<body style="background-color: #b7eae3" onmouseup="mouseUpPhoneNumber()">
 
     <!-- START NAVBAR -->
     <%- include("partials/navbar"); -%>
@@ -30,7 +30,7 @@
                 <div class="cv-side-panel-items grid-1">
                     <p class="contact-item"><a href="mailto: marta.pozaroszczyk@gmail.com"><i
                                 class="fas fa-envelope"></i> &nbsp &nbsp Marta Pozaroszczyk</a></p>
-                    <p class="contact-item">&nbsp<i class="fas fa-mobile-alt"></i> &nbsp &nbsp 0 621 419 988</p>
+                    <p class="contact-item phone-number">&nbsp<i class="fas fa-mobile-alt"></i> &nbsp &nbsp <span id="phoneNumber" onmousedown="mouseDownPhoneNumber()" title="Phone Number">Phone number</span> </p>
                     <p class="contact-item">&nbsp<i class="fas fa-map-marker-alt"></i> &nbsp &nbsp Delft, South-Holland
                     </p>
                     <p class="contact-item"><a href="https://www.linkedin.com/in/mpozaro/" target="_blank"><i
@@ -40,15 +40,10 @@
                 </div>
                 <div class="cv-side-panel-items grid-2">
                     <h2 class="cv-headline">Skills</h2>
-                    <p class="skill">JavaScript</p>
-                    <p class="skill">CSS</p>
-                    <p class="skill">HTML5</p>
-                    <p class="skill">Node.js</p>
-                    <p class="skill">Express js</p>
-                    <p class="skill">Elixir / Phoenix (basics)</p>
-                    <p class="skill">Python (basics)</p>
-                    <p class="skill">Adobe PS</p>
-                    <p class="skill">LaTeX</p>
+                    <% const skillsArray = ["JavaScript", "CSS", "HTML", "Node.js", "Express js", "Elixir / Phoenix (basics)", "Python (basics)", "Adobe PS", "LaTeX"] %>
+                    <% for (var i=0; i < skillsArray.length; i++) { %>
+                        <p class="skill"><%= skillsArray[i] %></p>
+                    <% } %>
                 </div>
                 <div class="cv-side-panel-items grid-3">
                     <h2 class="cv-headline">Languages</h2>

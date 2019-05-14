@@ -1126,7 +1126,7 @@ a {
     margin-left: 30px;
     padding-right: 50px;
     color: white;
-    background-color: #f7aaa3;
+    background-color: rgb(62, 126, 117);
     margin-bottom: 30px;
 }
 
@@ -1157,7 +1157,15 @@ a {
 }
 
 .contact-item i {
-    color: #f7aaa3;
+    color: rgb(62, 126, 117);
+}
+
+.phone-number {
+    user-select: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
 }
 
 .cv-side-panel-items {
@@ -1167,19 +1175,19 @@ a {
 }
 
 .cv-headline {
-    color: #f7aaa3;
+    color: rgb(62, 126, 117);
 }
 
 .cv-headline::after {
     content: '';
     display: block;
     margin: 3px 0px;
-    border-bottom: 4px solid #f7aaa3;
+    border-bottom: 4px solid rgb(62, 126, 117);
 }
 
 .skill {
     display: inline-block;
-    background-color: #f7aaa3;
+    background-color: rgb(62, 126, 117);
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -1200,7 +1208,7 @@ a {
 
 .full {
     display: inline-block;
-    background-color: #f7aaa3;
+    background-color: rgb(62, 126, 117);
     border-radius: 10px;
     margin: 0 10px;
     min-height: 20px;
@@ -1213,7 +1221,7 @@ a {
     margin: 0 10px;
     min-height: 20px;
     min-width: 20px;
-    border: 3px solid #f7aaa3;
+    border: 3px solid rgb(62, 126, 117);
 }
 
 .interest {
@@ -1242,7 +1250,7 @@ p {
 }
 
 .work-education-item h3 {
-    color: #f7aaa3;
+    color: rgb(62, 126, 117);
 }
 
 .working-dates {
@@ -1267,7 +1275,7 @@ p {
 
 .responsibilities-list>li::before {
     content: '\271A';
-    color: #f7aaa3;
+    color: rgb(62, 126, 117);
     padding-right: 5px;
 }
 
@@ -1283,7 +1291,7 @@ p {
 
 .subjects-list>li::before {
     content: '\271A';
-    color: #f7aaa3;
+    color: rgb(62, 126, 117);
     padding-right: 5px;
 }
 
