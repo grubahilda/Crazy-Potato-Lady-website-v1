@@ -24,6 +24,10 @@ function currentDiv(n) {
 
 function showDivs(n) {
     var images = document.getElementsByClassName("recipeSlides");
+
+    if (images.length == 0) {
+        return;
+    }
     var dots = document.getElementsByClassName("demo");
 
     if (n > images.length) {
@@ -47,7 +51,7 @@ function showDivs(n) {
 
 
 // Footnote copyright year
-window.onload = function() {
+window.onload = function () {
     d = new Date();
     document.getElementById("currentYear").innerHTML = d.getFullYear();
 };
@@ -56,25 +60,18 @@ window.onload = function() {
 
 // Footer colour
 
-window.onload = function() {
+window.onload = function () {
     document.getElementsByTagName("footer")[0].style.backgroundColor = document.getElementsByTagName("body")[0].style.backgroundColor;
 }
 
 
 
-$('.center').slick({
-    centerMode: true,
-    infinite: true,
-    centerPadding: '60px',
-    slidesToShow: 3,
-    speed: 500,
-    variableWidth: false,
-  });
-  $('.center').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-    console.log('beforeChange', currentSlide, nextSlide);
-  });
-  $('.center').on('afterChange', function(event, slick, currentSlide){
-    console.log('afterChange', currentSlide);
-  });
 
+//ONMOUSEDOWN PHONE NUMBER REVEAL
+function mouseDownPhoneNumber() {
+    document.getElementById("phoneNumber").innerHTML = "0 621 419 988";
+}
 
+function mouseUpPhoneNumber() {
+    document.getElementById("phoneNumber").innerHTML = document.getElementById("phoneNumber").title;
+}

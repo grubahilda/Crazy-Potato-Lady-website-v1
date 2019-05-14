@@ -1,0 +1,30 @@
+<%- include("partials/header") -%>
+
+<body style="background-color: 	#b7eae3">
+
+   
+   
+    <!-- START NAVBAR -->
+    <%- include("partials/navbar"); -%>
+    <!-- END NAVBAR -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="page-title">Compose a new blog post</h1>
+        </div>
+        <div class="row justify-content-center col-12">
+            <form method="post" action="/compose">
+                <input type="text" name="postTitle">
+                <br>
+                <textarea name="postBody" class="tinymce" cols="100" rows="30" style="resize: none; overflow-x: hidden">Hello World!</textarea>
+                <br>
+                <button type="submit">Post</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/tinymce/plugin/tinymce.min.js"></script>
+    <script type="text/javascript" src="/tinymce/init-tinymce.js"></script>
+
+    <%- include("partials/footer") -%>
+    
