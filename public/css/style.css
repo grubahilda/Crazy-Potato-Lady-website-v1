@@ -1067,10 +1067,12 @@ a {
     top: 20px;
 }
 
+.blog-preview-title-bar-text, .blog-preview-text>a, .read-older a {
+    color: black;
+}
 
 .blog-preview-title-bar-text {
     position: absolute;
-    color: black;
     font-size: 3vw;
     z-index: 2;
     margin: 0;
@@ -1084,10 +1086,6 @@ a {
     top: 300px;
     min-height: 450px;
     padding: 20px 50px;
-}
-
-.blog-preview-text>a {
-    color: black;
 }
 
 
@@ -1106,11 +1104,6 @@ a {
     margin-right: 20px;
 }
 
-.read-older a {
-    color: black;
-}
-
-
 
 /* About page */
 
@@ -1126,17 +1119,20 @@ a {
     margin-left: 30px;
     padding-right: 50px;
     color: white;
-    background-color: rgb(62, 126, 117);
     margin-bottom: 30px;
+}
+
+.cv-title, .skill, .full {
+    background-color: #3e7e75;
+}
+
+.contact-item i, .cv-headline, .work-education-item h3, .responsibilities-list>li::before, .subjects-list>li::before {
+    color: #3e7e75;
 }
 
 .cv-title>h2 {
     font-size: 3rem;
 }
-
-/* .transparent {
-    opacity: 0.6;
-} */
 
 .about-text {
     margin: auto 10% 2% 5%;
@@ -1156,10 +1152,6 @@ a {
     color: inherit;
 }
 
-.contact-item i {
-    color: rgb(62, 126, 117);
-}
-
 .phone-number {
     user-select: none;
    -webkit-user-select: none;
@@ -1174,10 +1166,6 @@ a {
     max-width: 350px;
 }
 
-.cv-headline {
-    color: rgb(62, 126, 117);
-}
-
 .cv-headline::after {
     content: '';
     display: block;
@@ -1187,7 +1175,6 @@ a {
 
 .skill {
     display: inline-block;
-    background-color: rgb(62, 126, 117);
     color: white;
     padding: 10px;
     border-radius: 5px;
@@ -1208,7 +1195,6 @@ a {
 
 .full {
     display: inline-block;
-    background-color: rgb(62, 126, 117);
     border-radius: 10px;
     margin: 0 10px;
     min-height: 20px;
@@ -1249,10 +1235,6 @@ p {
     margin: 0;
 }
 
-.work-education-item h3 {
-    color: rgb(62, 126, 117);
-}
-
 .working-dates {
     float: left;
     font-style: italic;
@@ -1275,23 +1257,21 @@ p {
 
 .responsibilities-list>li::before {
     content: '\271A';
-    color: rgb(62, 126, 117);
     padding-right: 5px;
 }
 
 .subjects-list {
     margin-top: 20px;
     list-style: none;
-    /* display: table; */
     -webkit-column-count: 3;
     -moz-column-count: 3;
     column-count: 3;
-    /* list-style-position: outside; */
 }
+
+
 
 .subjects-list>li::before {
     content: '\271A';
-    color: rgb(62, 126, 117);
     padding-right: 5px;
 }
 
