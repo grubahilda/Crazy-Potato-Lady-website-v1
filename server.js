@@ -12,7 +12,7 @@ const title1 = "How to cook beans";
 const title2 = "Less waste tips";
 const title3 = "Living with non-vegans";
 
-
+let posts = [{postTitle: title1, postBody: blogPreviewText}, {postTitle: title2, postBody: blogPreviewText}, {postTitle: title3, postBody: blogPreviewText}];
 
 const app = express();
 
@@ -33,7 +33,8 @@ app.get("/blog", function (req, res) {
         blogPreviewText: blogPreviewText,
         title1: title1,
         title2: title2,
-        title3: title3
+        title3: title3,
+        posts: posts
     });
 });
 
@@ -57,7 +58,22 @@ app.get("/share", function (req, res) {
     res.render("share");
 });
 
+app.get("/compose", function (req, res) {
+    res.render("compose");
+});
+
+app.post("/compose", function(req, res){
+    const post = {
+        postTitle: req.body.postTitle,
+        postBody: req.body.postBody
+    }
+    posts.push(post);
+    res.redirect("/blog");
+    console.log(posts);
+});
+
 app.listen(3000, function () {
     console.log("Server running on port 3000");
 
 });
+

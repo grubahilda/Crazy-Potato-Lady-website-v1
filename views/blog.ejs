@@ -13,35 +13,22 @@
             <h1 class="page-title">Blog</h1>
 
         </div>
+        
+
+        <% for(var i=0; i< posts.length; i++) { %>
         <div class="blog-preview-post row justify-content-center col-12">
-            <div class="blog-preview-title-bar"></div>
-            <h2 class="blog-preview-title-bar-text"><%= title1 %></h2>
+                <div class="blog-preview-title-bar"></div>
+            <h2 class="blog-preview-title-bar-text"><%= posts[i].postTitle %></h2>
             <div class="blog-preview-image1"></div>
-            <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger"> <%= blogPreviewText.substr(0, 51) %></span>
-                <%= blogPreviewText.substr(51) %><a href="#"><i
+            <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger"> <%= posts[i].postBody.substr(0, 51) %></span>
+                <%= posts[i].postBody.substr(51) %><a href="#"><i
                         class="fas fa-greater-than"></i></a></p>
         </div>
+        <% } %>
 
-        <div class="blog-preview-post row justify-content-center col-12">
-            <div class="blog-preview-title-bar"></div>
-            <h2 class="blog-preview-title-bar-text"><%= title2 %></h2>
-            <div class="blog-preview-image2"></div>
-            <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger"> <%= blogPreviewText.substr(0, 51) %></span>
-                <%= blogPreviewText.substr(51) %><a href="#"><i
-                        class="fas fa-greater-than"></i></a></p>
-        </div>
-
-        <div class="blog-preview-post row justify-content-center col-12">
-            <div class="blog-preview-title-bar"></div>
-            <h2 class="blog-preview-title-bar-text"><%= title3 %></h2>
-            <div class="blog-preview-image3"></div>
-            <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger"> <%= blogPreviewText.substr(0, 51) %></span>
-                <%= blogPreviewText.substr(51) %><a href="#"><i
-                        class="fas fa-greater-than"></i></a></p>
-        </div>
         <div class="row read-more-older">
             <p class="read-older">Read older posts &nbsp &nbsp &nbsp &nbsp<a href="#"><i
-            class="fas fa-greater-than"></i></a> </p>
+                        class="fas fa-greater-than"></i></a> </p>
         </div>
 
 
@@ -50,4 +37,4 @@
 
 
 
-<%- include("partials/footer"); -%>
+    <%- include("partials/footer"); -%>
