@@ -13,12 +13,16 @@
             <h1 class="page-title">Compose a new blog post</h1>
         </div>
         <div class="row justify-content-center col-12">
-            <form method="post" action="/compose">
-                <input type="text" name="postTitle">
+            <form method="post" action="/compose" enctype="multipart/form-data">
+                <input class="new-post-title" type="text" name="postTitle" placeholder="New post title">
                 <br>
-                <textarea name="postBody" class="tinymce" cols="100" rows="30" style="resize: none; overflow-x: hidden">Hello World!</textarea>
+                <input type="file" accept="image/*" name="postPictureFile" id="postFile">
                 <br>
-                <button type="submit">Post</button>
+                <!-- <input type="image" src="" height="100px" alt="Submit">
+                <br> -->
+                <textarea name="postBody" class="tinymce"></textarea>
+                <br>
+                <button class="submit-new-post" type="submit">Post</button>
             </form>
         </div>
     </div>

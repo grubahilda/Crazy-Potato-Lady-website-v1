@@ -1,0 +1,31 @@
+<%- include("partials/header") -%>
+
+<body style="background-color: #b7eae3">
+
+    <!-- START NAVBAR -->
+    <%- include("partials/navbar"); -%>
+    <!-- END NAVBAR -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="page-title"> <%= post.postTitle %> </h1>
+            <div class="post-picture" style="background-image: url(<%= post.postPicture %>)"></div>
+
+            <div class="short-description">
+                <!-- Match only short description that is inside of first <div> tag of the post -->
+                <% const shortDescription = post.postBody.match(/<div>.*?<\/div>/)[0].replace(/(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi, ""); %>
+                <%= shortDescription; %>
+
+            </div>
+            <div class="post-content">
+                <% const restOfBody = post.postBody.substr(shortDescription.length + 11); %>
+                <%- restOfBody %>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <%- include("partials/footer"); -%>

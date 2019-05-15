@@ -13,21 +13,25 @@
             <h1 class="page-title">Blog</h1>
 
         </div>
-        
 
-        <% for(var i=0; i< posts.length; i++) { %>
-        <div class="blog-preview-post row justify-content-center col-12">
+
+        <% posts.forEach(function(post){ %> 
+            <div class="blog-preview-post row justify-content-center col-12">
                 <div class="blog-preview-title-bar"></div>
-            <h2 class="blog-preview-title-bar-text"><%= posts[i].postTitle %></h2>
-            <div class="blog-preview-image1"></div>
-            <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger"> <%= posts[i].postBody.substr(0, 51) %></span>
-                <%= posts[i].postBody.substr(51) %><a href="#"><i
-                        class="fas fa-greater-than"></i></a></p>
-        </div>
-        <% } %>
+                <h2 class="blog-preview-title-bar-text"><a href="/blog/<%= post.postTitle.replace(/\s/gi, '-') %>"> <%= post.postTitle %> </a></h2>
+                
+                <div class="blog-preview-image" style="background-image: url(<%= post.postPicture %>)"></div>
+                <% const re = /(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi; %>
+                <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger">
+                        <%= post.postBody.replace(re,"").split(" ").slice(0, 6).join(" "); %></span>
+                    <%= post.postBody.replace(re,"").split(" ").slice(8, 41).join(" "); %><a href="#"><i
+                            class="fas fa-greater-than"></i></a></p>
+            </div>
+        <% }); %> 
+
 
         <div class="row read-more-older">
-            <p class="read-older">Read older posts &nbsp &nbsp &nbsp &nbsp<a href="#"><i
+            <p class="read-older"><a href="#">Read older posts &nbsp &nbsp &nbsp &nbsp<i
                         class="fas fa-greater-than"></i></a> </p>
         </div>
 

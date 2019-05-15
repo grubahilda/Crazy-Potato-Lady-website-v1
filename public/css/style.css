@@ -1015,34 +1015,7 @@ a {
 }
 
 
-.blog-preview-image1 {
-    background-image: url("../images/bean-black-rice-cereal-1537169.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 300px;
-    width: 100%;
-    position: absolute;
-    border-width: 5px 0 0 0;
-    border-style: solid;
-    border-color: white;
-}
-
-.blog-preview-image2 {
-    background-image: url("../images/apple-3040132_1920.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 300px;
-    width: 100%;
-    position: absolute;
-    border-width: 5px 0 0 0;
-    border-style: solid;
-    border-color: white;
-}
-
-.blog-preview-image3 {
-    background-image: url("../images/adult-asian-caucasian-1153213.jpg");
+.blog-preview-image {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -1079,6 +1052,10 @@ a {
     padding: 10px 20vw 10px 5vw;
     left: 0px;
     top: 20px;
+}
+
+.blog-preview-title-bar-text > a {
+    color: inherit;
 }
 
 .blog-preview-text {
@@ -1334,4 +1311,43 @@ p {
 .contact-me {
     font-weight: bold;
     color: inherit; 
+}
+
+
+
+/* COMPOSE PAGE */
+
+.new-post-title {
+    width: 800px;
+    margin-bottom: 10px;
+}
+
+.submit-new-post {
+    float: right;
+}
+
+
+/* POST PAGE */
+
+.post-picture {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 450px;
+    width: 100%;
+    position: relative;
+}
+
+.post-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    margin: 20px 250px 100px 250px;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+.short-description {
+    margin: 80px 250px 0 250px;
+    font-style: italic;
+    font-size: 1.5rem;
 }

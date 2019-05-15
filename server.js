@@ -2,6 +2,8 @@
 
 const express = require('express');
 const bodyParser = require("body-parser");
+const fs = require('fs');
+// const multer = require("multer");
 // const ejs = require("ejs");
 
 //BLOG TEMPORARY CONTENTS
@@ -12,7 +14,7 @@ const title1 = "How to cook beans";
 const title2 = "Less waste tips";
 const title3 = "Living with non-vegans";
 
-let posts = [{postTitle: title1, postBody: blogPreviewText}, {postTitle: title2, postBody: blogPreviewText}, {postTitle: title3, postBody: blogPreviewText}];
+let posts = [{postTitle: title1, postBody: blogPreviewText, postPicture: '../images/bean-black-rice-cereal-1537169.jpg'}, {postTitle: title2, postBody: blogPreviewText, postPicture: '../images/apple-3040132_1920.jpg'}, {postTitle: title3, postBody: blogPreviewText, postPicture: '../images/adult-asian-caucasian-1153213.jpg'}];
 
 const app = express();
 
@@ -23,12 +25,14 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-app.get("/", function (req, res) {
+
+
+app.get("/", function (_req, res) {
     res.render("index");
 });
 
 
-app.get("/blog", function (req, res) {
+app.get("/blog", function (_req, res) {
     res.render("blog", {
         blogPreviewText: blogPreviewText,
         title1: title1,
@@ -36,6 +40,16 @@ app.get("/blog", function (req, res) {
         title3: title3,
         posts: posts
     });
+});
+
+app.get("/blog/:postid", function(req, res){
+    posts.forEach(function(post){
+        if(req.params.postid.toLowerCase().replace(/-/g , " ") === post.postTitle.toLowerCase()) {
+            res.render("post", {post: post});
+        }
+    });
+
+    
 });
 
 app.get("/recipes", function (req, res) {
