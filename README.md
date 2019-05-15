@@ -46,10 +46,11 @@ nodemon server-file-name.js
 - add filtering buttons (for blog page, too)
 
 ## Blog:
-- fix read older link
-- later: add variables and get content from db
-- add post writing functionality
-- add text preview up to 5 words instead of characters
+- compose with a superuser role only
+- add picture upload functionality
+- create regex to only get short description in the preview
 
 ## General:
 - set up database
+- optimize image assets
+- optmize repetetive styles
