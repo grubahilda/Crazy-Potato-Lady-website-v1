@@ -31,14 +31,15 @@ app.get("/", function (_req, res) {
 });
 
 
-app.get("/blog", db.getPosts, function (req, res) {
-    
-    // console.log(posts[1]);
-    
-    res.render("blog", {
-        posts: posts
-    });
-});
+app.get("/blog", db.getPosts);
+// app.get("/blog", db.getPosts, function (req, res) {
+//     // const posts = await db.getPosts;
+//     // db.getPosts
+//     // console.log(posts);
+//     // const json = [{"id":1,"title"":hello world!","author":"me"}];
+
+//     // res.render("blog", { posts: posts });
+// });
 
 app.get("/blog/:postid", function(req, res){
     posts.forEach(function(post){

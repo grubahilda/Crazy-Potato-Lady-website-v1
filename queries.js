@@ -10,10 +10,12 @@ const pool = new Pool({
 
 const getPosts = (_req, res) => {
     pool.query('SELECT * FROM blog_posts', (error, results) => {
-        if(error) {
+        console.log(error);
+        console.log(results);
+        if (error) {
             throw error
         }
-        res.status(200).json(results.rows)
+        res.render("blog", { posts: results.rows });
     })
 }
 
