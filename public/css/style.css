@@ -1065,6 +1065,11 @@ a {
     padding: 20px 50px;
 }
 
+.fas.fa-greater-than {
+    padding-left: 10px;
+    z-index: 2;
+}
+
 
 .blog-preview-text-inline-bigger {
     font-size: 2em;
