@@ -44,13 +44,19 @@ nodemon server-file-name.js
 
 ## Recipes:
 - add filtering buttons (for blog page, too)
+- add recipes filtering functionality
 
 ## Blog:
 - compose with a superuser role only
+- fix read more link, works only when the website is zoomed out? not working when 100%
 - add picture upload functionality
+- add edit post functionality
 - create regex to only get short description in the preview
+- add post filtering functionality
 
 ## General:
 - set up database
 - optimize image assets
 - optmize repetetive styles
+- add newsletter subscription
+- change title page depending on active page
