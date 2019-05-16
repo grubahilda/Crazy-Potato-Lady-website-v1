@@ -2,13 +2,12 @@
 
 const express = require('express');
 const bodyParser = require("body-parser");
-const fs = require('fs');
-// const multer = require("multer");
+const db = require('./queries')
 // const ejs = require("ejs");
 
 //BLOG TEMPORARY CONTENTS
 
-const blogPreviewText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorem, recusandae est eligendi tempore fugiat sint ex ab repudiandae exercitationem assumenda maxime earum nisi dignissimos eum perspiciatis unde aperiam tempora itaque et blanditiis quod placeat? Vel aliquid ab eveniet laboriosam consectetur molestias doloremque ipsum tenetur. Provident assumenda dolorem fugiat atque, ullam magnam quidem reprehenderit. Exercitationem officiis expedita rerum architecto dolorem explicabo atque iusto debitis quis officia id eligendi excepturi omnis, facere perspiciatis nobis facilis. Illum esse placeat ut, dicta eos quod mollitia ipsam animi. Rem impedit, ipsa expedita quaerat ipsum perspiciatis quo dignissimos, earum suscipit et blanditiis beatae? Similique, cumque?\xa0\xa0\xa0\xa0";
+const blogPreviewText = "<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorem, recusandae est eligendi tempore fugiat sint ex ab repudiandae exercitationem assumenda maxime earum nisi dignissimos eum perspiciatis unde aperiam tempora itaque et blanditiis quod placeat? Vel aliquid ab eveniet laboriosam consectetur molestias doloremque ipsum tenetur.</div>\nProvident assumenda dolorem fugiat atque, ullam magnam quidem reprehenderit. Exercitationem officiis expedita rerum architecto dolorem explicabo atque iusto debitis quis officia id eligendi excepturi omnis, facere perspiciatis nobis facilis. Illum esse placeat ut, dicta eos quod mollitia ipsam animi. Rem impedit, ipsa expedita quaerat ipsum perspiciatis quo dignissimos, earum suscipit et blanditiis beatae? Similique, cumque?";
 
 const title1 = "How to cook beans";
 const title2 = "Less waste tips";
@@ -25,26 +24,27 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static("public"));
 
-
+let whatever;
 
 app.get("/", function (_req, res) {
     res.render("index");
 });
 
 
-app.get("/blog", function (_req, res) {
+app.get("/blog", db.getPosts, function (req, res) {
+    
+    // console.log(posts[1]);
+    
     res.render("blog", {
-        blogPreviewText: blogPreviewText,
-        title1: title1,
-        title2: title2,
-        title3: title3,
         posts: posts
     });
 });
 
 app.get("/blog/:postid", function(req, res){
     posts.forEach(function(post){
-        if(req.params.postid.toLowerCase().replace(/-/g , " ") === post.postTitle.toLowerCase()) {
+        // console.log("yes------------------------------------------------------------------------------------------");
+        
+        if(req.params.postid.toLowerCase().replace(/-/g , " ") === post.postTitle.toLowerCase().replace(/[^a-zA-Z\s]+/g, ' ')) {
             res.render("post", {post: post});
         }
     });
@@ -52,27 +52,27 @@ app.get("/blog/:postid", function(req, res){
     
 });
 
-app.get("/recipes", function (req, res) {
+app.get("/recipes", function (_req, res) {
     res.render("recipes");
 });
 
-app.get("/about", function (req, res) {
+app.get("/about", function (_req, res) {
     res.render("about");
 });
 
-app.get("/contact", function (req, res) {
+app.get("/contact", function (_req, res) {
     res.render("contact");
 });
 
-app.get("/cooperation", function (req, res) {
+app.get("/cooperation", function (_req, res) {
     res.render("cooperation");
 });
 
-app.get("/share", function (req, res) {
+app.get("/share", function (_req, res) {
     res.render("share");
 });
 
-app.get("/compose", function (req, res) {
+app.get("/compose", function (_req, res) {
     res.render("compose");
 });
 
