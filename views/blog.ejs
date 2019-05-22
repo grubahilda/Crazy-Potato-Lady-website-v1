@@ -18,13 +18,13 @@
         <% posts.forEach(function(post){ %> 
             <div class="blog-preview-post row justify-content-center col-12">
                 <div class="blog-preview-title-bar"></div>
-                <h2 class="blog-preview-title-bar-text"><a href="/blog/<%= post.postTitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= post.postTitle %> </a></h2>
+                <h2 class="blog-preview-title-bar-text"><a href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= post.posttitle %> </a></h2>
                 
-                <div class="blog-preview-image" style="background-image: url(<%= post.postPicture %>)"></div>
+                <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>
                 <% const re = /(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi; %>
                 <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger">
-                        <%= post.postBody.replace(re,"").split(" ").slice(0, 6).join(" "); %></span>
-                    <%= post.postBody.replace(re,"").split(" ").slice(8, 41).join(" "); %><a href="/blog/<%= post.postTitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"><i
+                        <%= post.postbody.replace(re,"").split(" ").slice(0, 6).join(" "); %></span>
+                    <%= post.postbody.replace(re,"").split(" ").slice(8, 41).join(" "); %><a href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"><i
                             class="fas fa-greater-than"></i></a></p>
             </div>
         <% }); %> 

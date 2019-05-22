@@ -1,4 +1,4 @@
-const Pool = require('pg').Pool
+const Pool = require('pg').Pool;
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
@@ -7,26 +7,57 @@ const pool = new Pool({
     port: 5432,
 });
 
-
-const getPosts = (_req, res) => {
+const getPosts = (callback) => {
     pool.query('SELECT * FROM blog_posts', (error, results) => {
-        console.log(error);
-        console.log(results);
+        
         if (error) {
-            throw error
+            console.log(error);
+            throw error;
         }
-        res.render("blog", { posts: results.rows });
+        
+        callback(results.rows);
     })
 }
 
-// const getPostById = (req, res) => {
-//     const id = req.params.postid
 
-//     pool.query('SELECT * FROM blog_posts WHERE id = $1', [postid], error, results => {
+const getPostById = (callback, req, _res) => {
+    const id = req.params.postid.toLowerCase().replace(/\s/g, "-");
+    pool.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
+        
+        if (error) {
+            console.log(error);
+            throw error;
+        }
+        
+        callback(results.rows);
+         
+    })
+}
+
+
+// const getPostById = (callback, postId) => {
+//     pool.query('SELECT * FROM blog_posts WHERE id = $1', [postId], (error, results) => {
+        
+//         if (error) {
+//             console.log(error);
+//             throw error;
+//         }
+        
+//         callback(results.rows);
+//     })
+// }
+
+
+
+
+// const getPostById = (req, res) => {
+//     const id = req.params.postid.toLowerCase().replace(/\s/g, "-");
+
+//     pool.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
 //         if(error) {
 //             throw error
 //         }
-//         response.status(200).json(res.rows)
+//         return results.rows;
 //     })
 // }
 
@@ -69,7 +100,7 @@ const getPosts = (_req, res) => {
 
 module.exports = {
     getPosts,
-    // getPostById,
+    getPostById,
     // createPost,
     // updatePost,
     // deletePost,
