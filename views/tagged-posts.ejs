@@ -1,0 +1,48 @@
+<%- include("partials/header") -%>
+
+<body style="background-color: #d7cac3">
+
+    <!-- START NAVBAR -->
+    <%- include("partials/navbar"); -%>
+    <!-- END NAVBAR -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="page-title">Posts tagged: <%= tag %></h1>
+
+        </div>
+
+
+        <% posts.forEach(function(post){ %> 
+            <div class="blog-preview-post row justify-content-center col-12">
+                <div class="blog-preview-title-bar"></div>
+                <div class="blog-edit-delete-btn">
+                    <button class="btn btn-light">Edit</button>
+                <button class="btn btn-light">Delete</button>
+                </div>
+                
+                <h2 class="blog-preview-title-bar-text"><a href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= post.posttitle %> </a></h2>
+                
+                <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>
+                <% const re = /(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi; %>
+                <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger">
+                        <%= post.postbody.replace(re,"").split(" ").slice(0, 6).join(" "); %></span>
+                    <%= post.postbody.replace(re,"").split(" ").slice(8, 41).join(" "); %><a href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"><i
+                            class="fas fa-greater-than"></i></a></p>            
+            </div>
+        <% }); %> 
+
+
+        <div class="row read-more-older">
+            <p class="read-older"><a href="#">Read older posts<i
+                        class="fas fa-greater-than"></i></a> </p>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include("partials/footer"); -%>

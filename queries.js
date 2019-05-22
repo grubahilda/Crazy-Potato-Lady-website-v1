@@ -33,21 +33,39 @@ const getPostById = (callback, req) => {
     })
 }
 
+const getPostsByTag = (callback, req) => {
+    const tag = req.params.tag;
 
-const createPost = (req, res) => {
-    const {
-        id,
-        title,
-        body,
-        picture
-    } = req.body
+    pool.query('SELECT * FROM blog_posts WHERE $1=ANY(tags);', [tag], (error, results) => {
 
-    pool.query('INSERT INTO blog_posts (id, post_title, post_body, post_picture) VALUES ($1, $2, $3, $4)', [id, title, body, picture], (error, results) => {
         if (error) {
-            throw error
+            console.log(error);
+            throw error;
         }
-        res.status(201).send(`Blog post added with ID: ${result.insertId}`)
+
+        callback(results.rows);
     })
+}
+
+
+const createPost = (req, _res) => {
+    const title = req.body.postTitle;
+    const body = req.body.postBody;
+    const picture = '../images/bird-chicken-chicks-2134246.jpg';
+
+    
+
+    // let tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g); 
+    // const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+    // console.log(id, title, body, picture, tags);
+    console.log(title, body, picture, req.body.postTags);
+
+    // pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4)', [id, title, body, picture, tags], (error, results) => {
+    //     if (error) {
+    //         throw error
+    //     }
+    //     res.status(201).redirect("/blog");
+    // })
 
 }
 
@@ -79,6 +97,7 @@ const createPost = (req, res) => {
 module.exports = {
     getPosts,
     getPostById,
+    getPostsByTag,
     createPost,
     // updatePost,
     // deletePost,

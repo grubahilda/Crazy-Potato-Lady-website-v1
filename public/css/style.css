@@ -1368,3 +1368,21 @@ p {
     font-style: italic;
     font-size: 1.5rem;
 }
+
+.post-tags {
+    margin: auto;
+    text-align: center;
+}
+
+.post-tags a {
+    color: black;
+    font-size: 1.5rem;
+}
+
+.post-tags span {
+    padding: 0 10px;
+}
+
+.post-tags a:hover {
+    color: rgb(58, 66, 65);
+}

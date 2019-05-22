@@ -5,13 +5,6 @@ const bodyParser = require("body-parser");
 const db = require('./queries')
 // const ejs = require("ejs");
 
-//BLOG TEMPORARY CONTENTS
-// const blogPreviewText = "<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorem, recusandae est eligendi tempore fugiat sint ex ab repudiandae exercitationem assumenda maxime earum nisi dignissimos eum perspiciatis unde aperiam tempora itaque et blanditiis quod placeat? Vel aliquid ab eveniet laboriosam consectetur molestias doloremque ipsum tenetur.</div>\nProvident assumenda dolorem fugiat atque, ullam magnam quidem reprehenderit. Exercitationem officiis expedita rerum architecto dolorem explicabo atque iusto debitis quis officia id eligendi excepturi omnis, facere perspiciatis nobis facilis. Illum esse placeat ut, dicta eos quod mollitia ipsam animi. Rem impedit, ipsa expedita quaerat ipsum perspiciatis quo dignissimos, earum suscipit et blanditiis beatae? Similique, cumque?";
-// const title1 = "How to cook beans";
-// const title2 = "Less waste tips";
-// const title3 = "Living with non-vegans";
-// let postsTmp = [{postTitle: title1, postBody: blogPreviewText, postPicture: '../images/bean-black-rice-cereal-1537169.jpg'}, {postTitle: title2, postBody: blogPreviewText, postPicture: '../images/apple-3040132_1920.jpg'}, {postTitle: title3, postBody: blogPreviewText, postPicture: '../images/adult-asian-caucasian-1153213.jpg'}];
-
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -73,18 +66,31 @@ app.get("/share", function (_req, res) {
     res.render("share");
 });
 
+app.get("/tags/:tag", function (req, res) {
+    db.getPostsByTag(function(rows){
+        console.log(rows);
+        
+        if (rows[0].tags.includes(req.params.tag.toLowerCase().replace(/\s/g, "-"))) {
+            res.render("tagged-posts", {
+                tag: req.params.tag,
+                posts: rows
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }, req);
+});
+
 app.get("/compose", function (_req, res) {
     res.render("compose");
 });
 
 app.post("/compose", function (req, res) {
-    const post = {
-        postTitle: req.body.postTitle,
-        postBody: req.body.postBody
-    }
-    posts.push(post);
-    res.redirect("/blog");
-    console.log(posts);
+    console.log(req.body);
+    console.log(req.body.postTitle);
+    
+    // createPost(req, res);  
+    // app.post("/compose", db.createPost); 
 });
 
 app.listen(3000, function (err, _res) {

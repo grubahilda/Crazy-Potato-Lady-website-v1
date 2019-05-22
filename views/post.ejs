@@ -23,8 +23,9 @@
                 <%- restOfBody %>
             </div>
             <div class="post-tags">
+                <h2>Tags:</h2>
                 <% post.tags.forEach(function(tag){ %>
-                    <span><a href=""> <%= tag %> </a></span>
+                    <span><a href="/tags/<%= tag.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= tag %> </a></span>
                     <% }); %>
             </div>
 
