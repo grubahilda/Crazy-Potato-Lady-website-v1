@@ -47,15 +47,16 @@ nodemon server-file-name.js
 - add recipes filtering functionality
 
 ## Blog:
-- compose with a superuser role only
+- compose with a superuser role only / login
 - fix read more link, works only when the website is zoomed out? not working when 100%
 - add picture upload functionality
 - add edit post functionality
-- create regex to only get short description in the preview
 - add post filtering functionality
+- add tag filtering page
+- pagination
 
 ## General:
-- set up database
+- adjust responsivenes for small screens
 - optimize image assets
 - optmize repetetive styles
 - add newsletter subscription
