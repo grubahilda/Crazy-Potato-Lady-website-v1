@@ -1058,17 +1058,29 @@ a {
     color: inherit;
 }
 
+.blog-edit-delete-btn {
+    position: absolute;
+    font-size: 1vw;
+    z-index: 2;
+    margin: 0;
+    padding: 10px;
+    right: 10px;
+    top: 20px;
+}
+
 .blog-preview-text {
     position: relative;
     top: 300px;
     min-height: 450px;
-    padding: 20px 50px;
+    width: 75%;
+    padding: 20px 0;
 }
 
 .fas.fa-greater-than {
     padding-left: 10px;
     z-index: 2;
 }
+
 
 
 .blog-preview-text-inline-bigger {
@@ -1227,7 +1239,7 @@ p {
     font-style: italic;
 }
 
-.short-description {
+.short-description-about {
     display: block;
     color: #493a37;
 }

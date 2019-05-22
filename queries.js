@@ -9,69 +9,47 @@ const pool = new Pool({
 
 const getPosts = (callback) => {
     pool.query('SELECT * FROM blog_posts', (error, results) => {
-        
+
         if (error) {
             console.log(error);
             throw error;
         }
-        
+
         callback(results.rows);
     })
 }
 
-
-const getPostById = (callback, req, _res) => {
+const getPostById = (callback, req) => {
     const id = req.params.postid.toLowerCase().replace(/\s/g, "-");
+
     pool.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
-        
+
         if (error) {
             console.log(error);
             throw error;
         }
-        
+
         callback(results.rows);
-         
     })
 }
 
 
-// const getPostById = (callback, postId) => {
-//     pool.query('SELECT * FROM blog_posts WHERE id = $1', [postId], (error, results) => {
-        
-//         if (error) {
-//             console.log(error);
-//             throw error;
-//         }
-        
-//         callback(results.rows);
-//     })
-// }
+const createPost = (req, res) => {
+    const {
+        id,
+        title,
+        body,
+        picture
+    } = req.body
 
+    pool.query('INSERT INTO blog_posts (id, post_title, post_body, post_picture) VALUES ($1, $2, $3, $4)', [id, title, body, picture], (error, results) => {
+        if (error) {
+            throw error
+        }
+        res.status(201).send(`Blog post added with ID: ${result.insertId}`)
+    })
 
-
-
-// const getPostById = (req, res) => {
-//     const id = req.params.postid.toLowerCase().replace(/\s/g, "-");
-
-//     pool.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
-//         if(error) {
-//             throw error
-//         }
-//         return results.rows;
-//     })
-// }
-
-// const createPost = (req, res) => {
-//     const { id, title, body, picture} = req.body
-
-//     pool.query('INSERT INTO blog_posts (id, post_title, post_body, post_picture) VALUES ($1, $2, $3, $4)', [id, title, body, picture], (error, results) => {
-//         if(error){
-//             throw error
-//         }
-//         res.status(201).send(`Blog post added with ID: ${result.insertId}`)
-//     })
-        
-// }
+}
 
 // const updatePost = (req, res) => {
 //     const id = req.params.postid
@@ -101,7 +79,7 @@ const getPostById = (callback, req, _res) => {
 module.exports = {
     getPosts,
     getPostById,
-    // createPost,
+    createPost,
     // updatePost,
     // deletePost,
 }

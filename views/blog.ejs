@@ -18,6 +18,11 @@
         <% posts.forEach(function(post){ %> 
             <div class="blog-preview-post row justify-content-center col-12">
                 <div class="blog-preview-title-bar"></div>
+                <div class="blog-edit-delete-btn">
+                    <button class="btn btn-light">Edit</button>
+                <button class="btn btn-light">Delete</button>
+                </div>
+                
                 <h2 class="blog-preview-title-bar-text"><a href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= post.posttitle %> </a></h2>
                 
                 <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>
@@ -25,7 +30,7 @@
                 <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger">
                         <%= post.postbody.replace(re,"").split(" ").slice(0, 6).join(" "); %></span>
                     <%= post.postbody.replace(re,"").split(" ").slice(8, 41).join(" "); %><a href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ') %>"><i
-                            class="fas fa-greater-than"></i></a></p>
+                            class="fas fa-greater-than"></i></a></p>            
             </div>
         <% }); %> 
 

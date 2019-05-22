@@ -38,23 +38,20 @@ app.get("/blog", function (_req, res) {
 });
 
 app.get("/blog/:postid", function (req, res) {
-    console.log(db.getPostById(req, res));
-     
-    // db.getPostById(function (rows) {
-        // console.log(req.params.postid.toLowerCase().replace(/-/g, " "));
-        // console.log(rows);
-        
-        
-        // if (req.params.postid.toLowerCase().replace(/-/g, " ") === rows.id) {
-        //     res.render("post", {
-        //         post: rows
-        //     });
-        // }
-    // });
 
-
+    db.getPostById(function (rows) {
+        
+        if (req.params.postid.toLowerCase().replace(/\s/g, "-") == rows[0].id) {
+            res.render("post", {
+                post: rows[0]
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }, req);
 
 });
+
 
 app.get("/recipes", function (_req, res) {
     res.render("recipes");
