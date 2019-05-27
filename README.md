@@ -45,18 +45,16 @@ nodemon server-file-name.js
 ## Recipes:
 - add filtering buttons (for blog page, too)
 - add recipes filtering functionality
+- add CRUD for recipes
+- ingredient converter in side panel of a recipe
 
 ## Blog:
 - compose with a superuser role only / login
 - add picture upload functionality
-- add delete post functionality
 - add tag filtering page
 - pagination
 
 ## General:
 - adjust responsivenes for small screens
-- optimize image assets
 - optmize repetetive styles
 - add newsletter subscription
-- change title page depending on active page
-- change posts to be instances of a class Posts
