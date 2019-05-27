@@ -20,7 +20,8 @@ const getPosts = (callback) => {
 }
 
 const getPostById = (callback, req) => {
-    const id = req.params.postid.toLowerCase().replace(/\s/g, "-");
+    const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+    
 
     pool.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
 
@@ -48,50 +49,52 @@ const getPostsByTag = (callback, req) => {
 }
 
 
-const createPost = (req, _res) => {
+const createPost = (req, res) => {
     const title = req.body.postTitle;
     const body = req.body.postBody;
     const picture = '../images/bird-chicken-chicks-2134246.jpg';
 
-    
+    const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
+    const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    // let tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g); 
-    // const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
-    // console.log(id, title, body, picture, tags);
-    console.log(title, body, picture, req.body.postTags);
-
-    // pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4)', [id, title, body, picture, tags], (error, results) => {
-    //     if (error) {
-    //         throw error
-    //     }
-    //     res.status(201).redirect("/blog");
-    // })
+    pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4, $5)', [id, title, body, picture, tags], (error, _results) => {
+        if (error) {
+            throw error
+        }
+        res.status(201).redirect("/blog");
+    })
 
 }
 
-// const updatePost = (req, res) => {
-//     const id = req.params.postid
-//     const {title, body, picture, id} = req.body
+const updatePost = (req, res) => {
+    const oldId = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-//     pool.query('UPDATE blog_posts SET post_title = $1, post_body = $2, post_picture = $3, id = $4',
-//     [title, body, picture, id], (error, results) => {
-//         if(error) {
-//             throw error
-//         }
-//         res.status(200).send(`Blog post modified with ID: ${id}`)
-//     })
-// }
+    const title = req.body.postTitle;
+    const body = req.body.postBody;
+    const picture = '../images/animal-barn-calf-436796.jpg';
+    
+    const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
+    const newId = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");    
 
-// const deletePost = (req, res) => {
-//     const id = req.params.postid
+    pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, postpicture = $3, tags = $4, id = $5 WHERE id = $6',
+        [title, body, picture, tags, newId, oldId], (error, _results) => {
+            if (error) {
+                throw error
+            }
+            res.status(200).redirect("/blog/" + newId);
+        })
+}
 
-//     pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, results) => {
-//         if(error) {
-//             throw error
-//         }
-//         res.status(200).send(`Blog post deleted with ID: ${id}`)
-//     })
-// }
+const deletePost = (req, res) => {
+    const id = req.params.postid.toLowerCase().replace(/\s|\W/g, "-");    
+
+    pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, results) => {
+        if(error) {
+            throw error
+        }
+        res.status(200).redirect("/blog");
+    })
+}
 
 
 module.exports = {
@@ -99,6 +102,6 @@ module.exports = {
     getPostById,
     getPostsByTag,
     createPost,
-    // updatePost,
-    // deletePost,
+    updatePost,
+    deletePost
 }

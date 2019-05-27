@@ -30,11 +30,14 @@ app.get("/blog", function (_req, res) {
 
 });
 
+//  EJJJJJJ
+// chodzi o to, że wchodzi na nowy url edytowany już a jeszcze nie powinno, bo takie coś nie istnieje w bazie
+
 app.get("/blog/:postid", function (req, res) {
 
-    db.getPostById(function (rows) {
+    db.getPostById(function (rows) {        
         
-        if (req.params.postid.toLowerCase().replace(/\s/g, "-") == rows[0].id) {
+        if (req.params.postid.toLowerCase().replace(/\s|\W/g, "-") == rows[0].id) {
             res.render("post", {
                 post: rows[0]
             });
@@ -68,9 +71,8 @@ app.get("/share", function (_req, res) {
 
 app.get("/tags/:tag", function (req, res) {
     db.getPostsByTag(function(rows){
-        console.log(rows);
         
-        if (rows[0].tags.includes(req.params.tag.toLowerCase().replace(/\s/g, "-"))) {
+        if (rows[0].tags.includes(req.params.tag.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-"))) {
             res.render("tagged-posts", {
                 tag: req.params.tag,
                 posts: rows
@@ -85,13 +87,30 @@ app.get("/compose", function (_req, res) {
     res.render("compose");
 });
 
-app.post("/compose", function (req, res) {
-    console.log(req.body);
-    console.log(req.body.postTitle);
+app.post("/compose", db.createPost); 
+
+app.get('/blog/:postid/edit', function(req, res){
+
     
-    // createPost(req, res);  
-    // app.post("/compose", db.createPost); 
+
+    db.getPostById(function (rows) {
+
+        
+        if (req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") == rows[0].id) {
+            res.render("edit", {
+                post: rows[0]
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }, req);
+    
 });
+
+app.post('/blog/:postid/edit', db.updatePost);
+
+app.delete('blog/:postid', db.deletePost);
+
 
 app.listen(3000, function (err, _res) {
     if (err) {

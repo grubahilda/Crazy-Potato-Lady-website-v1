@@ -612,6 +612,12 @@ a {
 
 }
 
+/* DIV ONE SMARTPHONE RESPONSIVE */
+/* 
+@media only screen and (max-width: 360px) {
+    
+} */
+
 
 /* DIV TWO ELEMENTS */
 
@@ -625,18 +631,42 @@ a {
 }
 
 .recipeSlides {
+    margin: auto;
     display: none;
-    -webkit-transition: opacity 2s linear;
-    -moz-transition: opacity 2s linear;
-    -o-transition: opacity 2s linear;
-    transition: opacity 2s linear;
-
 }
+/*   
+  .slideLeft {
+      position: relative;
+    margin: 0;
+    left: 0;
+    font-size: 0;
+    animation: 20s slider infinite;
+  } */
 
-/* .w3-content {
+/* div#sliderMainss {
+    overflow: hidden;
+    margin: auto;
+    width: 50%;
+    max-width: 700px;
+    max-height: 400px;
+  }
+  div#slider div {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    left: 0;
+    font-size: 0;
+    
+  }
+  div#slider div img {
+    width: 20%;
+    float: left;
+  } */
+
+.w3-content {
     margin: auto;
     width: 100%;
-} */
+}
 
 .w3-left,
 .w3-right,
@@ -670,6 +700,33 @@ a {
     margin: auto;
 
 }
+
+@keyframes slider {
+    0% {
+      left: 0%;
+    }
+    20% {
+      left: 0%;
+    }
+    25% {
+      left: -100%;
+    }
+    45% {
+      left: -100%;
+    }
+    50% {
+      left: -200%;
+    }
+    70% {
+      left: -200%;
+    }
+    75% {
+      left: -300%;
+    }
+    95% {
+      left: -300%;
+    }
+  }
 
 
 
@@ -1031,9 +1088,9 @@ a {
 .blog-preview-title-bar {
     position: absolute;
     height: 5vw;
-    width: 38vw;
-    background-color: rgb(255, 255, 255);
-    opacity: 0.5;
+    /* width: 38vw; */
+    background-color: rgb(255, 255, 255, 0.5);
+    /* opacity: 0.5; */
     z-index: 1;
     margin: 0;
     left: 0px;
@@ -1045,13 +1102,13 @@ a {
 }
 
 .blog-preview-title-bar-text {
-    position: absolute;
+    /* position: absolute; */
     font-size: 3vw;
     z-index: 2;
-    margin: 0;
-    padding: 10px 20vw 10px 5vw;
-    left: 0px;
-    top: 20px;
+    margin: auto;
+    padding: 10px 100px 10px 100px;
+    /* left: 0px; */
+    /* top: 20px; */
 }
 
 .blog-preview-title-bar-text > a {
@@ -1060,12 +1117,14 @@ a {
 
 .blog-edit-delete-btn {
     position: absolute;
-    font-size: 1vw;
     z-index: 2;
-    margin: 0;
-    padding: 10px;
-    right: 10px;
     top: 20px;
+    right: 20px;
+}
+
+.blog-edit-delete-btn form {
+    display: inline;
+    margin: 0 5px 0 5px;
 }
 
 .blog-preview-text {

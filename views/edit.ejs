@@ -10,20 +10,20 @@
 
     <div class="container-fluid">
         <div class="row">
-            <h1 class="page-title">Compose a new blog post</h1>
+            <h1 class="page-title">Edit blog post "<%= post.posttitle %>"</h1>
         </div>
         <div class="row justify-content-center col-12">
-            <form method="post" action="/compose">
-                <input class="new-post-title" type="text" name="postTitle" placeholder="New post title">
+            <form method="POST" action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim() %>/edit">
+                <input class="new-post-title" type="text" name="postTitle" placeholder="New post title" value="<%= post.posttitle %>">
                 <br>
                 <!-- <input type="file" accept="image/*" name="postPictureFile" id="postFile">
                 <br> -->
                 <!-- <input type="image" src="" height="100px" alt="Submit">
                 <br> -->
-                <textarea name="postBody" class="tinymce"></textarea>
+                <textarea name="postBody" class="tinymce"><%= post.postbody %></textarea>
                 <br>
-                <input class="new-post-title" type="text" name="postTags" placeholder="Tags">
-                <button class="submit-new-post" type="submit">Post</button>
+                <input class="new-post-title" type="text" name="postTags" placeholder="Tags" value="<%= post.tags %>">
+                <button class="submit-new-post" type="submit">Update</button>
             </form>
         </div>
     </div>
