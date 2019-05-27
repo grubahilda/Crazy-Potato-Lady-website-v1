@@ -48,10 +48,8 @@ nodemon server-file-name.js
 
 ## Blog:
 - compose with a superuser role only / login
-- fix read more link, works only when the website is zoomed out? not working when 100%
 - add picture upload functionality
-- add edit post functionality
-- add post filtering functionality
+- add delete post functionality
 - add tag filtering page
 - pagination
 
@@ -61,3 +59,4 @@ nodemon server-file-name.js
 - optmize repetetive styles
 - add newsletter subscription
 - change title page depending on active page
+- change posts to be instances of a class Posts
