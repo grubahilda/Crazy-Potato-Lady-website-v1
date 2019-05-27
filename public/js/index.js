@@ -65,6 +65,11 @@ window.onload = function () {
 }
 
 
+// Page title
+window.onload = function () {
+    document.title = document.getElementsByClassName("page-title")[0].innerHTML + " || Crazy Potato Lady";
+}
+
 
 
 //ONMOUSEDOWN PHONE NUMBER REVEAL
@@ -75,3 +80,15 @@ function mouseDownPhoneNumber() {
 function mouseUpPhoneNumber() {
     document.getElementById("phoneNumber").innerHTML = document.getElementById("phoneNumber").title;
 }
+
+
+// Touch events on slide show index.ejs
+
+
+var sliderMain = document.getElementById('sliderMain');
+
+var hammertime = new Hammer(sliderMain);
+
+hammertime.on("swipe", function(ev){
+    
+});
