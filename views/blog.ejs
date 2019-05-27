@@ -34,8 +34,8 @@
                     <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit" method="GET">
                         <button class="btn btn-light" type="submit">Edit</button>
                     </form>
-                    <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>" method="POST">
-                        <button class="btn btn-light" type="submit">Delete</button>
+                    <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>" method="POST" enctype="multipart/form-data">
+                        <input onclick="return confirm('Do you really want to submit the form?');" class="btn btn-light" type="submit" value="Delete">
                     </form>
                 </div>
             <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>

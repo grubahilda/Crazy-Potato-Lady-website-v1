@@ -85,10 +85,10 @@ const updatePost = (req, res) => {
         })
 }
 
-const deletePost = (req, res) => {
-    const id = req.params.postid.toLowerCase().replace(/\s|\W/g, "-");  
+const deletePost = (req, res) => {    
+    const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");  
       
-    pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, results) => {
+    pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, _results) => {
         if(error) {
             throw error
         }
