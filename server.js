@@ -30,9 +30,6 @@ app.get("/blog", function (_req, res) {
 
 });
 
-//  EJJJJJJ
-// chodzi o to, że wchodzi na nowy url edytowany już a jeszcze nie powinno, bo takie coś nie istnieje w bazie
-
 app.get("/blog/:postid", function (req, res) {
 
     db.getPostById(function (rows) {        
@@ -91,8 +88,6 @@ app.post("/compose", db.createPost);
 
 app.get('/blog/:postid/edit', function(req, res){
 
-    
-
     db.getPostById(function (rows) {
 
         
@@ -109,7 +104,7 @@ app.get('/blog/:postid/edit', function(req, res){
 
 app.post('/blog/:postid/edit', db.updatePost);
 
-app.delete('blog/:postid', db.deletePost);
+app.post('/blog/:postid', db.deletePost);
 
 
 app.listen(3000, function (err, _res) {

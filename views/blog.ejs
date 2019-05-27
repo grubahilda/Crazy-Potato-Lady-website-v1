@@ -31,10 +31,10 @@
                 </form>
             </div> -->
             <div class="blog-edit-delete-btn">
-                    <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim() %>/edit" method="GET">
+                    <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit" method="GET">
                         <button class="btn btn-light" type="submit">Edit</button>
                     </form>
-                    <form action="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ').trim() %>" method="DELETE">
+                    <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>" method="POST">
                         <button class="btn btn-light" type="submit">Delete</button>
                     </form>
                 </div>
