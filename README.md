@@ -20,7 +20,12 @@ install node.js
 npm install
 ```
 
-4. Run the server using `node.js` or using `nodemon` to automatically restart the server
+4. Create postgres database and run migrations
+```
+npm run migrate up
+```
+
+5. Run the server using `node.js` or using `nodemon` to automatically restart the server
 
 ```
 node server-file-name.js

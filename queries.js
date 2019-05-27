@@ -3,7 +3,7 @@ const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: "crazypotatolady",
-    password: "pass",
+    password: "postgres",
     port: 5432,
 });
 
@@ -57,13 +57,13 @@ const createPost = (req, res) => {
     const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
     const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4, $5)', [id, title, body, picture, tags], (error, _results) => {
-        if (error) {
-            throw error
-        }
-        res.status(201).redirect("/blog");
-    })
-
+    pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4, $5)', 
+        [id, title, body, picture, tags], (error, _results) => {
+            if (error) {
+                throw error;
+            }
+            res.status(201).redirect("/blog");
+        });
 }
 
 const updatePost = (req, res) => {
