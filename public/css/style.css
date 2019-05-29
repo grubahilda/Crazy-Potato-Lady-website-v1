@@ -1062,6 +1062,10 @@ a {
 /* BLOG.HTML */
 
 
+.add-new-blog-post-button {
+    margin: auto;
+}
+
 .blog-preview-post {
     width: 100%;
     overflow: visible;
@@ -1412,6 +1416,10 @@ p {
     height: 450px;
     width: 100%;
     position: relative;
+}
+
+.form-request-buttons {
+    display: inline;
 }
 
 .post-content {
