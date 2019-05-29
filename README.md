@@ -50,9 +50,9 @@ nodemon server-file-name.js
 
 ## Blog:
 - compose with a superuser role only / login
-- add picture upload functionality
 - add tag filtering page
 - pagination
+- post preview in compose mode
 
 ## General:
 - adjust responsivenes for small screens
