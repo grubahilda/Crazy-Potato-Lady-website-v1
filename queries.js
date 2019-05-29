@@ -9,6 +9,11 @@ const pool = new Pool({
 
 const fs = require('fs');
 
+function getTimeStamp() {
+    const today = new Date();
+    return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+}
+
 const getPosts = (callback) => {
     pool.query('SELECT * FROM blog_posts', (error, results) => {
 
@@ -23,7 +28,7 @@ const getPosts = (callback) => {
 
 const getPostById = (callback, req) => {
     const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
-    
+
 
     pool.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
 
@@ -54,10 +59,7 @@ const getPostsByTag = (callback, req) => {
 const createPost = (req, res) => {
     const title = req.body.postTitle;
     const body = req.body.postBody;
-    // const picture = '../images/bird-chicken-chicks-2134246.jpg';    
-    const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';   
-    console.log(picture);
-     
+    const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';
 
     const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
     const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
@@ -66,9 +68,10 @@ const createPost = (req, res) => {
         if (error) {
             throw error
         }
-        res.status(201).redirect("/blog");
-    })
+    });
+    console.log(getTimeStamp() + " || New blog post has been created: " + id);
 
+    res.status(201).redirect("/blog");
 }
 
 const updatePost = (req, res) => {
@@ -76,34 +79,61 @@ const updatePost = (req, res) => {
 
     const title = req.body.postTitle;
     const body = req.body.postBody;
-    const picture = '../images/animal-barn-calf-436796.jpg';
-    
     const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
-    const newId = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");    
+    const newId = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, postpicture = $3, tags = $4, id = $5 WHERE id = $6',
-        [title, body, picture, tags, newId, oldId], (error, _results) => {
+    if (req.body.postPictureFile == '') {
+        fs.unlink(__dirname + '\\public\\images\\uploads\\' + oldId + '.jpg', (error) => {
             if (error) {
-                throw error
+                if (error.code != 'ENOENT') {
+                    throw error;
+                }
             }
-            res.status(200).redirect("/blog/" + newId);
-        })
+        });
+
+        pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, tags = $3, id = $4 WHERE id = $5',
+            [title, body, tags, newId, oldId], (error, _results) => {
+                if (error) {
+                    throw error;
+                }
+            })
+    } else {
+        const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';
+        pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, postpicture = $3, tags = $4, id = $5 WHERE id = $6',
+            [title, body, picture, tags, newId, oldId], (error, _results) => {
+                if (error) {
+                    throw error;
+                }
+            })
+        console.log(getTimeStamp() + " || Picture has been added: " + picture);
+
+    }
+    console.log(getTimeStamp() + " || Blog post has been updated: " + newId);
+
+    res.status(200).redirect("/blog/" + newId);
 }
 
-const deletePost = (req, res) => {    
-    const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");  
+const deletePost = (req, res) => {
+    const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    fs.unlink(__dirname + '/public/images/uploads/' + id + '.jpg', (err) => {
-        if (err) throw err;
-        console.log(+ id + '.jpg' + ' was deleted');
-      });
-      
+
+    fs.unlink(__dirname + '\\public\\images\\uploads\\' + id + '.jpg', (error) => {
+        if (error) {
+            if (error.code != 'ENOENT') {
+                throw error;
+            }
+        }
+        console.log(getTimeStamp() + " || Picture has been deleted: " + id + '.jpg');
+    });
+
     pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, _results) => {
-        if(error) {
+        if (error) {
             throw error
         }
-        res.status(200).redirect("/blog");
     })
+    console.log(getTimeStamp() + " || Blog post has been deleted: " + id);
+
+    res.status(200).redirect("/blog");
 }
 
 

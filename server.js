@@ -8,13 +8,14 @@ const db = require('./queries')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, __dirname + '/public/images/uploads')
+      cb(null, __dirname + '\\public\\images\\uploads\\')
     },
     filename: function (req, file, cb) {
         var originalname = file.originalname;
+        
       var extension = originalname.split(".");
       filename = req.body.postTitle.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.' + extension[extension.length-1];
-      cb(null, filename);
+      cb(null, filename);      
     }
   });
   var upload = multer({ storage: storage });
@@ -81,7 +82,7 @@ app.get('/blog/:postid/edit', function(req, res){
     
 });
 
-app.post('/blog/:postid/edit', db.updatePost);
+app.post('/blog/:postid/edit', upload.single('postPictureFileEdit'), db.updatePost);
 
 app.post('/blog/:postid', db.deletePost);
 

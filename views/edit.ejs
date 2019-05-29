@@ -13,14 +13,14 @@
             <h1 class="page-title">Edit blog post "<%= post.posttitle %>"</h1>
         </div>
         <div class="row justify-content-center col-12">
-            <form method="POST" action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim() %>/edit">
+            <form method="post" action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim() %>/edit" enctype="multipart/form-data">
                 <input class="new-post-title" type="text" name="postTitle" placeholder="New post title" value="<%= post.posttitle %>">
                 <br>
-                <!-- <input type="file" accept="image/*" name="postPictureFile" id="postFile">
-                <br> -->
-                <!-- <input type="image" src="" height="100px" alt="Submit">
-                <br> -->
-                <textarea name="postBody" class="tinymce"><%= post.postbody %></textarea>
+                <input type="file" accept="image/*" name="postPictureFileEdit" id="postFile">
+                <br>
+                <textarea name="postBody" class="tinymce">
+                    <%= post.postbody %>
+                </textarea>
                 <br>
                 <input class="new-post-title" type="text" name="postTags" placeholder="Tags" value="<%= post.tags %>">
                 <button class="submit-new-post" type="submit">Update</button>

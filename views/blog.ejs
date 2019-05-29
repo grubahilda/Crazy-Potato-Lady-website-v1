@@ -22,14 +22,6 @@
                         href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ').trim() %>"> <%= post.posttitle %> </a>
                 </h2>
             </div>
-            <!-- <div class="blog-edit-delete-btn">
-                <form action="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ').trim() %>/edit" method="GET">
-                    <button class="btn btn-light" type="submit">Edit</button>
-                </form>
-                <form action="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ').trim() %>" method="DELETE">
-                    <button class="btn btn-light" type="submit">Delete</button>
-                </form>
-            </div> -->
             <div class="blog-edit-delete-btn">
                     <form action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit" method="GET">
                         <button class="btn btn-light" type="submit">Edit</button>
@@ -38,7 +30,6 @@
                         <input onclick="return confirm('Do you really want to submit the form?');" class="btn btn-light" type="submit" value="Delete">
                     </form>
                 </div>
-                <% console.log(post.postpicture) %>
             <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>
             <% const re = /(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi; %>
             <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger">
