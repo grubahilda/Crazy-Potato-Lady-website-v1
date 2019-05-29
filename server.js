@@ -1,9 +1,23 @@
 //jshint esversion:6
 
 const express = require('express');
+const multer = require('multer');
 const bodyParser = require("body-parser");
 const db = require('./queries')
 // const ejs = require("ejs");
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, __dirname + '/public/images/uploads')
+    },
+    filename: function (req, file, cb) {
+        var originalname = file.originalname;
+      var extension = originalname.split(".");
+      filename = req.body.postTitle.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.' + extension[extension.length-1];
+      cb(null, filename);
+    }
+  });
+  var upload = multer({ storage: storage });
 
 const app = express();
 
@@ -30,6 +44,12 @@ app.get("/blog", function (_req, res) {
 
 });
 
+app.get("/blog/compose", function (_req, res) {
+    res.render("compose");
+});
+
+app.post("/blog/compose", upload.single('postPictureFile'), db.createPost); 
+
 app.get("/blog/:postid", function (req, res) {
 
     db.getPostById(function (rows) {        
@@ -45,9 +65,33 @@ app.get("/blog/:postid", function (req, res) {
 
 });
 
+app.get('/blog/:postid/edit', function(req, res){
+
+    db.getPostById(function (rows) {
+
+        
+        if (req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") == rows[0].id) {
+            res.render("edit", {
+                post: rows[0]
+            });
+        } else {
+            res.sendStatus(404);
+        }
+    }, req);
+    
+});
+
+app.post('/blog/:postid/edit', db.updatePost);
+
+app.post('/blog/:postid', db.deletePost);
+
 
 app.get("/recipes", function (_req, res) {
     res.render("recipes");
+});
+
+app.get("/recipes/compose", (req, res) => {
+    res.render("compose-recipes");
 });
 
 app.get("/about", function (_req, res) {
@@ -80,31 +124,6 @@ app.get("/tags/:tag", function (req, res) {
     }, req);
 });
 
-app.get("/compose", function (_req, res) {
-    res.render("compose");
-});
-
-app.post("/compose", db.createPost); 
-
-app.get('/blog/:postid/edit', function(req, res){
-
-    db.getPostById(function (rows) {
-
-        
-        if (req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") == rows[0].id) {
-            res.render("edit", {
-                post: rows[0]
-            });
-        } else {
-            res.sendStatus(404);
-        }
-    }, req);
-    
-});
-
-app.post('/blog/:postid/edit', db.updatePost);
-
-app.post('/blog/:postid', db.deletePost);
 
 
 app.listen(3000, function (err, _res) {

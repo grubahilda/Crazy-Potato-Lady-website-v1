@@ -7,6 +7,8 @@ const pool = new Pool({
     port: 5432,
 });
 
+const fs = require('fs');
+
 const getPosts = (callback) => {
     pool.query('SELECT * FROM blog_posts', (error, results) => {
 
@@ -52,7 +54,10 @@ const getPostsByTag = (callback, req) => {
 const createPost = (req, res) => {
     const title = req.body.postTitle;
     const body = req.body.postBody;
-    const picture = '../images/bird-chicken-chicks-2134246.jpg';
+    // const picture = '../images/bird-chicken-chicks-2134246.jpg';    
+    const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';   
+    console.log(picture);
+     
 
     const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
     const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
@@ -87,6 +92,11 @@ const updatePost = (req, res) => {
 
 const deletePost = (req, res) => {    
     const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");  
+
+    fs.unlink(__dirname + '/public/images/uploads/' + id + '.jpg', (err) => {
+        if (err) throw err;
+        console.log(+ id + '.jpg' + ' was deleted');
+      });
       
     pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, _results) => {
         if(error) {
