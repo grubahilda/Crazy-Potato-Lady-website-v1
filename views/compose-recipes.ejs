@@ -28,19 +28,18 @@
                 <input id="prepTime" class="new-recipe-title" type="text" name="prepTime" style="width: 35px;">
                 <label for="servings">Servings:</label>
                 <input id="servings" class="new-recipe-title" type="text" name="servings" style="width: 35px;">
-                <br>
-                <!-- add button to add more ingredients, initial 2? -->
-                <br>
                 <fieldset id="fieldIngredients">
                     <legend>Ingredients:</legend>
-                    <input type="text" placeholder="Ingredient">
-                    <input type="text" placeholder="Amount">
-                    <select name="" id="">
-                        <option value="piece">Piece</option>
-                        <option value="ml">ml</option>
-                        <option value="g">g</option>
-                    </select>
-                    <button class="addIngredientButton" onclick="addIngredient()">+</button>
+                    <div id="ingredient1" class="">
+                        <input type="text" placeholder="Ingredient">
+                        <input type="text" placeholder="Amount">
+                        <select name="">
+                            <option value="piece">Piece</option>
+                            <option value="ml">ml</option>
+                            <option value="g">g</option>
+                        </select>
+                        <button type="button" class="addIngredientButton" onclick="addIngredient()">+</button>
+                    </div>
                 </fieldset>
 
                 <!-- <input type="file" accept="image/*" name="recipePictureFile" id="recipeFile">

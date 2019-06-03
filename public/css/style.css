@@ -293,9 +293,26 @@ a {
         float: right;
         display: block;
     }
-}
 
-@media screen and (max-width: 992px) {
+    .dropdown-content {
+        /* display: block; */
+    }
+
+    .dropdown-responsive {
+        float: left;
+        color: #e7bab3;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-weight: 300;
+        font-size: 1rem;
+    }
+
+    
+    .dropdown-responsive:hover {
+        background-color: #131414;
+        color: #e7bab3;
+    }
+
 
     .top-nav.responsive {
         height: 280px;
@@ -359,7 +376,7 @@ a {
 }
 
 .div-two {
-    height: 600px;
+    height: 650px;
     background-color: #c7dad3;
     display: block;
 }
@@ -696,6 +713,11 @@ a {
         top: -5%;
         background-size: 120%;
     }
+
+        .div-three, .div-four {
+            height: 600px;
+        }
+
 }
 
 @media only screen and (max-width: 650px) {
@@ -739,6 +761,7 @@ a {
         min-width: 500px;
         background-size: 140%;
     }
+    
 }
 
 @media only screen and (max-width: 520px) {
@@ -788,11 +811,44 @@ a {
     }
 }
 
-/* DIV ONE SMARTPHONE RESPONSIVE */
-/* 
-@media only screen and (max-width: 360px) {
-    
-} */
+@media only screen and (max-width: 411px) {
+    .moon-img {
+        /* left: 25%; */
+    }
+
+    .div-three, .div-four {
+        /* margin: 0 -0px 0 20px; */
+        padding: 40px 0;
+        max-width: 100%;
+        height: 750px;
+    }
+
+    .row.simple-grid, .row.grid-container {
+        max-width: 320px;
+        margin: auto;
+    }
+
+    div.feature-box-image.item-one-simple {
+        width: 300px;
+        margin-left: -10px;
+        max-width: 250px;
+    }
+
+    .row-images {
+        margin-left: -80px;
+    }
+
+    .feature-box-text {
+        max-width: 320px;
+        padding: 0;
+    }
+
+
+    h3.copyright {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+}
 
 
 /* DIV TWO ELEMENTS */
@@ -951,7 +1007,6 @@ a {
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
-    /* white-space: nowrap; */
 }
 
 
@@ -989,7 +1044,6 @@ a {
 .feature-box-text {
     text-align: center;
     padding: 0 2%;
-    /* width: 100%; */
 }
 
 .feature-box-text>p {
@@ -1347,6 +1401,34 @@ a {
     margin-right: 20px;
 }
 
+@media only screen and (max-width: 411px) {
+    .blog-preview-title-bar {
+        height: 50px;
+    }
+
+    .blog-preview-title-bar-text {
+        font-size: 1.5rem;
+        padding: 10px 20px 10px 20px;
+    }
+
+    .blog-edit-delete-btn {
+        top: 45%;
+    }
+
+    .blog-preview-text-inline-bigger {
+        font-size: 1.5rem;
+    }
+
+    .post-picture {
+        height: 300px !important;
+    }
+
+    .short-description, .post-content, .post-tags {
+        margin: 30px 20px !important;
+    }
+}
+
+
 
 /* About page */
 
@@ -1586,6 +1668,36 @@ p {
     color: inherit;
 }
 
+@media only screen and (max-width: 411px) {
+    .cv-title {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .about-text {
+        width: 300px;
+        margin: 10px;
+        padding: 0;
+    }
+
+    .cv-headline {
+        margin-top: 0;
+    }
+
+    .contact-item {
+        margin-top: 10px;
+    }
+
+    .side-panel-grid {
+        margin: 10px;
+    }
+
+    .work-education-items {
+        margin: 10px;
+    }
+}
+
 
 
 /* COMPOSE PAGE */
@@ -1613,6 +1725,11 @@ p {
 
 .form-request-buttons {
     display: inline;
+}
+
+form > button.btn-light, form > input.btn-light {
+    margin-bottom: 20px;
+    margin-right: 10px;
 }
 
 .post-content {
@@ -1645,4 +1762,10 @@ p {
 
 .post-tags a:hover {
     color: rgb(58, 66, 65);
+}
+
+@media only screen and (max-width: 411px) {
+    .new-post-title {
+        width: 100%;
+    }
 }
