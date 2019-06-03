@@ -413,145 +413,152 @@ a {
 
 .cabbage {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
     width: 12rem;
     position: absolute;
     left: 15%;
-    bottom: 30%;
+    bottom: 45%;
     animation: float1 6s ease-in-out infinite;
 }
 
 .green-pea {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 8rem;
     position: absolute;
-    left: 30%;
-    top: 30%;
+    left: 27%;
+    top: 15%;
     animation: float1 4s ease-in-out infinite;
 }
 
 .celery {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 10rem;
     position: absolute;
-    left: 30%;
-    bottom: 8%;
+    left: 25%;
+    bottom: 23%;
     animation: float2 8s ease-in-out infinite;
 }
 
 .tomato {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 8rem;
     position: absolute;
-    left: 43%;
-    top: 35%;
+    left: 37%;
+    top: 20%;
     animation: float2 4s ease-in-out infinite;
 }
 
 .potato {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 8rem;
     position: absolute;
-    left: 40%;
-    bottom: 8%;
+    left: 35%;
+    bottom: 23%;
     animation: float1 4s ease-in-out infinite;
 }
 
 .onion {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 7rem;
     position: absolute;
-    left: 55%;
-    top: 29%;
+    left: 48%;
+    top: 14%;
     animation: float1 5s ease-in-out infinite;
 }
 
 .broccoli {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 18rem;
     position: absolute;
-    left: 50%;
-    bottom: 2%;
+    left: 43%;
+    bottom: 12%;
     animation: float2 10s ease-in-out infinite;
+}
+
+.pumpkin {
+    background: transparent;
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
+    width: 15rem;
+    position: absolute;
+    left: 60%;
+    top: 25%;
+    animation: float2 3s ease-in-out infinite;
 }
 
 .plank {
     background: transparent;
     transform-origin: top center;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
     width: 15rem;
     position: absolute;
-    left: 50%;
-    bottom: 30%;
+    left: 45%;
+    bottom: 45%;
     animation: swing 5s ease-in-out infinite;
 }
 
 .raddish {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 2rem;
     position: absolute;
-    left: 68%;
-    top: 40%;
+    left: 30%;
+    top: 35%;
     animation: float2 3s ease-in-out infinite;
 }
 
 .mushroom {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 5rem;
     position: absolute;
-    left: 70%;
-    top: 25%;
+    left: 60%;
+    top: 10%;
     animation: float1 4.5s ease-in-out infinite;
 }
 
 .avocado {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 5rem;
     position: absolute;
-    left: 82%;
-    bottom: 49%;
+    left: 73%;
+    top: 30%;
     animation: float2 5s ease-in-out infinite;
 }
 
 .cucumber {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a); */
     /* filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 7rem;
     position: absolute;
-    left: 73%;
-    bottom: 10%;
+    left: 60%;
+    bottom: 25%;
     animation: float2 3s ease-in-out infinite;
 }
 
 .leek {
     background: transparent;
-    -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
-    filter: drop-shadow(5px 5px 5px #556e6a);
+    /* -webkit-filter: drop-shadow(5px 5px 5px #556e6a);
+    filter: drop-shadow(5px 5px 5px #556e6a); */
     width: 7rem;
     position: absolute;
-    left: 83%;
-    bottom: 15%;
+    left: 70%;
+    bottom: 25%;
     animation: float1 6s ease-in-out infinite;
 }
 
@@ -612,6 +619,175 @@ a {
 
 }
 
+@media only screen and (max-width: 1500px) {
+
+    .pumpkin,
+    .broccoli {
+        visibility: hidden;
+    }
+
+    .potato {
+        left: 40%;
+    }
+
+    .mushroom {
+        left: 70%;
+    }
+
+    .onion {
+        left: 55%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .raddish,
+    .tomato,
+    .celery {
+        visibility: hidden;
+    }
+
+    .green-pea {
+        left: 20%;
+    }
+
+    .onion {
+        left: 45%;
+    }
+
+    .mushroom {
+        left: 70%;
+        top: 20%;
+    }
+
+    .leek {
+        left: 65%;
+        top: 55%;
+    }
+
+    .avocado {
+        left: 75%;
+        top: 35%;
+    }
+
+    .cabbage {
+        left: 15%;
+    }
+
+    .potato {
+        left: 22%;
+    }
+
+    .cucumber {
+        left: 45%;
+        top: 65%;
+    }
+
+    .plank {
+        left: 38%;
+        top: 30%;
+    }
+
+    .div-one {
+        height: 700px;
+    }
+
+    .background-image {
+        top: -5%;
+        background-size: 120%;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+
+    .avocado,
+    .cabbage {
+        visibility: hidden;
+    }
+
+    .plank {
+        left: 35%;
+    }
+
+    .mushroom, .leek {
+        left: 70%;
+    }
+
+    .mushroom {
+        top: 18%;
+    }
+
+    .potato, .green-pea {
+        left: 20%;
+        /* bottom: 28%; */
+    }
+
+    .cucumber, .onion {
+        left: 45%;
+    }
+
+    .cucumber, .leek, .potato {
+        top: 70%;
+    }
+
+    .div-one {
+        height: 600px;
+    }
+
+    .background-image {
+        top: -17%;
+        min-width: 500px;
+        background-size: 140%;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+
+    .green-pea {
+        top: 15%;
+        left: 10%;
+    }
+
+    .mushroom {
+        visibility: hidden;
+    }
+
+    .tomato {
+        visibility: visible;
+        top: 8%;
+        left: 60%;
+    }
+
+    .leek {
+        left: 60%;
+        top: 66%;
+    }
+
+    .potato {
+        top: 70%;
+        left: 10%;
+    }
+
+    .plank {
+        top: 20%;
+        left: 25%;
+    }
+
+    .onion, .cucumber {
+        visibility: hidden;
+    }
+
+    .div-one {
+        height: 500px;
+    }
+
+    .background-image {
+        top: -30%;
+        min-width: 500px;
+        background-size: 140%;
+    }
+}
+
 /* DIV ONE SMARTPHONE RESPONSIVE */
 /* 
 @media only screen and (max-width: 360px) {
@@ -634,6 +810,7 @@ a {
     margin: auto;
     display: none;
 }
+
 /*   
   .slideLeft {
       position: relative;
@@ -703,30 +880,37 @@ a {
 
 @keyframes slider {
     0% {
-      left: 0%;
+        left: 0%;
     }
+
     20% {
-      left: 0%;
+        left: 0%;
     }
+
     25% {
-      left: -100%;
+        left: -100%;
     }
+
     45% {
-      left: -100%;
+        left: -100%;
     }
+
     50% {
-      left: -200%;
+        left: -200%;
     }
+
     70% {
-      left: -200%;
+        left: -200%;
     }
+
     75% {
-      left: -300%;
+        left: -300%;
     }
+
     95% {
-      left: -300%;
+        left: -300%;
     }
-  }
+}
 
 
 
@@ -1101,7 +1285,9 @@ a {
     top: 20px;
 }
 
-.blog-preview-title-bar-text, .blog-preview-text>a, .read-older a {
+.blog-preview-title-bar-text,
+.blog-preview-text>a,
+.read-older a {
     color: black;
 }
 
@@ -1115,7 +1301,7 @@ a {
     /* top: 20px; */
 }
 
-.blog-preview-title-bar-text > a {
+.blog-preview-title-bar-text>a {
     color: inherit;
 }
 
@@ -1179,11 +1365,17 @@ a {
     margin-bottom: 30px;
 }
 
-.cv-title, .skill, .full {
+.cv-title,
+.skill,
+.full {
     background-color: #3e7e75;
 }
 
-.contact-item i, .cv-headline, .work-education-item h3, .responsibilities-list>li::before, .subjects-list>li::before {
+.contact-item i,
+.cv-headline,
+.work-education-item h3,
+.responsibilities-list>li::before,
+.subjects-list>li::before {
     color: #3e7e75;
 }
 
@@ -1211,10 +1403,10 @@ a {
 
 .phone-number {
     user-select: none;
-   -webkit-user-select: none;
-   -khtml-user-select: none;
-   -moz-user-select: none;
-   -ms-user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .cv-side-panel-items {
@@ -1344,7 +1536,8 @@ p {
         margin: 20px 50px 50px 50px;
     }
 
-    .cv-title h2, .cv-title h3 {
+    .cv-title h2,
+    .cv-title h3 {
         text-align: center;
     }
 
@@ -1390,7 +1583,7 @@ p {
 
 .contact-me {
     font-weight: bold;
-    color: inherit; 
+    color: inherit;
 }
 
 
