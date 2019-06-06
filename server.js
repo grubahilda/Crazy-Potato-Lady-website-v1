@@ -12,20 +12,6 @@ const pool = new Pool({
   ssl: true
 });
 
-
-app.get('/db', async (req, res) => {
-    try {
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM test_table');
-      const results = { 'results': (result) ? result.rows : null};
-      res.render('pages/db', results );
-      client.release();
-    } catch (err) {
-      console.error(err);
-      res.send("Error " + err);
-    }
-  });
-
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, __dirname + '\\public\\images\\uploads\\')
@@ -52,6 +38,19 @@ app.use(express.static("public"));
 app.get("/", function (_req, res) {
     res.render("index");
 });
+
+app.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM test_table');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  });
 
 
 app.get("/blog", function (_req, res) {
