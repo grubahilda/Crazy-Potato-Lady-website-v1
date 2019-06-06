@@ -127,7 +127,7 @@ app.get("/tags/:tag", function (req, res) {
 
 
 
-app.listen(3000, function (err, _res) {
+app.listen(process.env.PORT || 5000, function (err, _res) {
     if (err) {
         console.log("Error: " + err);
     } else {
