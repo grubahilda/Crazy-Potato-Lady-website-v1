@@ -6,6 +6,26 @@ const bodyParser = require("body-parser");
 const db = require('./queries')
 // const ejs = require("ejs");
 
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
+
+
+app.get('/db', async (req, res) => {
+    try {
+      const client = await pool.connect()
+      const result = await client.query('SELECT * FROM test_table');
+      const results = { 'results': (result) ? result.rows : null};
+      res.render('pages/db', results );
+      client.release();
+    } catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+    }
+  });
+
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, __dirname + '\\public\\images\\uploads\\')
