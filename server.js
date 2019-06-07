@@ -13,9 +13,11 @@ const pool = new Pool({
     ssl: true
 });
 
+
+// MULTER CONFIGURATION
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, __dirname + '\\public\\images\\uploads\\')
+        cb(null, '/uploads/')
     },
     filename: function (req, file, cb) {
         var originalname = file.originalname;
@@ -28,6 +30,16 @@ var storage = multer.diskStorage({
 var upload = multer({
     storage: storage
 });
+
+// CLOUDINARY CONFIGUATION
+const cloudinary = require('cloudinary').v2
+    cloudinary.config({
+      cloud_name: 'crazypotatolady',
+      api_key: '411748534562646',
+      api_secret: 'uGEMTEU5wayXyrS11aK2b6-Knhk'
+    });
+
+
 
 const app = express();
 

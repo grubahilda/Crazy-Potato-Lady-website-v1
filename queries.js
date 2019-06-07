@@ -1,9 +1,14 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
     user: 'postgres',
+    host: 'localhost',
+    database: "crazypotatolady",
     password: "pass",
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    port: 5432
+    // user: 'postgres',
+    // password: "pass",
+    // connectionString: process.env.DATABASE_URL,
+    // ssl: true
 });
 
 const fs = require('fs');
@@ -58,7 +63,11 @@ const getPostsByTag = (callback, req) => {
 const createPost = (req, res) => {
     const title = req.body.postTitle;
     const body = req.body.postBody;
-    const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';
+
+    // cloudinary.v2.uploader.upload("/upload/my_image.jpg", 
+    // function(error, result) {console.log(result, error)});
+
+    const picture = '../images/uploads/' + req.file.filename;
 
     const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
     const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
@@ -115,15 +124,15 @@ const updatePost = (req, res) => {
 const deletePost = (req, res) => {
     const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-
-    fs.unlink(__dirname + '\\public\\images\\uploads\\' + id + '.jpg', (error) => {
-        if (error) {
-            if (error.code != 'ENOENT') {
-                throw error;
-            }
-        }
-        console.log(getTimeStamp() + " || Picture has been deleted: " + id + '.jpg');
-    });
+    cloudinary.uploader.destroy(id, function(result) { console.log(result) });
+    // fs.unlink('https://res.cloudinary.com/crazypotatolady/image/upload/' + id + '.jpg', (error) => {        
+    //     if (error) {
+    //         if (error.code != 'ENOENT') {
+    //             throw error;
+    //         }
+    //     }
+    //     console.log(getTimeStamp() + " || Picture has been deleted: " + id + '.jpg');
+    // });
 
     pool.query('DELETE FROM blog_posts WHERE id = $1', [id], (error, _results) => {
         if (error) {
