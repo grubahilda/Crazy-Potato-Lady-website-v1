@@ -43,21 +43,14 @@ app.get("/", function (_req, res) {
     res.render("index");
 });
 
-app.get('/db', async (req, res) => {
+app.get('/db', (req, res) => {
     try {
-        const client = await pool.connect();
-        const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+        db.getPosts(function (rows) {
 
-
-        const result = await client.query('SELECT * FROM blog_posts WHERE id = $1', [id], (error, results) => {
-
-            callback(results.rows);
-        })
-        const results = {
-            'results': (result) ? result.rows : null
-        };
-        res.render("blog", results);
-        client.release();
+            res.render("blog", {
+                posts: rows
+            });
+        });
     } catch (err) {
         console.error(err);
         res.send("Error: " + err);
