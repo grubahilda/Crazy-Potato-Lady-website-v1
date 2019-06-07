@@ -17,7 +17,7 @@ const pool = new Pool({
 // MULTER CONFIGURATION
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'https://res.cloudinary.com/crazypotatolady/image/upload/')
+        cb(null, 'upload/')
     },
     filename: function (req, file, cb) {
         var originalname = file.originalname;
@@ -30,6 +30,8 @@ var storage = multer.diskStorage({
 var upload = multer({
     storage: storage
 });
+
+
 
 
 
