@@ -15,11 +15,11 @@ const pool = new Pool({
 
 // CLOUDINARY CONFIGUATION
 const cloudinary = require('cloudinary').v2
-    cloudinary.config({
-      cloud_name: 'crazypotatolady',
-      api_key: '411748534562646',
-      api_secret: 'uGEMTEU5wayXyrS11aK2b6-Knhk'
-    });
+cloudinary.config({
+    cloud_name: 'crazypotatolady',
+    api_key: '411748534562646',
+    api_secret: 'uGEMTEU5wayXyrS11aK2b6-Knhk'
+});
 
 function getTimeStamp() {
     const today = new Date();
@@ -69,25 +69,33 @@ const getPostsByTag = (callback, req) => {
 
 
 const createPost = (req, res) => {
-    const title = req.body.postTitle;
-    const body = req.body.postBody;
+    // const title = req.body.postTitle;
+    // const body = req.body.postBody;
 
-    // cloudinary.v2.uploader.upload("/upload/my_image.jpg", 
-    // function(error, result) {console.log(result, error)});
+    cloudinary.v2.uploader.upload(req.body.postTitle, {
+            resource_type: "image",
+            public_id: req.body.postTitle,
+            overwrite: true
+            // notification_url: "https://mysite.example.com/notify_endpoint"
+        },
+        function (error, result) {
+            console.log(result, error)
+        });
 
-    const picture = '../images/uploads/' + req.file.filename;
 
-    const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
-    const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+    // const picture = '../images/uploads/' + req.file.filename;
 
-    pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4, $5)', [id, title, body, picture, tags], (error, _results) => {
-        if (error) {
-            throw error
-        }
-    });
-    console.log(getTimeStamp() + " || New blog post has been created: " + id);
+    // const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
+    // const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    res.status(200).redirect("/blog");
+    // pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4, $5)', [id, title, body, picture, tags], (error, _results) => {
+    //     if (error) {
+    //         throw error
+    //     }
+    // });
+    // console.log(getTimeStamp() + " || New blog post has been created: " + id);
+
+    // res.status(200).redirect("/blog");
 }
 
 const updatePost = (req, res) => {
@@ -132,7 +140,9 @@ const updatePost = (req, res) => {
 const deletePost = (req, res) => {
     const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    cloudinary.uploader.destroy(id, function(result) { console.log(result) });
+    cloudinary.uploader.destroy(id, function (result) {
+        console.log(result)
+    });
     // fs.unlink('https://res.cloudinary.com/crazypotatolady/image/upload/' + id + '.jpg', (error) => {        
     //     if (error) {
     //         if (error.code != 'ENOENT') {
