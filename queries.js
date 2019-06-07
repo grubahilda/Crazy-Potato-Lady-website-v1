@@ -11,7 +11,15 @@ const pool = new Pool({
     ssl: true
 });
 
-const fs = require('fs');
+// const fs = require('fs');
+
+// CLOUDINARY CONFIGUATION
+const cloudinary = require('cloudinary').v2
+    cloudinary.config({
+      cloud_name: 'crazypotatolady',
+      api_key: '411748534562646',
+      api_secret: 'uGEMTEU5wayXyrS11aK2b6-Knhk'
+    });
 
 function getTimeStamp() {
     const today = new Date();
