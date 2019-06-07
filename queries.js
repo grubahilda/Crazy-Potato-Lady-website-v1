@@ -1,10 +1,11 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
     user: 'postgres',
-    host: 'localhost',
-    database: "crazypotatolady",
+    // host: 'localhost',
+    // database: "crazypotatolady",
     password: "pass",
-    port: 5432,
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 });
 
 const fs = require('fs');
@@ -25,29 +26,6 @@ const getPosts = (callback) => {
         callback(results.rows);
     })
 }
-
-// try {
-//     const client = await pool.connect()
-//     const result = await client.query('SELECT * FROM blog_posts');
-//     const results = { 'results': (result) ? result.rows : null};
-//     res.send( results );
-//     client.release();
-//   } catch (err) {
-//     console.error(err);
-//     res.send("Error: " + err);
-//   }
-
-// const getPosts = (callback) => {
-//     pool.query('SELECT * FROM blog_posts', (error, results) => {
-
-//         if (error) {
-//             console.log(error);
-//             throw error;
-//         }
-
-//         callback(results.rows);
-//     })
-// }
 
 const getPostById = (callback, req) => {
     const id = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
