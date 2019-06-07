@@ -4,7 +4,6 @@ const express = require('express');
 const multer = require('multer');
 const bodyParser = require("body-parser");
 const db = require('./queries')
-// const ejs = require("ejs");
 
 const {
     Pool
@@ -43,7 +42,7 @@ app.get("/", function (_req, res) {
     res.render("index");
 });
 
-app.get('/db', (req, res) => {
+app.get("/blog", function (_req, res) {
     try {
         db.getPosts(function (rows) {
 
@@ -55,18 +54,6 @@ app.get('/db', (req, res) => {
         console.error(err);
         res.send("Error: " + err);
     }
-});
-
-
-app.get("/blog", function (_req, res) {
-    db.getPosts(function (rows) {
-
-        res.render("blog", {
-            posts: rows
-        });
-    });
-
-
 });
 
 app.get("/blog/compose", function (_req, res) {

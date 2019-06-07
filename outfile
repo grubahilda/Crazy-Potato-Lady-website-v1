@@ -1,0 +1,180 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 11.3
+-- Dumped by pg_dump version 11.3
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: blog_posts; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.blog_posts (
+    id character varying(50) NOT NULL,
+    posttitle character varying(100) NOT NULL,
+    postbody character varying(2000) NOT NULL,
+    postpicture character varying(60) NOT NULL,
+    createdate timestamp with time zone DEFAULT now(),
+    tags text[]
+);
+
+
+ALTER TABLE public.blog_posts OWNER TO postgres;
+
+--
+-- Name: recipes; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.recipes (
+    recipeid integer NOT NULL,
+    title character varying(50) NOT NULL,
+    category character varying(20) NOT NULL,
+    preprime integer NOT NULL,
+    servings integer NOT NULL,
+    ingredients character varying(20)[] NOT NULL,
+    methoditems character varying(50)[] NOT NULL,
+    tags character varying(20)[] NOT NULL,
+    tips character varying(50)[],
+    createdate timestamp with time zone
+);
+
+
+ALTER TABLE public.recipes OWNER TO postgres;
+
+--
+-- Name: recipes_recipeid_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.recipes_recipeid_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.recipes_recipeid_seq OWNER TO postgres;
+
+--
+-- Name: recipes_recipeid_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.recipes_recipeid_seq OWNED BY public.recipes.recipeid;
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.users_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO postgres;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.users_id_seq OWNED BY public.blog_posts.id;
+
+
+--
+-- Name: blog_posts id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.blog_posts ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+--
+-- Name: recipes recipeid; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.recipes ALTER COLUMN recipeid SET DEFAULT nextval('public.recipes_recipeid_seq'::regclass);
+
+
+--
+-- Data for Name: blog_posts; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.blog_posts (id, posttitle, postbody, postpicture, createdate, tags) FROM stdin;
+which-exercise-is-the-healthiest	Which exercise is the healthiest?	<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto facere corporis voluptatum, exercitationem quibusdam obcaecati fugiat ipsa magnam harum quia.</div>\r\n<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit et maxime neque vel iusto eveniet consequuntur assumenda! Illum accusantium similique deleniti, eum placeat, amet aliquam libero sapiente quas rerum necessitatibus accusamus obcaecati nulla dignissimos possimus perspiciatis. Eligendi consequuntur repudiandae expedita.</p>	../images/uploads/which-exercise-is-the-healthiest.jpg	2019-05-29 22:10:39.558276+02	{healthy,exercise,sports,active,health,sport}
+how-to-cook-beans	How to cook beans	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit et maxime neque vel iusto eveniet consequuntur assumenda!</div>\r\n<p>Illum accusantium similique deleniti, eum placeat, amet aliquam libero sapiente quas rerum necessitatibus accusamus obcaecati nulla dignissimos possimus perspiciatis. Eligendi consequuntur repudiandae expedita. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non reprehenderit culpa similique aperiam! Possimus magnam non nulla eaque laboriosam enim.</p>	../images/uploads/how-to-cook-beans.jpg	2019-05-29 22:13:32.707755+02	{homemade,healthy,beans,cheap,lentils,legumes,cooking,food}
+less-waste-tips	Less waste tips	<div>Illum accusantium similique deleniti, eum placeat, amet aliquam libero sapiente quas rerum necessitatibus accusamus obcaecati nulla dignissimos possimus perspiciatis.</div>\r\n<p>Eligendi consequuntur repudiandae expedita. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non reprehenderit culpa similique aperiam! Possimus magnam non nulla eaque laboriosam enim. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit placeat rem ad, nisi laboriosam quas iusto facere animi. Quibusdam, ullam. Eaque necessitatibus beatae doloribus, mollitia odit eius eum similique repellat.</p>	../images/uploads/less-waste-tips.jpg	2019-05-29 22:15:31.181664+02	{eco,less,waste,zero,waste,plastic,waste,sustainable,lifestyle}
+ddeseeeswes	ddeseeeswes	<div>Short description</div>\r\n<p>Blog post actual content</p>	../images/uploads/ddeseeeswes.jpg	2019-06-01 14:34:03.594325+02	{homemade,healthy}
+yet-another-test-post	Yet another test post	<div>You can use LIMIT and OFFSET in order to get chunks of data from the database. You need 2 variables to do the pagination, page and</div>\r\n<p><span style="color: #212529; font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;">Add captions to your slides easily with the .carousel-caption element within any .carousel-item. They can be easily hidden on smaller viewports, as shown below, with optional display utilities. We hide them initially with .d-none and bring them back on medium-sized devices with .d-md-block.</span></p>	../images/uploads/yet-another-test-post.jpg	2019-05-25 17:11:00.338185+02	{homemade,healthy}
+living-with-non-vegans	Living with non-vegans	<div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore dolorem, recusandae est eligendi tempore fugiat sint ex ab repudiandae exercitationem assumenda maxime earum nisi dignissimos eum perspiciatis unde aperiam tempora itaque et blanditiis quod placeat? Vel aliquid ab eveniet laboriosam consectetur molestias doloremque ipsum tenetur.</div>\\nProvident assumenda dolorem fugiat atque, ullam magnam quidem reprehenderit. Exercitationem officiis expedita rerum architecto dolorem explicabo atque iusto debitis quis officia id eligendi excepturi omnis, facere perspiciatis nobis facilis. Illum esse placeat ut, dicta eos quod mollitia ipsam animi. Rem impedit, ipsa expedita quaerat ipsum perspiciatis quo dignissimos, earum suscipit et blanditiis beatae? Similique, cumque?	../images/uploads/living-with-non-vegans.jpg	2019-05-16 09:21:48.489572+02	{people,non-vegans,social,relationships,family,friends,vegans}
+\.
+
+
+--
+-- Data for Name: recipes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.recipes (recipeid, title, category, preprime, servings, ingredients, methoditems, tags, tips, createdate) FROM stdin;
+\.
+
+
+--
+-- Name: recipes_recipeid_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.recipes_recipeid_seq', 1, false);
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.users_id_seq', 2, true);
+
+
+--
+-- Name: recipes recipes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.recipes
+    ADD CONSTRAINT recipes_pkey PRIMARY KEY (recipeid);
+
+
+--
+-- Name: recipes recipes_title_key; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.recipes
+    ADD CONSTRAINT recipes_title_key UNIQUE (title);
+
+
+--
+-- Name: blog_posts users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.blog_posts
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
