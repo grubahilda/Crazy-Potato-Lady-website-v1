@@ -811,7 +811,7 @@ a {
     }
 }
 
-@media only screen and (max-width: 411px) {
+@media only screen and (max-width: 414px) {
 
 
     .div-three, .div-four {
@@ -1399,7 +1399,7 @@ a {
     margin-right: 20px;
 }
 
-@media only screen and (max-width: 411px) {
+@media only screen and (max-width: 414px) {
     .blog-preview-title-bar {
         height: 50px;
     }
@@ -1592,9 +1592,9 @@ p {
 .subjects-list {
     margin-top: 20px;
     list-style: none;
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
 }
 
 
@@ -1605,7 +1605,8 @@ p {
 }
 
 .subjects-list>li {
-    display: inline-block;
+    display: block;
+    float: left;
     padding-left: 30px;
     list-style-position: inside;
     text-indent: -1.5em;
@@ -1666,7 +1667,7 @@ p {
     color: inherit;
 }
 
-@media only screen and (max-width: 411px) {
+@media only screen and (max-width: 414px) {
     .cv-title {
         margin-top: 40px;
         margin-bottom: 20px;
@@ -1772,7 +1773,7 @@ form > button.btn-light, form > input.btn-light {
     color: rgb(58, 66, 65);
 }
 
-@media only screen and (max-width: 411px) {
+@media only screen and (max-width: 414px) {
     .new-post-title {
         width: 100%;
     }
