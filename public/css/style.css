@@ -294,9 +294,9 @@ a {
         display: block;
     }
 
-    .dropdown-content {
-        /* display: block; */
-    }
+    /* .dropdown-content {
+        display: block;
+    } */
 
     .dropdown-responsive {
         float: left;
@@ -812,9 +812,7 @@ a {
 }
 
 @media only screen and (max-width: 411px) {
-    .moon-img {
-        /* left: 25%; */
-    }
+
 
     .div-three, .div-four {
         /* margin: 0 -0px 0 20px; */
@@ -1690,11 +1688,21 @@ p {
     }
 
     .side-panel-grid {
-        margin: 10px;
+        margin: 5px;
     }
 
     .work-education-items {
-        margin: 10px;
+        margin: 5px;
+    }
+
+    .subjects-list {
+        margin-left: 20px;
+        margin-right: 20px;
+        column-count: 2;
+    }
+
+    .subjects-list > li {
+        margin-bottom: 10px;
     }
 }
 
