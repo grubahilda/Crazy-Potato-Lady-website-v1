@@ -126,10 +126,6 @@ $(document).ready(function() {
 function addIngredient() {
 
     console.log(document.getElementById("fieldIngredients").children.length-1);
-    
-    if(document.getElementById("fieldIngredients").childElementCount > 2) {
-        document.getElementById("ingredient" + IngredientId).removeChild(document.getElementsByClassName("addIngredientButton")[0]);
-    }
  
     IngredientId++;
     
@@ -172,6 +168,11 @@ function addIngredient() {
     IngredientButtonRemove.innerText = "-";
     document.getElementById(newIngredientDiv.id).appendChild(IngredientButtonRemove);
 
+    if(document.getElementById("fieldIngredients").children.length-1 > 1) {
+        console.log(document.getElementById("ingredient" + IngredientId));
+        
+        document.getElementById("ingredient" + IngredientId-1).removeChild(document.getElementById("ingredient" + IngredientId).getElementsByClassName("addIngredientButton")[0]);
+    }
 }
 
 function removeIngredient(ingredient) {

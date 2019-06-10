@@ -55,6 +55,4 @@ nodemon server-file-name.js
 - post preview in compose mode
 
 ## General:
-- adjust responsivenes for small screens
-- optmize repetetive styles
 - add newsletter subscription

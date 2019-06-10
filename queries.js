@@ -16,9 +16,9 @@ const pool = new Pool({
 // CLOUDINARY CONFIGUATION
 const cloudinary = require('cloudinary').v2
 cloudinary.config({
-    cloud_name: 'ggggg',
-    api_key: '1111111111',
-    api_secret: '777777777777777'
+    cloud_name: 'crazypotatolady',
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
 });
 
 function getTimeStamp() {

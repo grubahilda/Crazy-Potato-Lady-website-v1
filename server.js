@@ -3,6 +3,7 @@
 const express = require('express');
 const multer = require('multer');
 const bodyParser = require("body-parser");
+const jwt = require("jsonwebtoken");
 const db = require('./queries')
 
 const {
@@ -62,11 +63,38 @@ app.get("/blog", function (_req, res) {
     }
 });
 
-app.get("/blog/compose", function (_req, res) {
-    res.render("compose");
+app.get("/blog/compose", verifyToken, function (_req, res) {
+    jwt.verify(req.token, 'secretkey', (error, authData) => {
+        if(error) {
+            res.sendStatus(403);
+        } else {
+            res.render("compose");
+        }
+    })
+    
 });
 
-app.post("/blog/compose", upload.single('postPictureFile'), db.createPost);
+app.get("/login", (req, res) => {
+    res.render("login");
+})
+
+app.post("/login", (req, res) => {
+
+    const user = {
+        id: 1,
+        username: 'grubahilda',
+        email: 'martalost@gmail.com',
+    }
+    jwt.sign({
+        user
+    }, 'secretkey', (_error, token) => {
+        res.json({
+            token
+        })
+    });
+})
+
+app.post("/blog/compose", verifyToken, upload.single('postPictureFile'), db.createPost);
 
 app.get("/blog/:postid", function (req, res) {
 
@@ -83,7 +111,7 @@ app.get("/blog/:postid", function (req, res) {
 
 });
 
-app.get('/blog/:postid/edit', function (req, res) {
+app.get('/blog/:postid/edit', verifyToken, function (req, res) {
 
     db.getPostById(function (rows) {
 
@@ -99,7 +127,7 @@ app.get('/blog/:postid/edit', function (req, res) {
 
 });
 
-app.post('/blog/:postid/edit', upload.single('postPictureFileEdit'), db.updatePost);
+app.post('/blog/:postid/edit', verifyToken, upload.single('postPictureFileEdit'), db.updatePost);
 
 app.post('/blog/:postid', db.deletePost);
 
@@ -108,7 +136,7 @@ app.get("/recipes", function (_req, res) {
     res.render("recipes");
 });
 
-app.get("/recipes/compose", (req, res) => {
+app.get("/recipes/compose", verifyToken, (req, res) => {
     res.render("compose-recipes");
 });
 
@@ -141,6 +169,25 @@ app.get("/tags/:tag", function (req, res) {
         }
     }, req);
 });
+
+
+function verifyToken(req, res, next) {
+    // Get auth header value
+    const bearerHeader = req.headers['autorization'];
+
+    if(typeof bearerHeader != 'undefined') {
+        // Split at the space
+        const bearer = bearerHeader.split(' ');
+        // Get token from array
+        const bearerToken = bearer[1];
+        // Set the token
+        req.token = bearerToken;
+        // Next middleware
+        next();
+    } else {
+        res.sendStatus(403);
+    }
+}
 
 
 
