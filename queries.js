@@ -82,7 +82,6 @@ const createPost = (req, res) => {
             console.log(result, error)
         });
 
-
     // const picture = '../images/uploads/' + req.file.filename;
 
     // const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
