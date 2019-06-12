@@ -55,4 +55,6 @@ nodemon server-file-name.js
 
 ## General:
 - add newsletter subscription
-- mantain user login session
+- add logout button
+- fix login page styling
+- add cooperation and contact pages
