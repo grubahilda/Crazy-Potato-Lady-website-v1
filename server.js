@@ -2,6 +2,7 @@
 
 const express = require('express');
 const multer = require('multer');
+const session = require('express-session');
 const bodyParser = require("body-parser");
 // const jwt = require("jsonwebtoken");
 const db = require('./queries')
@@ -43,10 +44,15 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static("public"));
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true
+}));
 
 
 app.get("/", function (req, res) {
-    
+
     if (!req.session.user) {
         adminLogged = false;
     }
@@ -76,7 +82,7 @@ app.get("/blog/compose", function (req, res) {
     if (!req.session.user) {
         adminLogged = false
         res.render("forbidden");
-        
+
     } else {
         res.render("compose");
     }
@@ -96,7 +102,7 @@ app.route("/login")
         } else {
             res.redirect("blog")
         }
-       
+
     })
 
     .post(db.verifyAdmin);
@@ -177,7 +183,7 @@ app.get("/recipes/compose", (req, res) => {
         res.render("forbidden");
     } else {
         res.render("compose-recipes");
-        
+
     }
 
 });
