@@ -1,15 +1,16 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
-    // user: 'postgres',
-    // host: 'localhost',
-    // database: "crazypotatolady",
-    // password: "pass",
-    // port: 5432
     user: 'postgres',
+    host: 'localhost',
+    database: "crazypotatolady",
     password: "pass",
-    connectionString: process.env.DATABASE_URL,
-    ssl: true
+    port: 5432,
+    // user: 'postgres',
+    // password: "pass",
+    // connectionString: process.env.DATABASE_URL,
+    sslmode: true
 });
+// let server = require('./server');
 
 // const fs = require('fs');
 
@@ -98,42 +99,51 @@ const createPost = (req, res) => {
 }
 
 const updatePost = (req, res) => {
-    const oldId = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+    if(adminLogged) {
+        
+        const oldId = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
-    const title = req.body.postTitle;
-    const body = req.body.postBody;
-    const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
-    const newId = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
-
-    if (req.body.postPictureFile == '') {
-        fs.unlink(__dirname + '\\public\\images\\uploads\\' + oldId + '.jpg', (error) => {
-            if (error) {
-                if (error.code != 'ENOENT') {
-                    throw error;
-                }
-            }
-        });
-
-        pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, tags = $3, id = $4 WHERE id = $5',
-            [title, body, tags, newId, oldId], (error, _results) => {
+        const title = req.body.postTitle;
+        const body = req.body.postBody;
+        const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
+        const newId = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+    
+        if (req.body.postPictureFile == '') {
+            fs.unlink(__dirname + '\\public\\images\\uploads\\' + oldId + '.jpg', (error) => {
                 if (error) {
-                    throw error;
+                    if (error.code != 'ENOENT') {
+                        throw error;
+                    }
                 }
-            })
+            });
+    
+            pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, tags = $3, id = $4 WHERE id = $5',
+                [title, body, tags, newId, oldId], (error, _results) => {
+                    if (error) {
+                        throw error;
+                    }
+                })
+        } else {
+            const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';
+            pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, postpicture = $3, tags = $4, id = $5 WHERE id = $6',
+                [title, body, picture, tags, newId, oldId], (error, _results) => {
+                    if (error) {
+                        throw error;
+                    }
+                })
+            console.log(getTimeStamp() + " || Picture has been added: " + picture);
+    
+        }
+        console.log(getTimeStamp() + " || Blog post has been updated: " + newId);
+    
+        res.status(200).redirect("/blog/" + newId);
+
+
     } else {
-        const picture = '../images/uploads/' + title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") + '.jpg';
-        pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, postpicture = $3, tags = $4, id = $5 WHERE id = $6',
-            [title, body, picture, tags, newId, oldId], (error, _results) => {
-                if (error) {
-                    throw error;
-                }
-            })
-        console.log(getTimeStamp() + " || Picture has been added: " + picture);
-
+        res.render("forbidden");
     }
-    console.log(getTimeStamp() + " || Blog post has been updated: " + newId);
 
-    res.status(200).redirect("/blog/" + newId);
+    
 }
 
 const deletePost = (req, res) => {
@@ -161,6 +171,30 @@ const deletePost = (req, res) => {
     res.status(200).redirect("/blog");
 }
 
+const verifyAdmin = (req, res) => {
+    const email = req.body.useremail;
+    const password = req.body.password;
+
+    pool.query("SELECT * FROM users WHERE email=$1", [email], (error, results) => {
+        if (error) {
+        } else {
+            if (results.rows != "undefined" || results.rows != []) {
+
+                if (results.rows[0].userpassword === password) {
+                    adminLogged = true;
+                    
+                    res.redirect("/blog");
+                } else {
+                    res.render("login", {
+                        error: true
+                    })
+                }
+            }
+
+        }
+    })
+}
+
 
 module.exports = {
     getPosts,
@@ -168,5 +202,6 @@ module.exports = {
     getPostsByTag,
     createPost,
     updatePost,
-    deletePost
+    deletePost,
+    verifyAdmin
 }

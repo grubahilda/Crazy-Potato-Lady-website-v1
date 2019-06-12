@@ -1778,3 +1778,62 @@ form > button.btn-light, form > input.btn-light {
         width: 100%;
     }
 }
+
+
+/* LOGIN PAGE */
+.wrong-password {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    font-weight: 500;
+    letter-spacing: 2px;
+    width: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(250, 177, 169);
+    margin-bottom: 20px;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(0, -1px, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(0, 2px, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(0, -4px, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(0, 4px, 0);
+    }
+  }
+
+
+/* FORBIDDEN ACCESS */
+
+.forbidden-page {
+    font-size: 4rem;
+    margin-top: 70px;
+    margin-bottom: 40px;
+}
+
+.forbidden-image {
+    width: 1000px;
+    margin: auto;
+}
+
+.forbidden-div {
+    margin: auto;
+}
+
+.forbidden-text {
+    text-align: center;
+    font-size: 2rem;
+    width: 100%;
+}
+
+.no-padding {
+    padding: 0;
+}

@@ -3,7 +3,7 @@
 const express = require('express');
 const multer = require('multer');
 const bodyParser = require("body-parser");
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 const db = require('./queries')
 
 const {
@@ -45,6 +45,7 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 
 app.get("/", function (_req, res) {
+    adminLogged = false;
     res.render("index");
 });
 
@@ -53,7 +54,8 @@ app.get("/blog", function (_req, res) {
         db.getPosts(function (rows) {
 
             res.render("blog", {
-                posts: rows
+                posts: rows,
+                adminLogged: adminLogged
             });
         });
     } catch (err) {
@@ -62,38 +64,45 @@ app.get("/blog", function (_req, res) {
     }
 });
 
-app.get("/blog/compose", verifyToken, function (_req, res) {
-    jwt.verify(req.token, 'secretkey', (error, authData) => {
-        if(error) {
-            res.sendStatus(403);
-        } else {
-            res.render("compose");
-        }
-    })
-    
+app.get("/blog/compose", function (_req, res) {
+    if(adminLogged) {
+        res.render("compose");
+    } else {
+        res.render("forbidden");
+    }
+
+
 });
 
-app.get("/login", (req, res) => {
-    res.render("login");
-})
+// login route start
+app.route("/login")
+    .get((req, res) => {
+        res.render("login", {
+            error: false
+        });
+    })
 
-app.post("/login", (req, res) => {
+    .post(db.verifyAdmin);
+        
+        
+        
+        // const user = {
+        //     id: 1,
+        //     username: 'grubahilda',
+        //     email: 'martalost@gmail.com',
+        // }
+        // jwt.sign({
+        //     user
+        // }, 'secretkey', (_error, token) => {
+        //     res.json({
+        //         token
+        //     })
+        // });
+    // })
+// login route end
 
-    const user = {
-        id: 1,
-        username: 'grubahilda',
-        email: 'martalost@gmail.com',
-    }
-    jwt.sign({
-        user
-    }, 'secretkey', (_error, token) => {
-        res.json({
-            token
-        })
-    });
-})
 
-app.post("/blog/compose", verifyToken, upload.single('postPictureFile'), db.createPost);
+app.post("/blog/compose", upload.single('postPictureFile'), db.createPost);
 
 app.get("/blog/:postid", function (req, res) {
 
@@ -101,7 +110,8 @@ app.get("/blog/:postid", function (req, res) {
 
         if (req.params.postid.toLowerCase().replace(/\s|\W/g, "-") == rows[0].id) {
             res.render("post", {
-                post: rows[0]
+                post: rows[0],
+                adminLogged: adminLogged
             });
         } else {
             res.sendStatus(404);
@@ -110,23 +120,32 @@ app.get("/blog/:postid", function (req, res) {
 
 });
 
-app.get('/blog/:postid/edit', verifyToken, function (req, res) {
+// postid edit route start
+app.route('/blog/:postid/edit')
+    .get(function (req, res) {
+        
+        if(adminLogged) {
+            db.getPostById(function (rows) {
 
-    db.getPostById(function (rows) {
 
-
-        if (req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") == rows[0].id) {
-            res.render("edit", {
-                post: rows[0]
-            });
+                if (req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-") == rows[0].id) {
+                    res.render("edit", {
+                        post: rows[0],
+                        adminLogged: adminLogged
+                    });
+                } else {
+                    res.sendStatus(404);
+                }
+            }, req);
         } else {
-            res.sendStatus(404);
+            res.render("forbidden");
         }
-    }, req);
 
-});
+    })
 
-app.post('/blog/:postid/edit', verifyToken, upload.single('postPictureFileEdit'), db.updatePost);
+    .post(upload.single('postPictureFileEdit'), db.updatePost);
+
+// postid edit route end
 
 app.post('/blog/:postid', db.deletePost);
 
@@ -135,8 +154,14 @@ app.get("/recipes", function (_req, res) {
     res.render("recipes");
 });
 
-app.get("/recipes/compose", verifyToken, (req, res) => {
-    res.render("compose-recipes");
+app.get("/recipes/compose", (req, res) => {
+    
+    if(adminLogged) {
+        res.render("compose-recipes");
+    } else {
+        res.render("forbidden");
+    }
+    
 });
 
 app.get("/about", function (_req, res) {
@@ -161,7 +186,8 @@ app.get("/tags/:tag", function (req, res) {
         if (rows[0].tags.includes(req.params.tag.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-"))) {
             res.render("tagged-posts", {
                 tag: req.params.tag,
-                posts: rows
+                posts: rows,
+                adminLogged: adminLogged
             });
         } else {
             res.sendStatus(404);
@@ -170,23 +196,23 @@ app.get("/tags/:tag", function (req, res) {
 });
 
 
-function verifyToken(req, res, next) {
-    // Get auth header value
-    const bearerHeader = req.headers['autorization'];
+// function verifyToken(req, res, next) {
+//     // Get auth header value
+//     const bearerHeader = req.headers['autorization'];
 
-    if(typeof bearerHeader != 'undefined') {
-        // Split at the space
-        const bearer = bearerHeader.split(' ');
-        // Get token from array
-        const bearerToken = bearer[1];
-        // Set the token
-        req.token = bearerToken;
-        // Next middleware
-        next();
-    } else {
-        res.sendStatus(403);
-    }
-}
+//     if(typeof bearerHeader != 'undefined') {
+//         // Split at the space
+//         const bearer = bearerHeader.split(' ');
+//         // Get token from array
+//         const bearerToken = bearer[1];
+//         // Set the token
+//         req.token = bearerToken;
+//         // Next middleware
+//         next();
+//     } else {
+//         res.sendStatus(403);
+//     }
+// }
 
 
 

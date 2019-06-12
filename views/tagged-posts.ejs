@@ -21,7 +21,7 @@
                         href="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ').trim() %>"> <%= post.posttitle %>
                     </a></h2>
             </div>
-
+            <% if(adminLogged) { %>
             <div class="blog-edit-delete-btn">
                     <form action="/blog/<%= post.posttitle.replace(/[^a-zA-Z\s]+/g, ' ').trim() %>/edit" method="PUT">
                         <button class="btn btn-light" type="submit">Edit</button>
@@ -30,7 +30,7 @@
                         <button class="btn btn-light" type="submit">Delete</button>
                     </form>
                 </div>
-
+                <% } %>
 
             <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>
             <% const re = /(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi; %>

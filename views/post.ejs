@@ -10,6 +10,7 @@
     <div class="container-fluid">
         <div class="row">
             <h1 class="page-title"> <%= post.posttitle %> </h1>
+            <% if(adminLogged) { %>
             <div class="add-new-blog-post-button">
                 <form class="form-request-buttons" action="/blog/<%= post.posttitle.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit" method="GET">
                     <button class="btn btn-light" type="submit">Edit</button>
@@ -19,6 +20,7 @@
                     <input onclick="return confirm('Do you really want to submit the form?');" class="btn btn-light"
                         type="submit" value="Delete">
                 </form>
+                <% } %>
             </div>
 
             <div class="post-picture" style="background-image: url(<%= post.postpicture %>)"></div>
