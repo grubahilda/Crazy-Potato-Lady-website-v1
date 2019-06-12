@@ -2,7 +2,6 @@
 
 const express = require('express');
 const multer = require('multer');
-const session = require('express-session');
 const bodyParser = require("body-parser");
 // const jwt = require("jsonwebtoken");
 const db = require('./queries')
@@ -44,11 +43,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static("public"));
-app.use(session({
-    secret: 'thisSecretKey4b2jh5vj3b32fj45dzs',
-    resave: false,
-    saveUninitialized: true
-}))
+
 
 app.get("/", function (req, res) {
     
