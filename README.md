@@ -49,10 +49,10 @@ nodemon server-file-name.js
 - ingredient converter in side panel of a recipe
 
 ## Blog:
-- compose with a superuser role only / login
 - add tag filtering page
 - pagination
 - post preview in compose mode
 
 ## General:
 - add newsletter subscription
+- mantain user login session
