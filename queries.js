@@ -177,16 +177,25 @@ const verifyAdmin = (req, res) => {
 
     pool.query("SELECT * FROM users WHERE email=$1", [email], (error, results) => {
         if (error) {
+            throw error
         } else {
-            if (results.rows != "undefined" || results.rows != []) {
+            if (results.rows.length == 0) {
+                res.render("login", {
+                    error: true,
+                    message: 'Wrong username or the user doesn\'t exist'
+                })
+            }
+            else if (results.rows != "undefined" || results.rows != []) {
 
                 if (results.rows[0].userpassword === password) {
                     adminLogged = true;
+                    req.session.user = results.rows;                    
                     
                     res.redirect("/blog");
                 } else {
                     res.render("login", {
-                        error: true
+                        error: true,
+                        message: 'Wrong password'
                     })
                 }
             }

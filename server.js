@@ -2,6 +2,7 @@
 
 const express = require('express');
 const multer = require('multer');
+const session = require('express-session');
 const bodyParser = require("body-parser");
 // const jwt = require("jsonwebtoken");
 const db = require('./queries')
@@ -43,13 +44,25 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(express.static("public"));
+app.use(session({
+    secret: 'thisSecretKey4b2jh5vj3b32fj45dzs',
+    resave: false,
+    saveUninitialized: true
+}))
 
-app.get("/", function (_req, res) {
-    adminLogged = false;
+app.get("/", function (req, res) {
+    
+    if (!req.session.user) {
+        adminLogged = false;
+    }
+
     res.render("index");
 });
 
-app.get("/blog", function (_req, res) {
+app.get("/blog", function (req, res) {
+    if (!req.session.user) {
+        adminLogged = false;
+    }
     try {
         db.getPosts(function (rows) {
 
@@ -64,11 +77,13 @@ app.get("/blog", function (_req, res) {
     }
 });
 
-app.get("/blog/compose", function (_req, res) {
-    if(adminLogged) {
-        res.render("compose");
-    } else {
+app.get("/blog/compose", function (req, res) {
+    if (!req.session.user) {
+        adminLogged = false
         res.render("forbidden");
+        
+    } else {
+        res.render("compose");
     }
 
 
@@ -77,28 +92,35 @@ app.get("/blog/compose", function (_req, res) {
 // login route start
 app.route("/login")
     .get((req, res) => {
-        res.render("login", {
-            error: false
-        });
+        if (!req.session.user) {
+            adminLogged = false;
+            res.render("login", {
+                error: false,
+                message: ''
+            });
+        } else {
+            res.redirect("blog")
+        }
+       
     })
 
     .post(db.verifyAdmin);
-        
-        
-        
-        // const user = {
-        //     id: 1,
-        //     username: 'grubahilda',
-        //     email: 'martalost@gmail.com',
-        // }
-        // jwt.sign({
-        //     user
-        // }, 'secretkey', (_error, token) => {
-        //     res.json({
-        //         token
-        //     })
-        // });
-    // })
+
+
+
+// const user = {
+//     id: 1,
+//     username: 'grubahilda',
+//     email: 'martalost@gmail.com',
+// }
+// jwt.sign({
+//     user
+// }, 'secretkey', (_error, token) => {
+//     res.json({
+//         token
+//     })
+// });
+// })
 // login route end
 
 
@@ -123,8 +145,8 @@ app.get("/blog/:postid", function (req, res) {
 // postid edit route start
 app.route('/blog/:postid/edit')
     .get(function (req, res) {
-        
-        if(adminLogged) {
+
+        if (adminLogged) {
             db.getPostById(function (rows) {
 
 
@@ -155,13 +177,14 @@ app.get("/recipes", function (_req, res) {
 });
 
 app.get("/recipes/compose", (req, res) => {
-    
-    if(adminLogged) {
-        res.render("compose-recipes");
-    } else {
+
+    if (!req.session.user) {
         res.render("forbidden");
+    } else {
+        res.render("compose-recipes");
+        
     }
-    
+
 });
 
 app.get("/about", function (_req, res) {

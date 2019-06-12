@@ -16,8 +16,8 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <% if(error) { %>
-                            <p class="wrong-password">Wrong password</p>
+                        <% if(error && message != "") { %>
+                            <p class="wrong-password"><%= message %> </p>
                         <% } %>
                         <form method="POST" action="/login">
                             <div class="form-group">
