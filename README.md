@@ -62,6 +62,6 @@ nodemon server-file-name.js
 ## General:
 - add newsletter subscription
 - add logout button
-- fix login page styling
+- add flash messages for loggin in
 - add cooperation and contact pages
-- fix environmental variables in node
+- add more security levels
