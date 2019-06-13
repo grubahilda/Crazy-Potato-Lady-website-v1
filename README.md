@@ -63,5 +63,4 @@ nodemon server-file-name.js
 - add newsletter subscription
 - add logout button
 - add flash messages for loggin in
-- add cooperation and contact pages
 - add more security levels
