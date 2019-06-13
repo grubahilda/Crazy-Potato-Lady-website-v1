@@ -1,4 +1,10 @@
-# Run the web app using npm
+# Run the deployed web app
+
+![hot-pepper](https://github.com/grubahilda/Crazy-Potato-Lady-website-v1/blob/master/public/images/favicon-16x16.png) https://crazypotatolady.herokuapp.com/
+
+![veggies say hi](https://github.com/grubahilda/Crazy-Potato-Lady-website-v1/blob/master/public/images/forbidden-veggies-say-hi.png)
+
+# Or run the web app using npm
 
 To get help on `npm` read the documentation or to see available commands, use
 
@@ -58,3 +64,4 @@ nodemon server-file-name.js
 - add logout button
 - fix login page styling
 - add cooperation and contact pages
+- fix environmental variables in node
