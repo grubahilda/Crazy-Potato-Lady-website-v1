@@ -162,8 +162,7 @@ a {
     color: white;
 }
 
-.fa,
-.fas {
+.fa-money-bill-alt, .fa-globe-europe, .fa-user-check, .fa-hand-peace {
     font-size: 1rem;
 }
 
@@ -1160,7 +1159,7 @@ a {
     padding-bottom: 10px;
 }
 
-.benefits-box:hover>.fas {
+.benefits-box:hover>.fa-money-bill-alt, .benefits-box:hover>.fa-globe-europe, .benefits-box:hover>.fa-hand-peace, .benefits-box:hover>.fa-user-check {
     color: #493a37;
 }
 
@@ -1803,6 +1802,7 @@ form>input.btn-light {
     .adjust-height-big-screens {
         overflow: auto;
     }
+
     .new-post-title {
         width: 100%;
     }
@@ -1897,8 +1897,8 @@ form>input.btn-light {
     }
 
     .forbidden-page {
-        margin-top: 200px; 
-        margin-bottom: 100px; 
+        margin-top: 200px;
+        margin-bottom: 100px;
     }
 
     .forbidden-text {
@@ -1907,15 +1907,15 @@ form>input.btn-light {
     }
 
     .forbidden-image {
-        margin-top: 100px; 
+        margin-top: 100px;
     }
 }
 
 @media only screen and (max-width: 992px) {
 
     .forbidden-page {
-        margin-top: 200px; 
-        margin-bottom: 100px; 
+        margin-top: 200px;
+        margin-bottom: 100px;
     }
 
     .forbidden-text {
@@ -1924,6 +1924,14 @@ form>input.btn-light {
     }
 
     .forbidden-image {
-        margin-top: 100px; 
+        margin-top: 100px;
     }
+}
+
+
+
+/* CONTACT PAGE */
+
+.benefits-box:hover>.fa-linkedin-in, .benefits-box:hover>.fa-envelope, .benefits-box:hover>.fa-phone {
+    color: #3e7e75;
 }

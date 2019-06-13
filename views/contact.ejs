@@ -2,18 +2,48 @@
 
 <body style="background-color: 	#b7eae3">
 
-    <!-- START NAVBAR -->
-    <%- include("partials/navbar"); -%>
-    <!-- END NAVBAR -->
+        <!-- START NAVBAR -->
+        <%- include("partials/navbar"); -%>
+        <!-- END NAVBAR -->
 
-    <div class="container-fluid">
-            <div class="row">
-                    <h1 class="page-title">Contact me</h1>
-            </div>
-            <div class="row justify-content-center col-12">
-            
+        <div class="container-fluid adjust-height-big-screens">
+                <div class="row">
+                        <h1 class="page-title">Contact me</h1>
+                </div>
+                <div class="row justify-content-center">
+
+                        <div class="benefits-box col-4">
+                                <i class="fas fa-envelope fa-4x"></i>
+                                <h2>Email me</h2>
+                                <p>Please, contact me by sending me an email with questions and suggestions. I usually
+                                        reply within a couple of hours.</p>
+                                <br>
+                                <p>marta.pozaroszczyk@gmail.com</p>
+
+                        </div>
+                        <div class="benefits-box col-4">
+                                <i class="fab fa-linkedin-in fa-4x"></i>
+                                <h2>Messege me on LinkedIn</h2>
+                                <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="uk_EN"
+                                        data-type="vertical" data-theme="dark" data-vanity="mpozaro"><a
+                                                class="LI-simple-link" target="_blank"
+                                                href='https://nl.linkedin.com/in/mpozaro?trk=profile-badge'>Marta
+                                                Pozaroszczyk</a></div>
+                        </div>
+
+                        <div class="benefits-box col-4">
+                                <i class="fas fa-phone fa-4x"></i>
+                                <h2>Phone call me</h2>
+                                <p>Or call me directly to talk. The number can be found on the <a href="/about"
+                                                style="font-weight: 400; text-decoration: none; color:inherit;">
+                                                About</a> page by clicking the phone number (don't want just any
+                                        stranger to have my phone number, hope you understand!).</p>
+
+                        </div>
+
                 </div>
         </div>
 
+        <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 
-    <%- include("partials/footer") -%>
+        <%- include("partials/footer") -%>
