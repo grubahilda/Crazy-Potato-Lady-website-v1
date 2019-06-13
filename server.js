@@ -1,11 +1,14 @@
 //jshint esversion:6
 
+require('dotenv').config();
+
 const express = require('express');
 const multer = require('multer');
 const session = require('express-session');
 const bodyParser = require("body-parser");
 // const jwt = require("jsonwebtoken");
 const db = require('./queries')
+
 
 const {
     Pool
