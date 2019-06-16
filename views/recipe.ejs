@@ -1,0 +1,57 @@
+<%- include("partials/header") -%>
+
+<body style="background-color: #b7eae3">
+
+    <!-- START NAVBAR -->
+    <%- include("partials/navbar"); -%>
+    <!-- END NAVBAR -->
+
+
+    <div class="container-fluid adjust-height-big-screens">
+        <div class="row">
+            <h1 class="page-title"> <%= recipe.title %> </h1>
+            <!-- <div class="add-new-blog-post-button">
+                <form class="form-request-buttons" action="/blog/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit" method="GET">
+                    <button class="btn btn-light" type="submit">Edit</button>
+                </form>
+                <form class="form-request-buttons" action="/blog/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>" method="POST"
+                    enctype="multipart/form-data">
+                    <input onclick="return confirm('Do you really want to submit the form?');" class="btn btn-light"
+                        type="submit" value="Delete">
+                </form>
+            </div> -->
+
+            <!-- <div class="post-picture" style="background-image: url(<%= recipe.postpicture %>)"></div> -->
+            
+
+            <div class="short-description">
+                <h2>Ingredients:</h2>
+                <ul>
+                    <% recipe.ingredients.forEach(function(ingredient){ %>
+                        <li><%= ingredient %></li>
+                    <% }) %>
+                </ul>
+
+            </div>
+            <div class="post-content">
+                    <h2>Method:</h2>
+                    <ul>
+                        <% recipe.methoditems.forEach(function(methoditem){ %>
+                            <li><%= methoditem %></li>
+                        <% }) %>
+                    </ul>
+            </div>
+            <div class="post-tags">
+                <h2>Tags:</h2>
+                <% recipe.tags.forEach(function(tag){ %>
+                <span><a href="/tags/<%= tag.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= tag %> </a></span>
+                <% }); %>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <%- include("partials/footer"); -%>

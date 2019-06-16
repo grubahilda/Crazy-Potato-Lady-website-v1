@@ -27,6 +27,10 @@ function getTimeStamp() {
     return today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + ' ' + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 }
 
+
+
+// QUERIES FOR BLOG POSTS
+
 const getPosts = (callback) => {
     pool.query('SELECT * FROM blog_posts', (error, results) => {
 
@@ -171,6 +175,27 @@ const deletePost = (req, res) => {
     res.status(200).redirect("/blog");
 }
 
+
+
+// QUERIES FOR RECIPES SECTION
+
+const getRecipeByName = (callback, req) => {
+    const name = req.params.recipeid.charAt(0).toUpperCase() + req.params.recipeid.slice(1).match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join(" ");
+    
+
+    pool.query('SELECT * FROM recipes WHERE title = $1', [name], (error, results) => {
+
+        if (error) {
+            console.log(error);
+            throw error;
+        }
+        callback(results.rows);
+    })
+}
+
+
+
+
 const verifyAdmin = (req, res) => {
     const email = req.body.useremail;
     const password = req.body.password;
@@ -212,5 +237,6 @@ module.exports = {
     createPost,
     updatePost,
     deletePost,
+    getRecipeByName,
     verifyAdmin
 }
