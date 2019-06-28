@@ -21,30 +21,49 @@
                 </form>
             </div> -->
 
-            <!-- <div class="post-picture" style="background-image: url(<%= recipe.postpicture %>)"></div> -->
-            
 
-            <div class="short-description">
-                <h2>Ingredients:</h2>
-                <ul>
-                    <% recipe.ingredients.forEach(function(ingredient){ %>
+
+        </div>
+
+        <div style="padding: 4% 8% 4% 8%;">
+            <div class="row grid-container" style="text-align: center;">
+                <div class="ingredients item-one" style="padding-left: 20%; text-align: center;">
+                    <h2>Ingredients:</h2>
+                    <ul style="text-align: left;">
+                        <% recipe.ingredients.forEach(function(ingredient){ %>
                         <li><%= ingredient %></li>
-                    <% }) %>
-                </ul>
-
-            </div>
-            <div class="post-content">
-                    <h2>Method:</h2>
-                    <ul>
-                        <% recipe.methoditems.forEach(function(methoditem){ %>
-                            <li><%= methoditem %></li>
                         <% }) %>
                     </ul>
+                </div>
+                <div class="image-square item-two" style="padding-right: 10%; text-align: center">
+                    <img src="/<%= recipe.image %>" alt="<%= recipe.recipeid %>">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- <div class="row grid-container-recipe">
+            <div style="margin: auto; vertical-align: top;">
+                
+
+                
+            </div>
+                
+            </div> -->
+
+        <div class="row">
+            <div class="method">
+                <h2>Method:</h2>
+                <ol>
+                    <% recipe.methoditems.forEach(function(methoditem){ %>
+                    <li><%= methoditem %></li>
+                    <% }) %>
+                </ol>
             </div>
             <div class="post-tags">
                 <h2>Tags:</h2>
                 <% recipe.tags.forEach(function(tag){ %>
-                <span><a href="/tags/<%= tag.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= tag %> </a></span>
+                <span><a href="/recipes/tags/<%= tag.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= tag %> </a></span>
                 <% }); %>
             </div>
 

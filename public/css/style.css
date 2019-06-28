@@ -854,7 +854,6 @@ a {
         font-size: 1rem;
         margin-top: 20px;
     }
-
 }
 
 
@@ -1057,10 +1056,6 @@ a {
     text-align: left;
 }
 
-.bigger-font {
-    font-size: 1.2rem;
-}
-
 .earth-img {
     max-height: 200px;
     min-height: 200px;
@@ -1169,7 +1164,112 @@ a {
 }
 
 
+/* COOPERATION */
 
+.work-together {
+    padding: 2% 5%;
+}
+
+.cooperation-image {
+    max-height: 400px;
+    min-height: 200px;
+    object-fit: contain;
+    margin: auto;
+    position: relative;
+    top: 30%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.work-text {
+    text-align: center;
+    min-width: 400px;
+    max-width: 600px;
+    padding: 0 2%;
+}
+
+.bold-font {
+    font-weight: 400;
+}
+
+.signature {
+    float: right;
+}
+
+@media only screen and (max-width: 1024px) {
+
+    .work-text {
+        min-width: 900px;
+    }
+
+    .cooperation-image {
+        max-width: 400px;        
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .feature-box-image-cooperation {
+        max-height: 280px;
+    }
+
+    .work-text {
+        min-width: 600px;
+    }
+
+    .cooperation-image {
+        max-width: 300px;
+
+    }
+}
+
+@media only screen and (max-width: 414px) {
+
+    .feature-box-image-cooperation {
+        margin-bottom: -60px;
+    }
+
+    .work-text {
+        min-width: 100px;
+        margin-left: 20px; 
+        margin-right: 20px; 
+    }
+
+    .cooperation-image {
+        max-width: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    .work-text {
+        /* min-width: 100px; */
+        margin-left: 40px; 
+        margin-right: 40px; 
+        padding: 0;
+    }
+
+    .cooperation-image {
+        max-width: 300px;
+    }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+    .work-text {
+        max-width: 280px;
+        margin-left: 40px; 
+        margin-right: 40px; 
+        padding: 0;
+    }
+
+    .cooperation-image {
+        max-width: 300px;
+    }
+}
 
 .footer {
     height: 50px;
@@ -1939,112 +2039,4 @@ form>input.btn-light {
 
 .benefits-box:hover>.fa-linkedin-in, .benefits-box:hover>.fa-envelope, .benefits-box:hover>.fa-phone {
     color: #3e7e75;
-}
-
-/* COOPERATION */
-
-.work-together {
-    padding: 2% 5%;
-}
-
-.cooperation-image {
-    max-height: 400px;
-    min-height: 200px;
-    object-fit: contain;
-    margin: auto;
-    position: relative;
-    top: 30%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-.work-text {
-    text-align: center;
-    min-width: 400px;
-    max-width: 600px;
-    padding: 0 2%;
-}
-
-.bold-font {
-    font-weight: 400;
-}
-
-.signature {
-    float: right;
-}
-
-@media only screen and (max-width: 1024px) {
-
-    .work-text {
-        min-width: 900px;
-    }
-
-    .cooperation-image {
-        max-width: 400px;        
-    }
-
-}
-
-@media only screen and (max-width: 768px) {
-
-    .feature-box-image {
-        max-height: 280px;
-    }
-
-    .work-text {
-        min-width: 600px;
-    }
-
-    .cooperation-image {
-        max-width: 300px;
-        
-    }
-}
-
-@media only screen and (max-width: 414px) {
-
-    .feature-box-image {
-        margin-bottom: -60px;
-    }
-
-    .work-text {
-        min-width: 100px;
-        margin-left: 20px; 
-        margin-right: 20px; 
-    }
-
-    .cooperation-image {
-        max-width: 300px;
-    }
-
-}
-
-@media only screen and (max-width: 375px) {
-
-    .work-text {
-        /* min-width: 100px; */
-        margin-left: 40px; 
-        margin-right: 40px; 
-        padding: 0;
-    }
-
-    .cooperation-image {
-        max-width: 300px;
-    }
-
-}
-
-@media only screen and (max-width: 320px) {
-
-    .work-text {
-        max-width: 280px;
-        margin-left: 40px; 
-        margin-right: 40px; 
-        padding: 0;
-    }
-
-    .cooperation-image {
-        max-width: 300px;
-    }
-
 }

@@ -1,0 +1,44 @@
+<%- include("partials/header") -%>
+
+<body style="background-color: #d7cac3">
+
+    <!-- START NAVBAR -->
+    <%- include("partials/navbar"); -%>
+    <!-- END NAVBAR -->
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="page-title">Recipes tagged: <%= tag %></h1>
+        </div>
+        <div class="row justify-content-center col-12">
+
+            <% recipes.forEach(function(recipe){ %>
+                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
+                        <div class="image-tile">
+                                <img src="/<%= recipe.image %>" alt="<%= recipe.recipeid %>">
+                            <p class="recipe-details">
+                                preparation time: <%= recipe.preptime %> <br>
+                                servings: <%= recipe.servings %><br>
+                                category: <a href="#"> <%= recipe.category %> </a>
+                            </p>
+                        </div>
+                        <h3><a href="#"><%= recipe.title %></a></h3>
+                    </div>
+            <% }) %>
+
+        </div>
+
+
+
+        <div class="row read-more-older">
+            <p class="read-older"><a href="#">Read older posts<i class="fas fa-greater-than"></i></a> </p>
+        </div>
+
+
+    </div>
+
+
+
+
+    <%- include("partials/footer"); -%>

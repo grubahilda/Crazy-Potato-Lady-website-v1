@@ -56,6 +56,7 @@ function showDivs(n) {
 // Footnote copyright year
 window.onload = function () {
     d = new Date();
+    
     document.getElementById("currentYear").innerHTML = d.getFullYear();
 }
 
