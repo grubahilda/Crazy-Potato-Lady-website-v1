@@ -2035,6 +2035,62 @@ form>input.btn-light {
 
 
 
+
+@media only screen and (max-width: 768px) {
+    .forbidden-page {
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .forbidden-text {
+        width: 80%;
+        font-size: 1.5rem;
+        margin: auto;
+    }
+
+    .forbidden-image {
+        margin-top: 30px;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 414px) {
+
+ 
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    .forbidden-page {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .forbidden-text {
+        font-size: 1.5rem;
+        width: 80%;
+        margin: auto;
+    }
+
+    .forbidden-image {
+        margin-top: 20px;
+        width: 100%;
+    }
+
+}
+
+
+
 /* CONTACT PAGE */
 
 .benefits-box:hover>.fa-linkedin-in, .benefits-box:hover>.fa-envelope, .benefits-box:hover>.fa-phone {
