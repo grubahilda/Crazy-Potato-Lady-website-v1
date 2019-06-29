@@ -17,13 +17,22 @@
             
         </div>
     </div>
+
     <div class="icons-nav">
+        
         <a data-tooltip="Hire me!"
         data-tooltip-location="bottom" href="/cooperation" class="icon-right-nav"><i class="fas fa-briefcase"></i></a>
         <a data-tooltip="About"
         data-tooltip-location="bottom" href="/about" class="icon-right-nav"><i class="fas fa-question"></i></a>
         <a data-tooltip="Contact"
         data-tooltip-location="bottom" href="/contact" class="icon-right-nav"><i class="fas fa-hands-helping"></i></a>
+    </div>
+    <div class="logout-button">
+            <% if(adminLogged) { %>
+                <form action="/logout" method="POST">
+                    <button class="btn btn-light" type="submit">Log out</button>
+                </form>
+                <% } %>
     </div>
     <div class="toggle-button-right">
         <a href="javascript:void(0);" class="icon" onclick="navbarCollapse()">

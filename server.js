@@ -53,6 +53,12 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.post("/logout", (req, res) => {
+    req.session.destroy();
+    adminLogged = false;
+    res.redirect("/");
+})
+
 
 app.get("/", function (req, res) {
 
@@ -96,6 +102,8 @@ app.get("/blog/compose", function (req, res) {
 // login route start
 app.route("/login")
     .get((req, res) => {
+        console.log(req.session.user);
+        
         if (!req.session.user) {
             adminLogged = false;
             res.render("login", {
@@ -192,7 +200,7 @@ app.get("/recipes/compose", (req, res) => {
 });
 
 app.get("/recipes/:recipeid", (req, res) => {
-    db.getRecipeByName(function (rows) {        
+    db.getRecipeByName(function (rows) {
         if (req.params.recipeid.charAt(0).toUpperCase() + req.params.recipeid.slice(1).match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join(" ") == rows[0].title) {
             res.render("recipe", {
                 recipe: rows[0]

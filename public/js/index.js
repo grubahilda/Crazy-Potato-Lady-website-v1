@@ -1,3 +1,4 @@
+
 // NAVBAR RESPONSIVE COLLAPSE
 function navbarCollapse() {
     let x = document.getElementById("topNav");
@@ -51,19 +52,7 @@ function showDivs(n) {
 }
 
 
-
-
-// Footnote copyright year
-window.onload = function () {
-    d = new Date();
-    
-    document.getElementById("currentYear").innerHTML = d.getFullYear();
-}
-
-
-
 // Footer colour
-
 window.onload = function () {
     document.getElementsByTagName("footer")[0].style.backgroundColor = document.getElementsByTagName("body")[0].style.backgroundColor;
 }
@@ -73,7 +62,6 @@ window.onload = function () {
 window.onload = function () {
     document.title = document.getElementsByClassName("page-title")[0].innerHTML + " || Crazy Potato Lady";
 }
-
 
 
 //ONMOUSEDOWN PHONE NUMBER REVEAL

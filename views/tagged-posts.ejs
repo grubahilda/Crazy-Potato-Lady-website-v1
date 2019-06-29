@@ -32,7 +32,6 @@
                     </div>
                     <% } %>
                 <div class="blog-preview-image" style="background-image: url(<%= post.postpicture %>)"></div>
-                <% console.log(post.postpicture) %>
                 <% const re = /(<([^>]+)>|&nbsp;|\\r|\\n|\\r\\n|\\)/gi; %>
                 <p class="blog-preview-text"><span class="blog-preview-text-inline-bigger">
                         <%= post.postbody.replace(re,"").split(" ").slice(0, 6).join(" "); %></span>

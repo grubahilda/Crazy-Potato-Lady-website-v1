@@ -135,6 +135,19 @@ a {
     display: block;
 }
 
+.logout-button {
+    /* display: inline-block; */
+    float: right;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.logout-button > .btn {
+    padding: 0 20px;
+    float: right;
+}
+
+
 .icons-nav {
     float: right;
     vertical-align: middle;
@@ -280,6 +293,10 @@ a {
         display: none;
     }
 
+    .logout-button {
+        display: none;
+    }
+
     .top-nav .header-nav .recipes-blog-nav-item {
         display: none;
     }
@@ -314,12 +331,31 @@ a {
 
 
     .top-nav.responsive {
-        height: 280px;
+        height: 350px;
+    }
+
+    #recipes-hoverable:hover~.dropdown-content {
+        display: none;
+    }
+
+    .top-nav.responsive .logo-nav {
+        padding-left: 10px;
     }
 
     .top-nav.responsive .icons-nav {
         position: relative;
         display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .top-nav.responsive .logout-button {
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0;
     }
 
     .top-nav.responsive .icon-right-nav {
@@ -328,6 +364,7 @@ a {
 
     .top-nav.responsive .header-nav {
         position: relative;
+        margin: 0;
     }
 
     .top-nav.responsive .header-nav .recipes-blog-nav {
@@ -350,10 +387,6 @@ a {
         display: block;
     }
 
-    .top-nav.responsive .icons-nav {
-        width: 100%;
-        text-align: center;
-    }
 
     .top-nav.responsive .icons-nav a {
         float: none;
