@@ -39,7 +39,7 @@
             <div class="post-tags">
                 <h2>Tags:</h2>
                 <% post.tags.forEach(function(tag){ %>
-                <span><a href="/tags/<%= tag.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= tag %> </a></span>
+                <span><a href="/blog/tags/<%= tag.replace(/[^a-zA-Z\s]+/g, ' ') %>"> <%= tag %> </a></span>
                 <% }); %>
             </div>
 
