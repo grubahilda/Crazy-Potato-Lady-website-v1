@@ -102,8 +102,7 @@ app.get("/blog/compose", function (req, res) {
 // login route start
 app.route("/login")
     .get((req, res) => {
-        console.log(req.session.user);
-        
+
         if (!req.session.user) {
             adminLogged = false;
             res.render("login", {
@@ -184,20 +183,38 @@ app.route('/blog/:postid/edit')
 app.post('/blog/:postid', db.deletePost);
 
 
-app.get("/recipes", function (_req, res) {
-    res.render("recipes");
+app.get("/recipes", function (req, res) {
+    if (!req.session.user) {
+        adminLogged = false;
+    }
+    try {
+        db.getRecipes(function (rows) {
+
+            res.render("recipes", {
+                recipes: rows,
+                adminLogged: adminLogged
+            });
+        });
+    } catch (err) {
+        console.error(err);
+        res.send("Error: " + err);
+    }
 });
 
 app.get("/recipes/compose", (req, res) => {
 
     if (!req.session.user) {
-        res.render("forbidden");
+        res.render("forbidden", {
+            adminLogged: false
+        });
     } else {
         res.render("compose-recipes");
 
     }
 
 });
+
+app.post("/recipes/compose", upload.single('recipePictureFile'), db.createPost);
 
 app.get("/recipes/:recipeid", (req, res) => {
     db.getRecipeByName(function (rows) {
@@ -210,7 +227,9 @@ app.get("/recipes/:recipeid", (req, res) => {
             res.sendStatus(404);
         }
     }, req);
-})
+});
+
+app.post('/recipes/:recipeid', db.deleteRecipe);
 
 app.get("/about", function (_req, res) {
     res.render("about");

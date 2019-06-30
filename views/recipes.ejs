@@ -8,76 +8,37 @@
 
     <div class="container-fluid">
         <div class="row">
-            <h1 class="page-title">Recipes</h1>
+            <h1 class="page-title">Recipes</h1><% if(adminLogged) { %><a href="/recipes/compose"
+                class="add-new-blog-post-button btn btn-lg btn-light">+</a> <% } %>
         </div>
         <div class="row justify-content-center col-12">
             <div class="owl-carousel">
-                    <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
-                            <div class="image-tile">
-                                <img src="images/recipes/DSC_0548.jpg" alt="">
-                                <p class="recipe-details">
-                                    preparation time: 10 min <br>
-                                    servings: 1<br>
-                                    category: <a href="#">breakfast</a>
-                                </p>
-                            </div>
-                            <h3><a href="#">Ragi porridge with blueberries</a></h3>
+                <% recipes.forEach(function(recipe){ %>
+                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
+                    <div class="image-tile">
+                        <% if(adminLogged) { %>
+                        <div class="blog-edit-delete-btn">
+                            <form action="/recipes/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit"
+                                method="GET">
+                                <button class="btn btn-light" type="submit">Edit</button>
+                            </form>
+                            <form action="/recipes/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>"
+                                method="POST" enctype="multipart/form-data">
+                                <input onclick="return confirm('Do you really want to submit the form?');"
+                                    class="btn btn-light" type="submit" value="Delete">
+                            </form>
                         </div>
-                        <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
-                            <div class="image-tile">
-                                <img src="images/recipes/DSC_0738.jpg" alt="">
-                                <p class="recipe-details">
-                                    preparation time: 10 min <br>
-                                    servings: 1<br>
-                                    category: <a href="#">breakfast</a>
-                                </p>
-                            </div>
-                            <h3><a href="#">Spirulina and kiwi smoothie</a></h3>
-                        </div>
-                        <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
-                            <div class="image-tile">
-                                <img src="images/recipes/DSC_0796.jpg" alt="">
-                                <p class="recipe-details">
-                                    preparation time: 10 min <br>
-                                    servings: 1<br>
-                                    category: <a href="#">breakfast</a>
-                                </p>
-                            </div>
-                            <h3><a href="#">Scrambled chickpeas</a></h3>
-                        </div>
-                        <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
-                            <div class="image-tile">
-                                <img src="images/recipes/berries_bowl_with_oats.jpg" alt="">
-                                <p class="recipe-details">
-                                    preparation time: 10 min <br>
-                                    servings: 1<br>
-                                    category: <a href="#">breakfast</a>
-                                </p>
-                            </div>
-                            <h3><a href="#">Berries smoothie bowl</a></h3>
-                        </div>
-                        <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
-                            <div class="image-tile">
-                                <img src="images/recipes/pancakes_with_kiwi_and_bananas.jpg" alt="">
-                                <p class="recipe-details">
-                                    preparation time: 10 min <br>
-                                    servings: 1<br>
-                                    category: <a href="#">breakfast</a>
-                                </p>
-                            </div>
-                            <h3><a href="#">Gluten-free pancakes</a></h3>
-                        </div>
-                        <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
-                            <div class="image-tile">
-                                <img src="images/recipes/raspberry_ice.jpg" alt="">
-                                <p class="recipe-details">
-                                    preparation time: 10 min <br>
-                                    servings: 1<br>
-                                    category: <a href="#">breakfast</a>
-                                </p>
-                            </div>
-                            <h3><a href="#">Raspberry ice</a></h3>
-                        </div>
+                        <% } %>
+                        <img src="/<%= recipe.image %>" alt="<%= recipe.recipeid %>">
+                        <p class="recipe-details">
+                            preparation time: <%= recipe.preptime %> <br>
+                            servings: <%= recipe.servings %><br>
+                            category: <a href="#"><%= recipe.category %></a>
+                        </p>
+                    </div>
+                    <h3><a href="#"><%= recipe.title %></a></h3>
+                </div>
+                <% }); %>
             </div>
 
 
@@ -87,4 +48,4 @@
     </div>
 
 
-<%- include("partials/footer") -%>
+    <%- include("partials/footer") -%>

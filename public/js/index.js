@@ -9,6 +9,15 @@ function navbarCollapse() {
     }
 }
 
+// function navbarLogged(adminLogged) {
+    
+//         if(adminLogged) {
+//             document.querySelectorAll('.top-nav, .responsive')[0].style.height = '350px'
+//         } else {
+//             document.querySelectorAll('.top-nav, .responsive')[0].style.height = '280px'
+//         }
+// }
+
 
 //GLOBALS
 var IngredientId = 1;
@@ -64,6 +73,7 @@ window.onload = function () {
 }
 
 
+
 //ONMOUSEDOWN PHONE NUMBER REVEAL
 function mouseDownPhoneNumber() {
     document.getElementById("phoneNumber").innerHTML = "0 621 419 988";
@@ -114,7 +124,11 @@ $(document).ready(function() {
 
 function addIngredient() {
 
-    console.log(document.getElementById("fieldIngredients").children.length-1);
+    var ingredientsAdd = document.getElementsByClassName("addIngredientButton");
+
+    for(var i = 0; i < ingredientsAdd.length; i++){
+        ingredientsAdd[i].parentNode.removeChild(ingredientsAdd[i]);
+    }
  
     IngredientId++;
     
@@ -157,16 +171,19 @@ function addIngredient() {
     IngredientButtonRemove.innerText = "-";
     document.getElementById(newIngredientDiv.id).appendChild(IngredientButtonRemove);
 
-    if(document.getElementById("fieldIngredients").children.length-1 > 1) {
-        console.log(document.getElementById("ingredient" + IngredientId));
-        
-        document.getElementById("ingredient" + IngredientId-1).removeChild(document.getElementById("ingredient" + IngredientId).getElementsByClassName("addIngredientButton")[0]);
-    }
+    // if(document.getElementById("fieldIngredients").children.length-1 > 2) {
+    console.log(document.getElementById("fieldIngredients").children.length-1);
+
 }
 
 function removeIngredient(ingredient) {
     
     document.getElementById("fieldIngredients").removeChild(ingredient);
+    var ingredientsAdd = document.getElementsByClassName("addIngredientButton");
+
+    for(var i = 0; i < ingredientsAdd.length; i++){
+        ingredientsAdd[i].parentNode.removeChild(ingredientsAdd[i]);
+    }
 
     const newIngredientButton = document.createElement("button");
     newIngredientButton.type = "button";
