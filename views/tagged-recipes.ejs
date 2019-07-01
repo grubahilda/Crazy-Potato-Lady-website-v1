@@ -23,17 +23,17 @@
                                 category: <a href="#"> <%= recipe.category %> </a>
                             </p>
                         </div>
-                        <h3><a href="#"><%= recipe.title %></a></h3>
+                        <h3><a href="/recipes/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-') %>"><%= recipe.title %></a></h3>
                     </div>
             <% }) %>
 
         </div>
 
 
-
+<!-- 
         <div class="row read-more-older">
             <p class="read-older"><a href="#">Read older posts<i class="fas fa-greater-than"></i></a> </p>
-        </div>
+        </div> -->
 
 
     </div>

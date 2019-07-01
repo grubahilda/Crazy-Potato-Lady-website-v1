@@ -26,35 +26,29 @@
         </div>
 
         <div style="padding: 4% 8% 4% 8%;">
-            <div class="row grid-container" style="text-align: center;">
-                <div class="ingredients item-one" style="padding-left: 20%; text-align: center;">
+            <div class="row grid-container-recipe">
+                <div class="ingredients item-one-recipe">
                     <h2>Ingredients:</h2>
-                    <ul style="text-align: left;">
+                    <ul style="list-style-position: inside;">
                         <% recipe.ingredients.forEach(function(ingredient){ %>
                         <li><%= ingredient %></li>
                         <% }) %>
                     </ul>
+                    <h3>Preparation time: <%= recipe.preptime %> minutes</h3>
+                    <h3>Servings: <%= recipe.servings %> </h3>
+                    <h3>Category: <%= recipe.category %> </h3>
                 </div>
-                <div class="image-square item-two" style="padding-right: 10%; text-align: center">
-                    <img src="/<%= recipe.image %>" alt="<%= recipe.recipeid %>">
+                <div class="image-square item-two-recipe image-tile" style="padding-right: 10%;">
+                    <img src="<%= recipe.image %>" alt="<%= recipe.recipeid %>">
                 </div>
 
             </div>
         </div>
 
-        <!-- <div class="row grid-container-recipe">
-            <div style="margin: auto; vertical-align: top;">
-                
-
-                
-            </div>
-                
-            </div> -->
-
         <div class="row">
             <div class="method">
                 <h2>Method:</h2>
-                <ol>
+                <ol style="list-style-position: inside;">
                     <% recipe.methoditems.forEach(function(methoditem){ %>
                     <li><%= methoditem %></li>
                     <% }) %>
