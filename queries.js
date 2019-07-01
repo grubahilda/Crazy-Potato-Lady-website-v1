@@ -221,50 +221,65 @@ const getRecipesByTag = (callback, req) => {
 }
 
 
-const createRecipe = (req, res) => {
-    const title = req.body.recipeTitle;
-    const body = req.body.recipeBody;
+// const createRecipe = (req, res) => {
+//     const title = req.body.recipeTitle;
+//     const category = req.body.recipeCategory;
+//     const prepTime = req.body.prepTime;
+//     const image = req.body.recipePictureFile;
+//     const recipeServings = req.body.recipeServings;
+//     const field = req.body.field;
 
-    // cloudinary.v2.uploader.upload(req.body.postTitle, {
-    //         resource_type: "image",
-    //         public_id: req.body.postTitle,
-    //         overwrite: true
-    //         // notification_url: "https://mysite.example.com/notify_endpoint"
-    //     },
-    //     function (error, result) {
-    //         console.log(result, error)
-    //     });
+//     console.log(field);
+    
+//     // for()
+//     const ingredients = req.body.recipeServings;
 
-    // const picture = '../images/uploads/' + req.file.filename;
+//     // cloudinary.v2.uploader.upload(req.body.postTitle, {
+//     //         resource_type: "image",
+//     //         public_id: req.body.postTitle,
+//     //         overwrite: true
+//     //         // notification_url: "https://mysite.example.com/notify_endpoint"
+//     //     },
+//     //     function (error, result) {
+//     //         console.log(result, error)
+//     //     });
 
-    // const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
-    // const id = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
+//     // const picture = '../images/uploads/' + req.file.filename;
 
-    // pool.query('INSERT INTO blog_posts (id, posttitle, postbody, postpicture, tags) VALUES ($1, $2, $3, $4, $5)', [id, title, body, picture, tags], (error, _results) => {
-    //     if (error) {
-    //         throw error
-    //     }
-    // });
-    // console.log(getTimeStamp() + " || New blog post has been created: " + id);
+//     // const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
 
-    // res.status(200).redirect("/blog");
-}
+//     // pool.query('INSERT INTO recipes (title, category, preptime, servings, ingredients, methoditems, tags, tips, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', [title, category, prepTime, recipeServings, ingredients, tags, tips, image], (error, _results) => {
+//     //     if (error) {
+//     //         throw error
+//     //     }
+//     // });
+//     // console.log(getTimeStamp() + " || New recipe has been created: " + id);
+
+//     // res.status(200).redirect("/recipes");
+// }
 
 
 const deleteRecipe = (req, res) => {
     const title = req.params.recipeid.charAt(0).toUpperCase() + req.params.recipeid.slice(1).match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join(" ");
 
-    // cloudinary.uploader.destroy(id, function (result) {
-    //     console.log(result)
-    // });
-    // fs.unlink('https://res.cloudinary.com/crazypotatolady/image/upload/' + id + '.jpg', (error) => {        
-    //     if (error) {
-    //         if (error.code != 'ENOENT') {
-    //             throw error;
-    //         }
-    //     }
-    //     console.log(getTimeStamp() + " || Picture has been deleted: " + id + '.jpg');
-    // });
+    pool.query('SELECT * FROM recipes WHERE title = $1', [title], (error, results) => {
+        if(error) {
+            throw error
+        }
+        const picture = results.row.image;
+    })
+
+    cloudinary.uploader.destroy(id, function (result) {
+        console.log(result)
+    });
+    fs.unlink(image, (error) => {        
+        if (error) {
+            if (error.code != 'ENOENT') {
+                throw error;
+            }
+        }
+        console.log(getTimeStamp() + " || Picture has been deleted: " + title);
+    });
 
     pool.query('DELETE FROM recipes WHERE title = $1', [title], (error, _results) => {
         if (error) {

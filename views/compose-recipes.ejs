@@ -17,7 +17,7 @@
                 <input class="new-recipe-title" type="text" name="recipeTitle" placeholder="New recipe title">
                 <br>
                 <label for="category">Category: </label>
-                <select name="category" id="category">
+                <select name="recipeCategory" id="category">
                     <option value="breakfast">Breakfast</option>
                     <option value="dinner">Dinner</option>
                     <option value="dessert">Dessert</option>
@@ -28,13 +28,13 @@
                 <!-- for this add ::after to show minues or sth -->
                 <input id="prepTime" class="new-recipe-title" type="text" name="prepTime" style="width: 35px;">
                 <label for="servings">Servings:</label>
-                <input id="servings" class="new-recipe-title" type="text" name="servings" style="width: 35px;">
-                <fieldset id="fieldIngredients">
+                <input id="servings" class="new-recipe-title" type="text" name="recipeServings" style="width: 35px;">
+                <fieldset id="fieldIngredients" name="field">
                     <legend>Ingredients:</legend>
                     <div id="ingredient1" class="">
-                        <input type="text" placeholder="Ingredient">
-                        <input type="text" placeholder="Amount">
-                        <select name="">
+                        <input type="text" placeholder="Ingredient" name="ingredient">
+                        <input type="text" placeholder="Amount" name="amount">
+                        <select name="unit">
                             <option value="piece">Piece</option>
                             <option value="ml">ml</option>
                             <option value="g">g</option>

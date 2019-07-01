@@ -214,7 +214,7 @@ app.get("/recipes/compose", (req, res) => {
 
 });
 
-app.post("/recipes/compose", upload.single('recipePictureFile'), db.createPost);
+// app.post("/recipes/compose", upload.single('recipePictureFile'), db.createRecipe);
 
 app.get("/recipes/:recipeid", (req, res) => {
     db.getRecipeByName(function (rows) {
