@@ -1,13 +1,13 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
-    // user: 'postgres',
-    // host: 'localhost',
-    // database: "crazypotatolady",
-    // password: "pass",
-    // port: 5432,
     user: 'postgres',
+    host: 'localhost',
+    database: "crazypotatolady",
     password: "pass",
-    connectionString: process.env.DATABASE_URL,
+    port: 5432,
+    // user: 'postgres',
+    // password: "pass",
+    // connectionString: process.env.DATABASE_URL,
     sslmode: true
 });
 // let server = require('./server');
@@ -179,6 +179,17 @@ const deletePost = (req, res) => {
 
 // QUERIES FOR RECIPES SECTION
 
+const countRecipes = (callback) => {
+    let count;
+    pool.query('SELECT COUNT(*) FROM recipes', (error, result) => {
+        if(error) {
+            console.log(error);
+            throw error;
+        }
+        callback(result.rows[0].count);
+    })
+}
+
 const getRecipes = (callback) => {
     pool.query('SELECT * FROM recipes', (error, results) => {
 
@@ -335,6 +346,7 @@ module.exports = {
     createPost,
     updatePost,
     deletePost,
+    countRecipes,
     getRecipes,
     getRecipeByName,
     getRecipesByTag,

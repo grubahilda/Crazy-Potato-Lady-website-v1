@@ -66,7 +66,14 @@ app.get("/", function (req, res) {
         adminLogged = false;
     }
 
-    res.render("index");
+    db.countRecipes(function (count) {
+        res.render("index", {
+            recipesCount: count
+        });
+    })
+
+
+
 });
 
 app.get("/blog", function (req, res) {
@@ -220,8 +227,8 @@ app.get("/recipes/:recipeid", (req, res) => {
     db.getRecipeByName(function (rows) {
         if (req.params.recipeid.charAt(0).toUpperCase() + req.params.recipeid.slice(1).match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join(" ") == rows[0].title) {
             res.render("recipe", {
-                recipe: rows[0]
-                // adminLogged: adminLogged
+                recipe: rows[0],
+                adminLogged: adminLogged
             });
         } else {
             res.sendStatus(404);
@@ -268,8 +275,8 @@ app.get("/recipes/tags/:tag", function (req, res) {
         if (rows[0].tags.includes(req.params.tag.toLowerCase())) {
             res.render("tagged-recipes", {
                 tag: req.params.tag,
-                recipes: rows
-                // adminLogged: adminLogged
+                recipes: rows,
+                adminLogged: adminLogged
             });
         } else {
             res.sendStatus(404);
