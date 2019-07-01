@@ -23,7 +23,7 @@
                                 category: <%= recipe.category %> </a>
                             </p>
                         </div>
-                        <h3><a href="/recipes/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>"><%= recipe.title %></a></h3>
+                        <h3><a href="recipes/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>"><%= recipe.title %></a></h3>
                     </div>
             <% }) %>
 
