@@ -266,7 +266,7 @@ app.get("/recipes/snacks", (_req, res) => {
             adminLogged: false
         });
 
-        }, 'snacks');
+        }, 'snack');
 
 });
 
