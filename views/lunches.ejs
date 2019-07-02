@@ -8,11 +8,11 @@
 
     <div class="container-fluid">
         <div class="row">
-            <h1 class="page-title">Recipes</h1><% if(adminLogged) { %><a href="/recipes/compose"
+            <h1 class="page-title">\Lunches</h1><% if(adminLogged) { %><a href="/recipes/compose"
                 class="add-new-blog-post-button btn btn-lg btn-light">+</a> <% } %>
         </div>
         <div class="row col-12">
-                <div class="owl-carousel justify-content-center">
+                <!-- <div class="owl-carousel justify-content-center"> -->
                     <% lunches.forEach(function(lunch){ %>
                     <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= lunch.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
                         <div class="image-tile">
@@ -42,7 +42,7 @@
                     </div>
                     <% }); %>
                 </div>
-            </div>
+            <!-- </div> -->
 
     </div>
 
