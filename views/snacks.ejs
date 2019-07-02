@@ -8,37 +8,37 @@
 
     <div class="container-fluid">
         <div class="row">
-            <h1 class="page-title">Desserts</h1>
+            <h1 class="page-title">Snacks</h1>
             <!-- <% if(adminLogged) { %><a href="/recipes/compose"
                 class="add-new-blog-post-button btn btn-lg btn-light">+</a> <% } %> -->
         </div>
         <div class="row col-12">
                 <!-- <div class="owl-carousel justify-content-center"> -->
-                    <% desserts.forEach(function(dessert){ %>
-                    <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= dessert.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
+                    <% snacks.forEach(function(snack){ %>
+                    <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= snack.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
                         <div class="image-tile">
                             <% if(adminLogged) { %>
                             <div class="blog-edit-delete-btn">
-                                <form action="/recipes/<%= dessert.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit"
+                                <form action="/recipes/<%= snack.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit"
                                     method="GET">
                                     <button class="btn btn-light" type="submit">Edit</button>
                                 </form>
-                                <form action="/recipes/<%= dessert.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>"
+                                <form action="/recipes/<%= snack.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>"
                                     method="POST" enctype="multipart/form-data">
                                     <input onclick="return confirm('Do you really want to submit the form?');"
                                         class="btn btn-light" type="submit" value="Delete">
                                 </form>
                             </div>
                             <% } %>
-                            <img src="<%= dessert.image %>" alt="<%= dessert.recipeid %>">
+                            <img src="<%= snack.image %>" alt="<%= snack.recipeid %>">
                             <p class="recipe-details">
-                                preparation time: <%= dessert.preptime %> <br>
-                                servings: <%= dessert.servings %><br>
-                                category: <%= dessert.category %></a>
+                                preparation time: <%= snack.preptime %> <br>
+                                servings: <%= snack.servings %><br>
+                                category: <%= snack.category %></a>
                             </p>
                         </div>
                         <h3><a
-                                href="/recipes/<%= dessert.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>"><%= dessert.title %></a>
+                                href="/recipes/<%= snack.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>"><%= snack.title %></a>
                         </h3>
                     </div>
                     <% }); %>

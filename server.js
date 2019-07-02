@@ -258,15 +258,15 @@ app.get("/recipes/breakfasts", (_req, res) => {
 
 });
 
-app.get("/recipes/desserts", (_req, res) => {
+app.get("/recipes/snacks", (_req, res) => {
 
     db.getRecipesByCategoryPage(function (rows) {
-        res.render("desserts", {
-            desserts: rows,
+        res.render("snacks", {
+            snacks: rows,
             adminLogged: false
         });
 
-        }, 'desserts');
+        }, 'snacks');
 
 });
 
