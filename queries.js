@@ -1,13 +1,13 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
-    // user: 'postgres',
-    // host: 'localhost',
-    // database: "crazypotatolady",
-    // password: "pass",
-    // port: 5432,
     user: 'postgres',
+    host: 'localhost',
+    database: "crazypotatolady",
     password: "pass",
-    connectionString: process.env.DATABASE_URL,
+    port: 5432,
+    // user: 'postgres',
+    // password: "pass",
+    // connectionString: process.env.DATABASE_URL,
     sslmode: true
 });
 // let server = require('./server');
@@ -103,15 +103,15 @@ const createPost = (req, res) => {
 }
 
 const updatePost = (req, res) => {
-    if(adminLogged) {
-        
+    if (adminLogged) {
+
         const oldId = req.params.postid.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
 
         const title = req.body.postTitle;
         const body = req.body.postBody;
         const tags = req.body.postTags.match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g);
         const newId = title.toLowerCase().match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join("-");
-    
+
         if (req.body.postPictureFile == '') {
             fs.unlink(__dirname + '\\public\\images\\uploads\\' + oldId + '.jpg', (error) => {
                 if (error) {
@@ -120,7 +120,7 @@ const updatePost = (req, res) => {
                     }
                 }
             });
-    
+
             pool.query('UPDATE blog_posts SET posttitle = $1, postbody = $2, tags = $3, id = $4 WHERE id = $5',
                 [title, body, tags, newId, oldId], (error, _results) => {
                     if (error) {
@@ -136,10 +136,10 @@ const updatePost = (req, res) => {
                     }
                 })
             console.log(getTimeStamp() + " || Picture has been added: " + picture);
-    
+
         }
         console.log(getTimeStamp() + " || Blog post has been updated: " + newId);
-    
+
         res.status(200).redirect("/blog/" + newId);
 
 
@@ -147,7 +147,7 @@ const updatePost = (req, res) => {
         res.render("forbidden");
     }
 
-    
+
 }
 
 const deletePost = (req, res) => {
@@ -182,7 +182,7 @@ const deletePost = (req, res) => {
 const countRecipes = (callback) => {
     let count;
     pool.query('SELECT COUNT(*) FROM recipes', (error, result) => {
-        if(error) {
+        if (error) {
             console.log(error);
             throw error;
         }
@@ -204,7 +204,7 @@ const getRecipes = (callback) => {
 
 const getRecipeByName = (callback, req) => {
     const name = req.params.recipeid.charAt(0).toUpperCase() + req.params.recipeid.slice(1).match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join(" ");
-    
+
 
     pool.query('SELECT * FROM recipes WHERE title = $1', [name], (error, results) => {
 
@@ -232,6 +232,24 @@ const getRecipesByTag = (callback, req) => {
 }
 
 
+const getRecipesByCategoryForSection = (callback, category) => {
+
+    return new Promise((resolve, reject) => {
+        pool.query("SELECT * FROM recipes WHERE category=$1 ORDER BY RANDOM() LIMIT 10;", [category], (error, results) => {
+
+            if (error) {
+                reject(new Error(error));
+            } else {
+            resolve(callback(results.rows));
+            }
+        })
+
+        
+    })
+
+}
+
+
 // const createRecipe = (req, res) => {
 //     const title = req.body.recipeTitle;
 //     const category = req.body.recipeCategory;
@@ -241,7 +259,7 @@ const getRecipesByTag = (callback, req) => {
 //     const field = req.body.field;
 
 //     console.log(field);
-    
+
 //     // for()
 //     const ingredients = req.body.recipeServings;
 
@@ -274,7 +292,7 @@ const deleteRecipe = (req, res) => {
     const title = req.params.recipeid.charAt(0).toUpperCase() + req.params.recipeid.slice(1).match(/[A-Za-z\u00C0-\u00FF\u0100-\u017F]+/g).join(" ");
 
     pool.query('SELECT * FROM recipes WHERE title = $1', [title], (error, results) => {
-        if(error) {
+        if (error) {
             throw error
         }
         const picture = results.row.image;
@@ -283,7 +301,7 @@ const deleteRecipe = (req, res) => {
     cloudinary.uploader.destroy(id, function (result) {
         console.log(result)
     });
-    fs.unlink(image, (error) => {        
+    fs.unlink(image, (error) => {
         if (error) {
             if (error.code != 'ENOENT') {
                 throw error;
@@ -318,13 +336,12 @@ const verifyAdmin = (req, res) => {
                     error: true,
                     message: 'Wrong username or the user doesn\'t exist'
                 })
-            }
-            else if (results.rows != "undefined" || results.rows != []) {
+            } else if (results.rows != "undefined" || results.rows != []) {
 
                 if (results.rows[0].userpassword === password) {
                     adminLogged = true;
-                    req.session.user = results.rows;                    
-                    
+                    req.session.user = results.rows;
+
                     res.redirect("/blog");
                 } else {
                     res.render("login", {
@@ -350,6 +367,7 @@ module.exports = {
     getRecipes,
     getRecipeByName,
     getRecipesByTag,
+    getRecipesByCategoryForSection,
     // createRecipe,
     // updateRecipe,
     deleteRecipe,

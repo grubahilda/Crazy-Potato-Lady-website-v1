@@ -195,18 +195,57 @@ app.get("/recipes", function (req, res) {
         adminLogged = false;
     }
     try {
-        db.getRecipes(function (rows) {
 
-            res.render("recipes", {
-                recipes: rows,
-                adminLogged: adminLogged
+        var breakfasts = [];
+
+        db.getRecipesByCategoryForSection(function (rows) {
+                breakfasts = rows;
+
+            }, 'breakfast')
+            .then(function (value) {
+
+                
+
+                db.getRecipesByCategoryForSection(function (rows) {
+                        lunches = rows;
+
+                    }, 'lunch')
+                    .then(function (value) {
+
+                        db.getRecipesByCategoryForSection(function (rows) {
+                                snacks = rows;
+
+                            }, 'snack')
+                            .then(function (value) {
+
+                                res.render("recipes", {
+                                    breakfasts: breakfasts,
+                                    lunches: lunches,
+                                    snacks: snacks,
+                                    adminLogged: adminLogged
+                                });
+                            })
+                            .catch(function (err) {
+                                throw err;
+                            });
+
+                    })
+                    .catch(function (err) {
+                        throw err;
+                    });
+
+            })
+            .catch(function (err) {
+                throw err;
             });
-        });
+
+
     } catch (err) {
         console.error(err);
         res.send("Error: " + err);
     }
 });
+
 
 app.get("/recipes/compose", (req, res) => {
 

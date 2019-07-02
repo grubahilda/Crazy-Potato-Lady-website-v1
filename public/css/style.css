@@ -142,7 +142,7 @@ a {
     padding-right: 10px;
 }
 
-.logout-button > .btn {
+.logout-button>.btn {
     padding: 0 20px;
     float: right;
 }
@@ -175,7 +175,10 @@ a {
     color: white;
 }
 
-.fa-money-bill-alt, .fa-globe-europe, .fa-user-check, .fa-hand-peace {
+.fa-money-bill-alt,
+.fa-globe-europe,
+.fa-user-check,
+.fa-hand-peace {
     font-size: 1rem;
 }
 
@@ -1192,7 +1195,10 @@ a {
     padding-bottom: 10px;
 }
 
-.benefits-box:hover>.fa-money-bill-alt, .benefits-box:hover>.fa-globe-europe, .benefits-box:hover>.fa-hand-peace, .benefits-box:hover>.fa-user-check {
+.benefits-box:hover>.fa-money-bill-alt,
+.benefits-box:hover>.fa-globe-europe,
+.benefits-box:hover>.fa-hand-peace,
+.benefits-box:hover>.fa-user-check {
     color: #493a37;
 }
 
@@ -1236,7 +1242,7 @@ a {
     }
 
     .cooperation-image {
-        max-width: 400px;        
+        max-width: 400px;
     }
 
 }
@@ -1265,8 +1271,8 @@ a {
 
     .work-text {
         min-width: 100px;
-        margin-left: 20px; 
-        margin-right: 20px; 
+        margin-left: 20px;
+        margin-right: 20px;
     }
 
     .cooperation-image {
@@ -1279,8 +1285,8 @@ a {
 
     .work-text {
         /* min-width: 100px; */
-        margin-left: 40px; 
-        margin-right: 40px; 
+        margin-left: 40px;
+        margin-right: 40px;
         padding: 0;
     }
 
@@ -1294,8 +1300,8 @@ a {
 
     .work-text {
         max-width: 280px;
-        margin-left: 40px; 
-        margin-right: 40px; 
+        margin-left: 40px;
+        margin-right: 40px;
         padding: 0;
     }
 
@@ -1423,19 +1429,37 @@ a {
     position: relative;
     text-align: center;
     max-width: 350px;
-    white-space: nowrap;
     padding: 30px 20px;
 }
 
 .image-and-title h3 {
-    position: relative;
     width: inherit;
+    position: relative;
     margin-top: 10px;
 }
 
-.image-and-title h3 a {
+.image-and-title a {
     color: black;
+    word-wrap: normal;
+    width: inherit;
+    text-align: center;
 }
+
+.section-title-recipes {
+    float: left !important;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.section-title-recipes::after {
+    content: '';
+    display: block;
+    margin: 3px 0px;
+    border-bottom: 4px solid black;
+    width: inherit;
+}
+
+
 
 
 /* RECIPE PAGE */
@@ -1449,8 +1473,28 @@ div.ingredients.item-one {
     padding: 20px;
 }
 
-.ingredients > h3 {
+.ingredients>h3 {
     text-align: right;
+}
+
+.image-tile-recipe {
+    background-color: white;
+    overflow: hidden;
+    height: 400px;
+    width: 400px;
+    position: relative;
+    display: inline-block;
+    border: 5px solid white;
+
+}
+
+.image-tile-recipe img {
+    z-index: 0;
+    object-fit: cover;
+    height: 400px;
+    width: 400px;
+    position: absolute;
+
 }
 
 
@@ -1459,7 +1503,7 @@ div.ingredients.item-one {
     flex-wrap: nowrap;
     overflow: hidden;
     grid-template-columns: 1fr auto;
-    
+
 }
 
 .item-one-recipe {
@@ -1506,11 +1550,11 @@ div.ingredients.item-one {
         text-align: center;
     }
 
-    .ingredients > ul {
+    .ingredients>ul {
         text-align: center;
     }
 
-    .ingredients > h3 {
+    .ingredients>h3 {
         text-align: center;
     }
 
@@ -1525,7 +1569,7 @@ div.ingredients.item-one {
     div.image-square.image-tile {
         width: 250px;
     }
-    
+
 }
 
 /* RECIPE PAGE */
@@ -1539,7 +1583,7 @@ div.ingredients.item-one {
     padding: 20px;
 }
 
-.ingredients > h3 {
+.ingredients>h3 {
     text-align: right;
 }
 
@@ -1596,11 +1640,11 @@ div.ingredients.item-one {
         text-align: center;
     }
 
-    .ingredients > ul {
+    .ingredients>ul {
         text-align: center;
     }
 
-    .ingredients > h3 {
+    .ingredients>h3 {
         text-align: center;
     }
 
@@ -2271,11 +2315,7 @@ form>input.btn-light {
 
 }
 
-@media only screen and (max-width: 414px) {
-
- 
-
-}
+@media only screen and (max-width: 414px) {}
 
 @media only screen and (max-width: 375px) {
 
@@ -2305,6 +2345,8 @@ form>input.btn-light {
 
 /* CONTACT PAGE */
 
-.benefits-box:hover>.fa-linkedin-in, .benefits-box:hover>.fa-envelope, .benefits-box:hover>.fa-phone {
+.benefits-box:hover>.fa-linkedin-in,
+.benefits-box:hover>.fa-envelope,
+.benefits-box:hover>.fa-phone {
     color: #3e7e75;
 }
