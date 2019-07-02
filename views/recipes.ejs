@@ -12,10 +12,10 @@
                 class="add-new-blog-post-button btn btn-lg btn-light">+</a> <% } %>
         </div>
         <div class="row col-12">
-                <h2 class="section-title-recipes">Breakfasts:</h2>
+                <h2 class="section-title-recipes"><a href="/recipes/breakfasts">Breakfasts:</a></h2>
                 <div class="owl-carousel justify-content-center">
                     <% breakfasts.forEach(function(breakfast){ %>
-                    <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
+                    <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= breakfast.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
                         <div class="image-tile">
                             <% if(adminLogged) { %>
                             <div class="blog-edit-delete-btn">
@@ -48,10 +48,10 @@
 
 
         <div class="row col-12">
-            <h2 class="section-title-recipes">Lunches:</h2>
+            <h2 class="section-title-recipes"><a href="/recipes/breakfasts">Lunches:</a></h2>
             <div class="owl-carousel justify-content-center">
                 <% lunches.forEach(function(lunch){ %>
-                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
+                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= lunch.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
                     <div class="image-tile">
                         <% if(adminLogged) { %>
                         <div class="blog-edit-delete-btn">
@@ -82,10 +82,10 @@
         </div>
 
         <div class="row col-12">
-            <h2 class="section-title-recipes">Snacks:</h2>
+            <h2 class="section-title-recipes"><a href="/recipes/breakfasts">Snacks:</a></h2>
             <div class="owl-carousel justify-content-center">
                 <% snacks.forEach(function(snack){ %>
-                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
+                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= snack.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
                     <div class="image-tile">
                         <% if(adminLogged) { %>
                         <div class="blog-edit-delete-btn">

@@ -204,7 +204,7 @@ app.get("/recipes", function (req, res) {
             }, 'breakfast')
             .then(function (value) {
 
-                
+
 
                 db.getRecipesByCategoryForSection(function (rows) {
                         lunches = rows;
@@ -244,6 +244,42 @@ app.get("/recipes", function (req, res) {
         console.error(err);
         res.send("Error: " + err);
     }
+});
+
+app.get("/recipes/breakfasts", (_req, res) => {
+
+    db.getRecipesByCategoryPage(function (rows) {
+        res.render("breakfasts", {
+            breakfasts: rows,
+            adminLogged: false
+        });
+
+        }, 'breakfast');
+
+});
+
+app.get("/recipes/desserts", (_req, res) => {
+
+    db.getRecipesByCategoryPage(function (rows) {
+        res.render("desserts", {
+            desserts: rows,
+            adminLogged: false
+        });
+
+        }, 'desserts');
+
+});
+
+app.get("/recipes/lunches", (_req, res) => {
+
+    db.getRecipesByCategoryPage(function (rows) {
+        res.render("lunches", {
+            lunches: rows,
+            adminLogged: false
+        });
+
+        }, 'lunch');
+
 });
 
 

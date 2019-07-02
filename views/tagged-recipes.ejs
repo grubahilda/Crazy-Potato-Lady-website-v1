@@ -14,7 +14,7 @@
         <div class="row justify-content-center col-12">
 
             <% recipes.forEach(function(recipe){ %>
-                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12">
+                <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= recipe.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
                         <div class="image-tile">
                                 <img src="<%= recipe.image %>" alt="<%= recipe.recipeid %>">
                             <p class="recipe-details">

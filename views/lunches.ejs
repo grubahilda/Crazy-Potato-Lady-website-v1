@@ -1,0 +1,50 @@
+<%- include("partials/header") -%>
+
+<body style="background-color: #b7eae3">
+
+    <!-- START NAVBAR -->
+    <%- include("partials/navbar") -%>
+    <!-- END NAVBAR -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="page-title">Recipes</h1><% if(adminLogged) { %><a href="/recipes/compose"
+                class="add-new-blog-post-button btn btn-lg btn-light">+</a> <% } %>
+        </div>
+        <div class="row col-12">
+                <div class="owl-carousel justify-content-center">
+                    <% lunches.forEach(function(lunch){ %>
+                    <div class="item image-and-title col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/recipes/<%= lunch.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>';">
+                        <div class="image-tile">
+                            <% if(adminLogged) { %>
+                            <div class="blog-edit-delete-btn">
+                                <form action="/recipes/<%= lunch.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>/edit"
+                                    method="GET">
+                                    <button class="btn btn-light" type="submit">Edit</button>
+                                </form>
+                                <form action="/recipes/<%= lunch.title.toLowerCase().replace(/\s|\W/g, '-').trim()%>"
+                                    method="POST" enctype="multipart/form-data">
+                                    <input onclick="return confirm('Do you really want to submit the form?');"
+                                        class="btn btn-light" type="submit" value="Delete">
+                                </form>
+                            </div>
+                            <% } %>
+                            <img src="<%= lunch.image %>" alt="<%= lunch.recipeid %>">
+                            <p class="recipe-details">
+                                preparation time: <%= lunch.preptime %> <br>
+                                servings: <%= lunch.servings %><br>
+                                category: <%= lunch.category %></a>
+                            </p>
+                        </div>
+                        <h3><a
+                                href="/recipes/<%= lunch.title.toLowerCase().replace(/\s|\W/g, '-').trim() %>"><%= lunch.title %></a>
+                        </h3>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+
+    </div>
+
+
+    <%- include("partials/footer") -%>

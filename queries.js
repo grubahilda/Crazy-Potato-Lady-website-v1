@@ -243,11 +243,24 @@ const getRecipesByCategoryForSection = (callback, category) => {
             resolve(callback(results.rows));
             }
         })
-
-        
     })
 
 }
+
+const getRecipesByCategoryPage = (callback, category) => {
+
+    pool.query("SELECT * FROM recipes WHERE category=$1 ORDER BY RANDOM() LIMIT 18;", [category], (error, results) => {
+
+        if (error) {
+            console.log(error);
+            throw error;
+        }
+        
+        callback(results.rows);
+    })
+}
+
+
 
 
 // const createRecipe = (req, res) => {
@@ -368,6 +381,7 @@ module.exports = {
     getRecipeByName,
     getRecipesByTag,
     getRecipesByCategoryForSection,
+    getRecipesByCategoryPage,
     // createRecipe,
     // updateRecipe,
     deleteRecipe,
