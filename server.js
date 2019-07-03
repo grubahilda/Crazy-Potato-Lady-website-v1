@@ -41,6 +41,8 @@ var upload = multer({
 
 const app = express();
 
+adminLogged = false;
+
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({
