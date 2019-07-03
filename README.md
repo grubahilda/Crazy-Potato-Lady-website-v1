@@ -45,19 +45,17 @@ nodemon server-file-name.js
 
 ## Homepage:
 - add crossfade for slideshow
-- add navbar animation
-- add content revealing when scrolling down
 
 ## Recipes:
 - add filtering buttons (for blog page, too)
 - add recipes filtering functionality
-- add CRUD for recipes
 - ingredient converter in side panel of a recipe
 
 ## Blog:
 - add tag filtering page
 - pagination
 - post preview in compose mode
+- fix images upload cloudinary
 
 ## General:
 - add newsletter subscription
