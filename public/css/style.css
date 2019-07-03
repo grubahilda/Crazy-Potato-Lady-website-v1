@@ -1453,7 +1453,7 @@ a {
 }
 
 .section-title-recipes a {
-color: black;
+    color: black;
 }
 
 .section-title-recipes::after {
@@ -1464,7 +1464,91 @@ color: black;
     width: inherit;
 }
 
+/* Carousel */
 
+.owl-nav {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+}
+
+.owl-dots {
+    display: none;
+}
+
+.owl-prev>span,
+.owl-next>span {
+    font-size: 6rem;
+    color: white;
+}
+
+.owl-prev>span {
+    position: absolute;
+    left: 2px;
+}
+
+.owl-next>span {
+    position: absolute;
+    right: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+    .owl-prev>span {
+        left: -2px;
+    }
+
+    .owl-next>span {
+        right: -2px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .owl-stage-outer {
+        margin-left: 20px;
+    }
+
+    .owl-prev>span {
+        left: 2px;
+    }
+
+    .owl-next>span {
+        right: 2px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .owl-stage-outer {
+        margin-left: 32px;
+    }
+
+    .owl-prev>span {
+        left: 14px;
+    }
+
+    .owl-next>span {
+        right: 14px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .owl-stage-outer {
+        margin-left: 13px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .owl-stage-outer {
+        margin-left: 5px;
+    }
+
+    .owl-prev>span {
+        left: 4px;
+    }
+
+    .owl-next>span {
+        right: 4px;
+    }
+}
 
 
 /* RECIPE PAGE */
