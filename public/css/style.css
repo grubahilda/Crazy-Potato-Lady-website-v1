@@ -412,7 +412,7 @@ a {
 }
 
 .div-two {
-    height: 650px;
+    height: 750px;
     background-color: #c7dad3;
     display: block;
 }
@@ -905,39 +905,6 @@ a {
     text-align: center;
 }
 
-.recipeSlides {
-    margin: auto;
-    display: none;
-}
-
-/*   
-  .slideLeft {
-      position: relative;
-    margin: 0;
-    left: 0;
-    font-size: 0;
-    animation: 20s slider infinite;
-  } */
-
-/* div#sliderMainss {
-    overflow: hidden;
-    margin: auto;
-    width: 50%;
-    max-width: 700px;
-    max-height: 400px;
-  }
-  div#slider div {
-    position: relative;
-    width: 500%;
-    margin: 0;
-    left: 0;
-    font-size: 0;
-    
-  }
-  div#slider div img {
-    width: 20%;
-    float: left;
-  } */
 
 .w3-content {
     margin: auto;
@@ -2439,3 +2406,28 @@ form>input.btn-light {
 .benefits-box:hover>.fa-phone {
     color: #3e7e75;
 }
+
+.swiper-container {
+    width: 80%;
+    height: 80%;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+      color: white;
+  }

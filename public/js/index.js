@@ -1,3 +1,4 @@
+// initialize animation on scroll
 AOS.init({
     duration: 1000,
     once: true,
@@ -5,6 +6,28 @@ AOS.init({
     easing: 'ease',
     anchorPlacement: 'top-center',
 });
+
+
+// initialize swiper
+var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: true,
+
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    effect: 'fade',
+
+  })
 
 
 // NAVBAR RESPONSIVE COLLAPSE
@@ -15,57 +38,6 @@ function navbarCollapse() {
     } else {
         x.className = "top-nav";
     }
-}
-
-// function navbarLogged(adminLogged) {
-    
-//         if(adminLogged) {
-//             document.querySelectorAll('.top-nav, .responsive')[0].style.height = '350px'
-//         } else {
-//             document.querySelectorAll('.top-nav, .responsive')[0].style.height = '280px'
-//         }
-// }
-
-
-//GLOBALS
-var IngredientId = 1;
-var slideIndex = 1;
-
-// RECIPES SLIDE SHOW
-
-showDivs(slideIndex);
-
-function plusDivs(n) {
-    showDivs(slideIndex += n);
-}
-
-function currentDiv(n) {
-    showDivs(slideIndex = n);
-}
-
-function showDivs(n) {
-    var images = document.getElementsByClassName("recipeSlides");
-
-    if (images.length == 0) {
-        return;
-    }
-    var dots = document.getElementsByClassName("demo");
-
-    if (n > images.length) {
-        slideIndex = 1
-    }
-    if (n < 1) {
-        slideIndex = images.length
-    }
-    for (var i = 0; i < images.length; i++) {
-        images[i].classList.remove("active");
-    }
-    for (var i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" w3-white", "");
-    }
-    images[slideIndex - 1].className += " active";
-    // images[slideIndex-1].className += "showMe";
-    dots[slideIndex - 1].className += " w3-white";
 }
 
 
@@ -91,17 +63,6 @@ function mouseUpPhoneNumber() {
     document.getElementById("phoneNumber").innerHTML = document.getElementById("phoneNumber").title;
 }
 
-
-// Touch events on slide show index.ejs
-
-
-// var sliderMain = document.getElementById('sliderMain');
-
-// var hammertime = new Hammer(sliderMain);
-
-// hammertime.on("swipe", function(ev){
-    
-// });
 
 $(document).ready(function() {
     var owl = $('.owl-carousel');
