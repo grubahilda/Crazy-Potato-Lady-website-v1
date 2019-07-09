@@ -449,6 +449,43 @@ a {
 }
 
 
+ /* Back to top button */
+
+
+ #button {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+  }
+  #button::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #333;
+  }
+  #button:hover::after {
+    cursor: pointer;
+    color: white;
+  }
+
+  #button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
 
 /* Div-one pictures */
 
@@ -906,77 +943,32 @@ a {
 }
 
 
-.w3-content {
-    margin: auto;
-    width: 100%;
-}
+/* Swiper div two */
 
-.w3-left,
-.w3-right,
-.w3-badge {
-    cursor: pointer;
-}
+.swiper-container {
+    width: 80%;
+    height: 80%;
+  }
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    display: -webkit-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      align-items: center;
+  }
 
-.w3-badge {
-    height: 13px;
-    width: 13px;
-    padding: 0
-}
-
-.active {
-    display: block;
-    opacity: 1;
-}
-
-.w3-center {
-    position: relative;
-    top: -60px;
-}
-
-.crop {
-    overflow: hidden;
-}
-
-.crop img {
-    object-fit: cover;
-    height: 500px;
-    margin: auto;
-
-}
-
-@keyframes slider {
-    0% {
-        left: 0%;
-    }
-
-    20% {
-        left: 0%;
-    }
-
-    25% {
-        left: -100%;
-    }
-
-    45% {
-        left: -100%;
-    }
-
-    50% {
-        left: -200%;
-    }
-
-    70% {
-        left: -200%;
-    }
-
-    75% {
-        left: -300%;
-    }
-
-    95% {
-        left: -300%;
-    }
-}
+  .swiper-button-next, .swiper-button-prev {
+      color: white;
+  }
 
 
 
@@ -2406,28 +2398,3 @@ form>input.btn-light {
 .benefits-box:hover>.fa-phone {
     color: #3e7e75;
 }
-
-.swiper-container {
-    width: 80%;
-    height: 80%;
-  }
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    display: -webkit-box;
-      display: -ms-flexbox;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      -webkit-justify-content: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      -webkit-align-items: center;
-      align-items: center;
-  }
-
-  .swiper-button-next, .swiper-button-prev {
-      color: white;
-  }

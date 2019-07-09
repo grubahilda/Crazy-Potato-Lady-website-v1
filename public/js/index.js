@@ -41,6 +41,24 @@ function navbarCollapse() {
 }
 
 
+// Back to top button
+
+var btn = $('#button');
+
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
+
+
 // Footer colour
 window.onload = function () {
     document.getElementsByTagName("footer")[0].style.backgroundColor = document.getElementsByTagName("body")[0].style.backgroundColor;
