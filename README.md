@@ -44,7 +44,7 @@ nodemon server-file-name.js
 # TODO:
 
 ## Homepage:
-- add crossfade for slideshow
+
 
 ## Recipes:
 - add filtering buttons (for blog page, too)
