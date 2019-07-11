@@ -970,6 +970,11 @@ a {
       color: white;
   }
 
+  @media only screen and (max-width: 1024px) {
+      .swiper-container {
+          width: 100%;
+      }
+  }
 
 
 /* DIV THREE + GRID SYSTEM */
