@@ -327,6 +327,10 @@ app.get("/cooperation", function (_req, res) {
     res.render("cooperation");
 });
 
+app.get("/cooperation/budget-calculator", function (_req, res) {
+    res.render("apps/budgetCalc.ejs");
+});
+
 app.get("/share", function (_req, res) {
     res.render("share");
 });

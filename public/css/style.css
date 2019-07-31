@@ -1200,6 +1200,45 @@ a {
     float: right;
 }
 
+.image-app {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    padding: 30px 0 40px 0;
+    margin-left: -80px;
+    min-width: 400px;
+
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.image-app-tile {
+    background-color: white;
+    overflow: hidden;
+    height: 250px;
+    width: 350px;
+    position: relative;
+    display: inline-block;
+    border: 5px solid white;
+
+}
+
+.image-app-tile img {
+    z-index: 0;
+    height: 250px;
+    width: 350px;
+    position: absolute;
+    left: 0;
+}
+
+.image-app:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    /* opacity: 0.35; */
+}
+
 @media only screen and (max-width: 1024px) {
 
     .work-text {
