@@ -1,13 +1,13 @@
 const Pool = require('pg').Pool;
 const pool = new Pool({
-    // user: 'postgres',
-    // host: 'localhost',
-    // database: "crazypotatolady",
-    // password: "pass",
-    // port: 5432,
     user: 'postgres',
+    host: 'localhost',
+    database: "crazypotatolady",
     password: "pass",
-    connectionString: process.env.DATABASE_URL,
+    port: 5432,
+    // user: 'postgres',
+    // password: "pass",
+    // connectionString: process.env.DATABASE_URL,
     sslmode: true
 });
 // let server = require('./server');

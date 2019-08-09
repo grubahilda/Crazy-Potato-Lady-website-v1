@@ -1,72 +1,128 @@
 <%- include("partials/header") -%>
 
 <body style="background-color: 	#c7dad3">
+  <!-- START NAVBAR -->
+  <%- include("partials/navbar"); -%>
+  <!-- END NAVBAR -->
 
-    <!-- START NAVBAR -->
-    <%- include("partials/navbar"); -%>
-    <!-- END NAVBAR -->
-
-    <div class="container-fluid adjust-height-big-screens">
-        <div class="row">
-            <h1 class="page-title">Let's work together</h1>
-        </div>
-        <div class="row justify-content-center">
-            <div class="row work-together justify-content-center">
-                <div class="feature-box-image-cooperation col-lg-6">
-                    <img class="cooperation-image" src="images/ziemniak-nerd.png" alt="earth">
-                </div>
-                <div class="feature-box-text work-text col-lg-6">
-                    <p class="bigger-font">
-                        I am at the beginning of the career in <span class="bold-font"
-                        data-tooltip="Full-time junior web developer, I know front-end and back-end as well">web development</span> and I am very much
-                        open to opportunities in <span class="bold-font"
-                            data-tooltip="I live in Delft but I can also work in Delft Area, Den Haag, Rotterdam, even Leiden or Amsterdam">Randstad</span>.
-                    </p>
-                    <p class="bigger-font">
-                        I am not a nerd in the whole meaning of this word, however I do have some
-                        qualities necessary in the career of a <span class="bold-font"
-                            data-tooltip="Driven by gaining knowledge, stubbornly reaching the goals and curiosity (with a pinch of laziness...)">software
-                            developer</span>. Due to my university education, I do have some background in IT. I was
-                        floating around IT during all of my <span class="bold-font"
-                            data-tooltip="I was a technical writer for 4 years at the IT companies, surrounded by all sorts of technical terms, working in agile and using many tools used in the IT environment">professional
-                            career</span> and it started to grow on me.</p>
-                    <p class="bigger-font">
-                        I started to learn <span class="bold-font"
-                            data-tooltip="First Python, then I tried Elixir (loved it) and now I deepen my knowledge of JavaScript, Node.js and Express.js">programming</span>
-                        on my own. This website is my training report card as well as my github account (see, <a
-                            href="/about" style="font-weight: 400; text-decoration: none; color:inherit;">
-                            About page</a>).</p>
-                            <br>
-                    <p class="bigger-font">
-                        I will be grateful for a call or email. It is always nice to at least <a
-                        href="/contact" style="font-weight: 400; text-decoration: none; color:inherit;">
-                        talk</a> and determine if we have common goals :-)
-                    </p>
-                    <br>
-                    <p class="signature">
-                        Thank you very much
-                    </p>
-                    <br>
-                    <p class="signature">Marta Pozaroszczyk</p>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-center">
-            <h1 class="page-title">Other projects</h1>
-
-            <div class="benefits-box col-4">
-                <h2>Budget calculator</h2>
-                <div class="item image-app col-lg-3 col-md-6 col-sm-12" style="cursor: pointer" onclick="window.location='/cooperation/budget-calculator';">
-                    <div class="image-app-tile">
-                        <img src="images/apps/budget_calculator.png" alt="budget_calculator.png">
-                    </div>
-                </div>
-                <p>A simple app that calculates the household budget.</p>
-                <br>
-
-        </div>  
-        </div>
+  <div class="container-fluid adjust-height-big-screens">
+    <div class="row">
+      <h1 class="page-title">Let's work together</h1>
     </div>
+    <div class="row justify-content-center">
+      <div class="row work-together justify-content-center">
+        <div class="feature-box-image-cooperation col-lg-6">
+          <img
+            class="cooperation-image"
+            src="images/ziemniak-nerd.png"
+            alt="earth"
+          />
+        </div>
+        <div class="feature-box-text work-text col-lg-6">
+          <p class="bigger-font">
+            I am at the beginning of the career in
+            <span
+              class="bold-font"
+              data-tooltip="Full-time junior web developer, I know front-end and back-end as well"
+              >web development</span
+            >
+            and I am very much open to opportunities in
+            <span
+              class="bold-font"
+              data-tooltip="I live in Delft but I can also work in Delft Area, Den Haag, Rotterdam, even Leiden or Amsterdam"
+              >Randstad</span
+            >.
+          </p>
+          <p class="bigger-font">
+            I am not a nerd in the whole meaning of this word, however I do have
+            some qualities necessary in the career of a
+            <span
+              class="bold-font"
+              data-tooltip="Driven by gaining knowledge, stubbornly reaching the goals and curiosity (with a pinch of laziness...)"
+              >software developer</span
+            >. Due to my university education, I do have some background in IT.
+            I was floating around IT during all of my
+            <span
+              class="bold-font"
+              data-tooltip="I was a technical writer for 4 years at the IT companies, surrounded by all sorts of technical terms, working in agile and using many tools used in the IT environment"
+              >professional career</span
+            >
+            and it started to grow on me.
+          </p>
+          <p class="bigger-font">
+            I started to learn
+            <span
+              class="bold-font"
+              data-tooltip="First Python, then I tried Elixir (loved it) and now I deepen my knowledge of JavaScript, Node.js and Express.js"
+              >programming</span
+            >
+            on my own. This website is my training report card as well as my
+            github account (see,
+            <a
+              href="/about"
+              style="font-weight: 400; text-decoration: none; color:inherit;"
+            >
+              About page</a
+            >).
+          </p>
+          <br />
+          <p class="bigger-font">
+            I will be grateful for a call or email. It is always nice to at
+            least
+            <a
+              href="/contact"
+              style="font-weight: 400; text-decoration: none; color:inherit;"
+            >
+              talk</a
+            >
+            and determine if we have common goals :-)
+          </p>
+          <br />
+          <p class="signature">
+            Thank you very much
+          </p>
+          <br />
+          <p class="signature">Marta Pozaroszczyk</p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <h1 class="page-title">Other projects</h1>
 
+      <div class="benefits-box col-4">
+        <h2>Budget calculator</h2>
+        <div
+          class="item image-app col-lg-3 col-md-6 col-sm-12"
+          style="cursor: pointer"
+          onclick="window.location='/cooperation/budget-calculator';"
+        >
+          <div class="image-app-tile">
+            <img
+              src="images/apps/budget_calculator.png"
+              alt="budget_calculator.png"
+            />
+          </div>
+        </div>
+        <p>A simple app that calculates the household budget.</p>
+        <br />
+      </div>
 
-    <%- include("partials/footer") -%>
+      <div class="benefits-box col-4">
+        <h2>Recipe search</h2>
+        <div
+          class="item image-app col-lg-3 col-md-6 col-sm-12"
+          style="cursor: pointer"
+          onclick="window.location.href='https\://recipe-search-external-api.herokuapp.com'"
+        >
+          <div class="image-app-tile">
+            <img src="images/apps/recipesAPI.png" alt="recipesAPI" />
+          </div>
+        </div>
+        <p>An app for recipes search using an external API from Food2Fork.</p>
+        <br />
+      </div>
+    </div>
+  </div>
+
+  <%- include("partials/footer") -%>
+</body>
